@@ -1,0 +1,3002 @@
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=prv_msmfs_aa 2010.12.16)  16 DEC 2010 14:03
+entering extended mode
+**&prv_msmfs_aa _region_.tex
+(./_region_.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, b
+ahasa, basque, bulgarian, catalan, croatian, czech, danish, dutch, esperanto, e
+stonian, finnish, greek, icelandic, irish, italian, latin, magyar, norsk, polis
+h, portuges, romanian, russian, serbian, slovak, slovene, spanish, swedish, tur
+kish, ukrainian, nohyphenation, loaded.
+CUSTOMISED FORMAT. Preloaded files:
+        .
+      aa.cls    2006/06/01 v6.1 
+LaTeX document class for Astronomy and Astrophysics journal
+   fleqn.clo    1998/08/17 v1.1c Standard LaTeX option (flush left equations)
+graphicx.sty    1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+  keyval.sty    1999/03/16 v1.13 key=value parser (DPC)
+graphics.sty    2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+    trig.sty    1999/03/16 v1.09 sin cos tan (DPC)
+graphics.cfg    2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+   dvips.def    1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+ txfonts.sty    2005/01/03 v3.2
+  epsfig.sty    1999/02/16 v1.7a (e)psfig emulation (SPQR)
+  ot1txr.fd    2000/12/15 v3.1
+ omltxmi.fd    2000/12/15 v3.1
+ omstxsy.fd    2000/12/15 v3.1
+ omxtxex.fd    2000/12/15 v3.1
+  utxmia.fd    2000/12/15 v3.1
+  utxsya.fd    2000/12/15 v3.1
+  utxsyb.fd    2000/12/15 v3.1
+  utxsyc.fd    2000/12/15 v3.1
+  utxexa.fd    2000/12/15 v3.1
+ ot1txtt.fd    2000/12/15 v3.1
+ ot1txss.fd    2000/12/15 v3.1
+        .
+No file _region_.aux.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+(/usr/share/texmf/tex/latex/preview/preview.sty
+Package: preview 2010/02/14 11.86 (AUCTeX/preview-latex)
+
+(/usr/share/texmf/tex/latex/preview/prtightpage.def
+\PreviewBorder=\dimen117
+)
+(/usr/share/texmf/tex/latex/preview/prauctex.def
+No auxiliary output files.
+
+
+\hbadness=\count91
+\hfuzz=\dimen118
+(/usr/share/texmf/tex/latex/preview/prauctex.cfg))
+(/usr/share/texmf/tex/latex/preview/prfootnotes.def)
+\pr@snippet=\count92
+\pr@box=\box28
+\pr@output=\toks17
+
+Preview: Fontsize 10pt
+)  !name(msmfs_aa.tex) !offset(-3) 
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 143.
+
+
+(/usr/share/texmf/tex/latex/txfonts/omstxr.fd
+File: omstxr.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <10> not available
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 143.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 16.41594pt on input line 143.
+LaTeX Font Info:    Font shape `OT1/txss/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/txss/b/n' tried instead on input line 143.
+LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
+(Font)              scaled to size 16.41594pt on input line 143.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 8.54997pt on input line 143.
+LaTeX Font Info:    Font shape `OT1/txss/bx/n' in size <9> not available
+(Font)              Font shape `OT1/txss/b/n' tried instead on input line 143.
+LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
+(Font)              scaled to size 8.54997pt on input line 143.
+LaTeX Font Info:    Font shape `OT1/txss/m/it' in size <9> not available
+(Font)              Font shape `OT1/txss/m/sl' tried instead on input line 143.
+
+LaTeX Font Info:    Font shape `OT1/txss/m/sl' will be
+(Font)              scaled to size 8.54997pt on input line 143.
+
+! Preview: Snippet 1 started.
+<-><->
+      
+l.145 \section
+              {Introduction}
+Not a real error.
+
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 10.40245pt on input line 145.
+LaTeX Font Info:    Font shape `OT1/txss/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/txss/b/n' tried instead on input line 145.
+LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
+(Font)              scaled to size 10.40245pt on input line 145.
+Preview: Tightpage -32891 -32891 32891 32891
+! Preview: Snippet 1 ended.(493916+8521x16761838).
+<-><->
+      
+l.145 \section{Introduction}
+                            
+Not a real error.
+
+[1
+
+]
+! Preview: Snippet 2 started.
+<-><->
+      
+l.235 \section
+              {Wide-Band Imaging}\label{IMAGING}
+Not a real error.
+
+! Preview: Snippet 2 ended.(493916+147936x16761838).
+<-><->
+      
+l.235 \section{Wide-Band Imaging}
+                                 \label{IMAGING}
+Not a real error.
+
+[2
+
+]
+! Preview: Snippet 3 started.
+<-><->
+      
+l.251 $
+       u_{\{min,max\}}(\nu) = \vec{b_{\{min,max\}}} \nu/c$, where
+Not a real error.
+
+! Preview: Snippet 3 ended.(450887+179960x7117425).
+<-><->
+      
+l.251 ...ax\}}(\nu) = \vec{b_{\{min,max\}}} \nu/c$
+                                                  , where
+Not a real error.
+
+[3]
+! Preview: Snippet 4 started.
+<-><->
+      
+l.252 $
+       \vec{b_{\{min,max\}}}$ represents the shortest and longest projected ...
+
+Not a real error.
+
+! Preview: Snippet 4 ended.(450887+179960x2461726).
+<-><->
+      
+l.252 $\vec{b_{\{min,max\}}}$
+                              represents the shortest and longest projected ...
+
+Not a real error.
+
+[4]
+! Preview: Snippet 5 started.
+<-><->
+      
+l.255 the instrument at that frequency as $
+                                           \theta_{\nu} = 1/u_{max}(\nu)$.
+Not a real error.
+
+! Preview: Snippet 5 ended.(442368+116326x3818281).
+<-><->
+      
+l.255 ...quency as $\theta_{\nu} = 1/u_{max}(\nu)$
+                                                  .
+Not a real error.
+
+[5]
+! Preview: Snippet 6 started.
+<-><->
+      
+l.256 The range of spatial frequencies between $
+                                                u_{min}$ at $\nu_{max}$ and ...
+
+Not a real error.
+
+! Preview: Snippet 6 ended.(289669+101743x1048576).
+<-><->
+      
+l.256 ... of spatial frequencies between $u_{min}$
+                                                   at $\nu_{max}$ and  $u_{m...
+
+Not a real error.
+
+[6]
+! Preview: Snippet 7 started.
+<-><->
+      
+l.256 ...patial frequencies between $u_{min}$ at $
+                                                  \nu_{max}$ and  $u_{max}$ ...
+
+Not a real error.
+
+! Preview: Snippet 7 ended.(289669+101743x1122827).
+<-><->
+      
+l.256 ...quencies between $u_{min}$ at $\nu_{max}$
+                                                   and  $u_{max}$ at $\nu_{m...
+
+Not a real error.
+
+[7]
+! Preview: Snippet 8 started.
+<-><->
+      
+l.256 ...s between $u_{min}$ at $\nu_{max}$ and  $
+                                                  u_{max}$ at $\nu_{min}$
+Not a real error.
+
+! Preview: Snippet 8 ended.(289669+101743x1149042).
+<-><->
+      
+l.256 ...n $u_{min}$ at $\nu_{max}$ and  $u_{max}$
+                                                   at $\nu_{min}$
+Not a real error.
+
+[8]
+! Preview: Snippet 9 started.
+<-><->
+      
+l.256 ...{min}$ at $\nu_{max}$ and  $u_{max}$ at $
+                                                  \nu_{min}$
+Not a real error.
+
+! Preview: Snippet 9 ended.(289669+101743x1022361).
+<-><->
+      
+l.256 ...$\nu_{max}$ and  $u_{max}$ at $\nu_{min}$
+                                                  
+Not a real error.
+
+[9]
+! Preview: Snippet 10 started.
+<-><->
+      
+l.285 source at all frequencies, and $
+                                      u_{max}$ at $\nu_{max}$ gives the maxi...
+
+Not a real error.
+
+! Preview: Snippet 10 ended.(289669+101743x1149042).
+<-><->
+      
+l.285 source at all frequencies, and $u_{max}$
+                                               at $\nu_{max}$ gives the maxi...
+
+Not a real error.
+
+[10]
+! Preview: Snippet 11 started.
+<-><->
+      
+l.285 ...ce at all frequencies, and $u_{max}$ at $
+                                                  \nu_{max}$ gives the maxim...
+
+Not a real error.
+
+! Preview: Snippet 11 ended.(289669+101743x1122827).
+<-><->
+      
+l.285 ...frequencies, and $u_{max}$ at $\nu_{max}$
+                                                   gives the maximum angular...
+
+Not a real error.
+
+[11]
+! Preview: Snippet 12 started.
+<-><->
+      
+l.292 across all spatial scales between $
+                                         u_{min}$ at $\nu_{min}$ and  $u_{ma...
+
+Not a real error.
+
+! Preview: Snippet 12 ended.(289669+101743x1048576).
+<-><->
+      
+l.292 across all spatial scales between $u_{min}$
+                                                  at $\nu_{min}$ and  $u_{ma...
+
+Not a real error.
+
+[12]
+! Preview: Snippet 13 started.
+<-><->
+      
+l.292 ...all spatial scales between $u_{min}$ at $
+                                                  \nu_{min}$ and  $u_{max}$ ...
+
+Not a real error.
+
+! Preview: Snippet 13 ended.(289669+101743x1022361).
+<-><->
+      
+l.292 ...l scales between $u_{min}$ at $\nu_{min}$
+                                                   and  $u_{max}$ at $\nu_{m...
+
+Not a real error.
+
+[13]
+! Preview: Snippet 14 started.
+<-><->
+      
+l.292 ...s between $u_{min}$ at $\nu_{min}$ and  $
+                                                  u_{max}$ at $\nu_{max}$
+Not a real error.
+
+! Preview: Snippet 14 ended.(289669+101743x1149042).
+<-><->
+      
+l.292 ...n $u_{min}$ at $\nu_{min}$ and  $u_{max}$
+                                                   at $\nu_{max}$
+Not a real error.
+
+[14]
+! Preview: Snippet 15 started.
+<-><->
+      
+l.292 ...{min}$ at $\nu_{min}$ and  $u_{max}$ at $
+                                                  \nu_{max}$
+Not a real error.
+
+! Preview: Snippet 15 ended.(289669+101743x1122827).
+<-><->
+      
+l.292 ...$\nu_{min}$ and  $u_{max}$ at $\nu_{max}$
+                                                  
+Not a real error.
+
+[15]
+! Preview: Snippet 16 started.
+<-><->
+      
+l.297 ...r resolution of the images are given by $
+                                                  u_{max}$ at $\nu_{max}$, w...
+
+Not a real error.
+
+! Preview: Snippet 16 ended.(289669+101743x1149042).
+<-><->
+      
+l.297 ...tion of the images are given by $u_{max}$
+                                                   at $\nu_{max}$, with the
+Not a real error.
+
+[16]
+! Preview: Snippet 17 started.
+<-><->
+      
+l.297 ...of the images are given by $u_{max}$ at $
+                                                  \nu_{max}$, with the
+Not a real error.
+
+! Preview: Snippet 17 ended.(289669+101743x1122827).
+<-><->
+      
+l.297 ...ges are given by $u_{max}$ at $\nu_{max}$
+                                                  , with the
+Not a real error.
+
+[17]
+! Preview: Snippet 18 started.
+<-><->
+      
+l.309 between $
+               u_{min}$ at $\nu_{min}$ and  $u_{max}$ at $\nu_{max}$, unless...
+
+Not a real error.
+
+! Preview: Snippet 18 ended.(289669+101743x1048576).
+<-><->
+      
+l.309 between $u_{min}$
+                        at $\nu_{min}$ and  $u_{max}$ at $\nu_{max}$, unless...
+
+Not a real error.
+
+[18]
+! Preview: Snippet 19 started.
+<-><->
+      
+l.309 between $u_{min}$ at $
+                            \nu_{min}$ and  $u_{max}$ at $\nu_{max}$, unless...
+
+Not a real error.
+
+! Preview: Snippet 19 ended.(289669+101743x1022361).
+<-><->
+      
+l.309 between $u_{min}$ at $\nu_{min}$
+                                       and  $u_{max}$ at $\nu_{max}$, unless...
+
+Not a real error.
+
+[19]
+! Preview: Snippet 20 started.
+<-><->
+      
+l.309 between $u_{min}$ at $\nu_{min}$ and  $
+                                             u_{max}$ at $\nu_{max}$, unless...
+
+Not a real error.
+
+! Preview: Snippet 20 ended.(289669+101743x1149042).
+<-><->
+      
+l.309 ...n $u_{min}$ at $\nu_{min}$ and  $u_{max}$
+                                                   at $\nu_{max}$, unless th...
+
+Not a real error.
+
+[20]
+! Preview: Snippet 21 started.
+<-><->
+      
+l.309 ...{min}$ at $\nu_{min}$ and  $u_{max}$ at $
+                                                  \nu_{max}$, unless the flu...
+
+Not a real error.
+
+! Preview: Snippet 21 ended.(289669+101743x1122827).
+<-><->
+      
+l.309 ...$\nu_{min}$ and  $u_{max}$ at $\nu_{max}$
+                                                  , unless the flux model
+Not a real error.
+
+[21]
+! Preview: Snippet 22 started.
+<-><->
+      
+l.318 the range below $
+                       u_{min}$ at $\nu_{max}$. A flat-spectrum large-scale ...
+
+Not a real error.
+
+! Preview: Snippet 22 ended.(289669+101743x1048576).
+<-><->
+      
+l.318 the range below $u_{min}$
+                                at $\nu_{max}$. A flat-spectrum large-scale ...
+
+Not a real error.
+
+[22]
+! Preview: Snippet 23 started.
+<-><->
+      
+l.318 the range below $u_{min}$ at $
+                                    \nu_{max}$. A flat-spectrum large-scale ...
+
+Not a real error.
+
+! Preview: Snippet 23 ended.(289669+101743x1122827).
+<-><->
+      
+l.318 the range below $u_{min}$ at $\nu_{max}$
+                                              . A flat-spectrum large-scale ...
+
+Not a real error.
+
+[23]
+! Preview: Snippet 24 started.
+<-><->
+      
+l.326 ...ry beam of each array element scales as $
+                                                  HPBW = \frac{c}{\nu D}$.
+Not a real error.
+
+! Preview: Snippet 24 ended.(460979+231833x3439219).
+<-><->
+      
+l.326 ...lement scales as $HPBW = \frac{c}{\nu D}$
+                                                  .
+Not a real error.
+
+[24]
+! Preview: Snippet 25 started.
+<-><->
+      
+l.330 \section
+              {MS-MFS Algorithm}\label{ALGORITHMS}
+Not a real error.
+
+! Preview: Snippet 25 ended.(493916+147936x16761838).
+<-><->
+      
+l.330 \section{MS-MFS Algorithm}
+                                \label{ALGORITHMS}
+Not a real error.
+
+[25
+
+]
+! Preview: Snippet 26 started.
+<-><->
+      
+l.341 \subsection
+                 {Parameterization of spatial structure}
+Not a real error.
+
+LaTeX Font Info:    Font shape `OT1/txss/m/it' in size <10> not available
+(Font)              Font shape `OT1/txss/m/sl' tried instead on input line 341.
+
+LaTeX Font Info:    Font shape `OT1/txss/m/sl' will be
+(Font)              scaled to size 9.49997pt on input line 341.
+! Preview: Snippet 26 ended.(454179+129809x16761838).
+<-><->
+      
+l.341 ...on{Parameterization of spatial structure}
+                                                  
+Not a real error.
+
+[26
+
+]
+! Preview: Snippet 27 started.
+<-><->
+      
+l.345 \begin{equation}
+                      
+Not a real error.
+
+! Preview: Snippet 27 ended.(1182889+823196x16761838).
+<-><->
+      
+l.349 \end{equation}
+                    
+Not a real error.
+
+[27
+
+]
+! Preview: Snippet 28 started.
+<-><->
+      
+l.350 and $
+           N_s$ is the number of discrete spatial scales used to represent t...
+
+Not a real error.
+
+! Preview: Snippet 28 ended.(428277+105872x687669).
+<-><->
+      
+l.350 and $N_s$
+                is the number of discrete spatial scales used to represent t...
+
+Not a real error.
+
+[28]
+! Preview: Snippet 29 started.
+<-><->
+      
+l.351 $
+       I^m_{s,\delta}$ represents a collection of $\delta$-functions that de...
+
+Not a real error.
+
+! Preview: Snippet 29 ended.(440663+276822x796785).
+<-><->
+      
+l.351 $I^m_{s,\delta}$
+                       represents a collection of $\delta$-functions that de...
+
+Not a real error.
+
+[29]
+! Preview: Snippet 30 started.
+<-><->
+      
+l.351 ..._{s,\delta}$ represents a collection of $
+                                                  \delta$-functions that des...
+
+Not a real error.
+
+! Preview: Snippet 30 ended.(428277+10813x304742).
+<-><->
+      
+l.351 ...lta}$ represents a collection of $\delta$
+                                                  -functions that describe t...
+
+Not a real error.
+
+[30]
+! Preview: Snippet 31 started.
+<-><->
+      
+l.352 ... amplitudes of flux components of scale $
+                                                  s$ in the image.
+Not a real error.
+
+! Preview: Snippet 31 ended.(289669+10813x287703).
+<-><->
+      
+l.352 ...mplitudes of flux components of scale $s$
+                                                   in the image.
+Not a real error.
+
+[31]
+! Preview: Snippet 32 started.
+<-><->
+      
+l.353 $
+       I^{blob}_s$ is a tapered truncated parabola of width proportional to ...
+
+Not a real error.
+
+! Preview: Snippet 32 ended.(547552+169442x1116928).
+<-><->
+      
+l.353 $I^{blob}_s$
+                   is a tapered truncated parabola of width proportional to ...
+
+Not a real error.
+
+[32]
+! Preview: Snippet 33 started.
+<-><->
+      
+l.353 ...cated parabola of width proportional to $
+                                                  s$.
+Not a real error.
+
+! Preview: Snippet 33 ended.(289669+10813x287703).
+<-><->
+      
+l.353 ...ted parabola of width proportional to $s$
+                                                  .
+Not a real error.
+
+[33]
+! Preview: Snippet 34 started.
+<-><->
+      
+l.354 The symbol $
+                  \star$ denotes convolution.
+Not a real error.
+
+! Preview: Snippet 34 ended.(361431+4915x440401).
+<-><->
+      
+l.354 The symbol $\star$
+                         denotes convolution.
+Not a real error.
+
+[34]
+! Preview: Snippet 35 started.
+<-><->
+      
+l.356 \subsection
+                 {Parameterization of spectral structure}
+Not a real error.
+
+! Preview: Snippet 35 ended.(454179+129809x16761838).
+<-><->
+      
+l.356 ...n{Parameterization of spectral structure}
+                                                  
+Not a real error.
+
+[35
+
+]
+! Preview: Snippet 36 started.
+<-><->
+      
+l.358 ( a Taylor series expansion about $
+                                         \nu_0$ ).
+Not a real error.
+
+! Preview: Snippet 36 ended.(289669+104495x563609).
+<-><->
+      
+l.358 ( a Taylor series expansion about $\nu_0$
+                                                ).
+Not a real error.
+
+[36]
+! Preview: Snippet 37 started.
+<-><->
+      
+l.359 \begin{equation}
+                      
+Not a real error.
+
+! Preview: Snippet 37 ended.(1179940+821819x16761838).
+<-><->
+      
+l.362 \end{equation}
+                    
+Not a real error.
+
+[37
+
+]
+! Preview: Snippet 38 started.
+<-><->
+      
+l.363 where $
+             N_t$ is the order of the Taylor series expansion, and
+Not a real error.
+
+! Preview: Snippet 38 ended.(428277+101743x622067).
+<-><->
+      
+l.363 where $N_t$
+                  is the order of the Taylor series expansion, and
+Not a real error.
+
+[38]
+! Preview: Snippet 39 started.
+<-><->
+      
+l.364 the $
+           I^m_t$ represent multi-scale Taylor coefficient images (moment ma...
+
+Not a real error.
+
+! Preview: Snippet 39 ended.(440663+168786x632028).
+<-><->
+      
+l.364 the $I^m_t$
+                  represent multi-scale Taylor coefficient images (moment ma...
+
+Not a real error.
+
+[39]
+! Preview: Snippet 40 started.
+<-><->
+      
+l.371 second-order polynomial in $
+                                  log(I)~vs~log\nuno$ space.
+Not a real error.
+
+! Preview: Snippet 40 ended.(644873+308020x4318819).
+<-><->
+      
+l.371 ...-order polynomial in $log(I)~vs~log\nuno$
+                                                   space.
+Not a real error.
+
+[40]
+! Preview: Snippet 41 started.
+<-><->
+      
+l.373 index $
+             \alpha$ and a curvature term $\beta$.
+Not a real error.
+
+! Preview: Snippet 41 ended.(289669+8191x388628).
+<-><->
+      
+l.373 index $\alpha$
+                     and a curvature term $\beta$.
+Not a real error.
+
+[41]
+! Preview: Snippet 42 started.
+<-><->
+      
+l.373 index $\alpha$ and a curvature term $
+                                           \beta$.
+Not a real error.
+
+! Preview: Snippet 42 ended.(428277+135003x332923).
+<-><->
+      
+l.373 index $\alpha$ and a curvature term $\beta$
+                                                 .
+Not a real error.
+
+[42]
+! Preview: Snippet 43 started.
+<-><->
+      
+l.374 \begin{equation}
+                      
+Not a real error.
+
+! Preview: Snippet 43 ended.(1346993+624558x16761838).
+<-><->
+      
+l.377 \end{equation}
+                    
+Not a real error.
+
+[43
+
+]
+! Preview: Snippet 44 started.
+<-><->
+      
+l.388 dominant/average $
+                        \alpha$ at each stage.
+Not a real error.
+
+! Preview: Snippet 44 ended.(289669+8191x388628).
+<-><->
+      
+l.388 dominant/average $\alpha$
+                                at each stage.
+Not a real error.
+
+[44]
+
+LaTeX Warning: Reference `EQN_POWERLAW1' on page 4 undefined on input line 391.
+
+
+! Preview: Snippet 45 started.
+<-><->
+      
+l.392 three coefficients ($
+                           t=0,1,2$ in Eqn \ref{EQN_TS}) from which the spec...
+
+Not a real error.
+
+! Preview: Snippet 45 ended.(438435+92405x2504042).
+<-><->
+      
+l.392 three coefficients ($t=0,1,2$
+                                    in Eqn \ref{EQN_TS}) from which the spec...
+
+Not a real error.
+
+[45]
+
+LaTeX Warning: Reference `EQN_TS' on page 4 undefined on input line 392.
+
+! Preview: Snippet 46 started.
+<-><->
+      
+l.392 ...{EQN_TS}) from which the spectral index $
+                                                  \alpha$ and curvature $\be...
+
+Not a real error.
+
+! Preview: Snippet 46 ended.(289669+8191x388628).
+<-><->
+      
+l.392 ...}) from which the spectral index $\alpha$
+                                                   and curvature $\beta$ images
+
+Not a real error.
+
+[46]
+! Preview: Snippet 47 started.
+<-><->
+      
+l.392 ...e spectral index $\alpha$ and curvature $
+                                                  \beta$ images
+Not a real error.
+
+! Preview: Snippet 47 ended.(428277+135003x332923).
+<-><->
+      
+l.392 ...tral index $\alpha$ and curvature $\beta$
+                                                   images
+Not a real error.
+
+[47]
+! Preview: Snippet 48 started.
+<-><->
+      
+l.394 \begin{equation}
+                      
+Not a real error.
+
+! Preview: Snippet 48 ended.(961412+624558x16761838).
+<-><->
+      
+l.397 \end{equation}
+                    
+Not a real error.
+
+[48
+
+]
+! Preview: Snippet 49 started.
+<-><->
+      
+l.403 A power-series expansion about $
+                                      \alpha$ and $\beta$ will yield a logar...
+
+Not a real error.
+
+! Preview: Snippet 49 ended.(289669+8191x388628).
+<-><->
+      
+l.403 A power-series expansion about $\alpha$
+                                              and $\beta$ will yield a logar...
+
+Not a real error.
+
+[49]
+! Preview: Snippet 50 started.
+<-><->
+      
+l.403 ...wer-series expansion about $\alpha$ and $
+                                                  \beta$ will yield a logari...
+
+Not a real error.
+
+! Preview: Snippet 50 ended.(428277+135003x332923).
+<-><->
+      
+l.403 ...ries expansion about $\alpha$ and $\beta$
+                                                   will yield a logarithmic
+Not a real error.
+
+[50]
+! Preview: Snippet 51 started.
+<-><->
+      
+l.409 \subsubsection
+                    {Frequency-dependant instrumental effects}
+Not a real error.
+
+! Preview: Snippet 51 ended.(454179+133234x16761838).
+<-><->
+      
+l.409 ...Frequency-dependant instrumental effects}
+                                                  
+Not a real error.
+
+[51
+
+]
+! Preview: Snippet 52 started.
+<-><->
+      
+l.414 (given by $
+                 \lambda/D$) and is therefore frequency dependent. Figure (F...
+
+Not a real error.
+
+! Preview: Snippet 52 ended.(442368+105513x1125906).
+<-><->
+      
+l.414 (given by $\lambda/D$
+                           ) and is therefore frequency dependent. Figure (F...
+
+Not a real error.
+
+[52]
+! Preview: Snippet 53 started.
+<-><->
+      
+l.446 \subsection
+                 {Imaging Equations}
+Not a real error.
+
+! Preview: Snippet 53 ended.(443906+136969x16761838).
+<-><->
+      
+l.446 \subsection{Imaging Equations}
+                                    
+Not a real error.
+
+[53
+
+]
+! Preview: Snippet 54 started.
+<-><->
+      
+l.448 The {\it Measurement Equation\footnote
+                                            
+Not a real error.
+
+! Preview: Snippet 54 ended.(544799+0x262144).
+<-><->
+      
+l.461 }
+       
+Not a real error.
+
+[54]
+
+LaTeX Warning: Reference `EQN_MS' on page 4 undefined on input line 463.
+
+
+LaTeX Warning: Reference `EQN_TS' on page 4 undefined on input line 463.
+
+! Preview: Snippet 55 started.
+<-><->
+      
+l.464 \begin{eqnarray}
+                      
+Not a real error.
+
+! Preview: Snippet 55 ended.(4274314+0x16761838).
+<-><->
+      
+l.470 \end{eqnarray}
+                    
+Not a real error.
+
+[55]
+! Preview: Snippet 56 started.
+<-><->
+      
+l.471 where $
+             w_{\nu} = \dnuno$ and $\Sna$ represents the uv-coverage of the ...
+
+Not a real error.
+
+! Preview: Snippet 56 ended.(644873+308020x2997966).
+<-><->
+      
+l.471 where $w_{\nu} = \dnuno$
+                               and $\Sna$ represents the uv-coverage of the ...
+
+Not a real error.
+
+[56]
+! Preview: Snippet 57 started.
+<-><->
+      
+l.471 where $w_{\nu} = \dnuno$ and $
+                                    \Sna$ represents the uv-coverage of the ...
+
+Not a real error.
+
+! Preview: Snippet 57 ended.(428277+104037x670693).
+<-><->
+      
+l.471 where $w_{\nu} = \dnuno$ and $\Sna$
+                                          represents the uv-coverage of the ...
+
+Not a real error.
+
+[57]
+! Preview: Snippet 58 started.
+<-><->
+      
+l.471 ...age of the synthesis array at frequency $
+                                                  \nu$.
+Not a real error.
+
+! Preview: Snippet 58 ended.(289669+8191x302775).
+<-><->
+      
+l.471 ...of the synthesis array at frequency $\nu$
+                                                  .
+Not a real error.
+
+[58]
+! Preview: Snippet 59 started.
+<-><->
+      
+l.472 The image-domain convolution with $
+                                         I^{blob}_s$ is written as a spatial...
+
+Not a real error.
+
+! Preview: Snippet 59 ended.(547552+169442x1116928).
+<-><->
+      
+l.472 ...mage-domain convolution with $I^{blob}_s$
+                                                   is written as a spatial-f...
+
+Not a real error.
+
+[59]
+! Preview: Snippet 60 started.
+<-><->
+      
+l.473 Taper function $
+                      [T_s]_{m\times m} = \F I^{blob}_s $.
+Not a real error.
+
+! Preview: Snippet 60 ended.(547552+169442x4402143).
+<-><->
+      
+l.473 ...tion $[T_s]_{m\times m} = \F I^{blob}_s $
+                                                  .
+Not a real error.
+
+[60]
+! Preview: Snippet 61 started.
+<-><->
+      
+l.475 ($
+        I^{model}_{t,s,\delta}$ for all $t,s$), and data from all frequencie...
+
+Not a real error.
+
+! Preview: Snippet 61 ended.(548436+280067x1434843).
+<-><->
+      
+l.475 ($I^{model}_{t,s,\delta}$
+                                for all $t,s$), and data from all frequencie...
+
+Not a real error.
+
+[61]
+! Preview: Snippet 62 started.
+<-><->
+      
+l.475 ($I^{model}_{t,s,\delta}$ for all $
+                                         t,s$), and data from all frequencie...
+
+Not a real error.
+
+! Preview: Snippet 62 ended.(361431+92405x754753).
+<-><->
+      
+l.475 ($I^{model}_{t,s,\delta}$ for all $t,s$
+                                             ), and data from all frequencie...
+
+Not a real error.
+
+[62]
+! Preview: Snippet 63 started.
+<-><->
+      
+l.478 The {\it Normal Equations\footnote
+                                        
+Not a real error.
+
+! Preview: Snippet 63 ended.(544799+0x262144).
+<-><->
+      
+l.491 }
+       
+Not a real error.
+
+[63]
+! Preview: Snippet 64 started.
+<-><->
+      
+l.492 }for each scale size $
+                            s$, and Taylor term $t$ are given by
+Not a real error.
+
+! Preview: Snippet 64 ended.(289669+10813x287703).
+<-><->
+      
+l.492 }for each scale size $s$
+                              , and Taylor term $t$ are given by
+Not a real error.
+
+[64]
+! Preview: Snippet 65 started.
+<-><->
+      
+l.492 }for each scale size $s$, and Taylor term $
+                                                 t$ are given by
+Not a real error.
+
+! Preview: Snippet 65 ended.(361431+4915x193986).
+<-><->
+      
+l.492 ... each scale size $s$, and Taylor term $t$
+                                                   are given by
+Not a real error.
+
+[65]
+! Preview: Snippet 66 started.
+<-><->
+      
+l.493 \begin{equation}
+                      
+Not a real error.
+
+! Preview: Snippet 66 ended.(1182889+911506x16761838).
+<-><->
+      
+l.496 \end{equation}
+                    
+Not a real error.
+
+[66
+
+]
+! Preview: Snippet 67 started.
+<-><->
+      
+l.497 \begin{eqnarray}
+                      
+Not a real error.
+
+! Preview: Snippet 67 ended.(3199792+0x16761838).
+<-><->
+      
+l.508 \end{eqnarray}
+                    
+Not a real error.
+
+[67
+
+
+]
+
+LaTeX Warning: Reference `FIG_NEQN_1' on page 4 undefined on input line 520.
+
+! Preview: Snippet 68 started.
+<-><->
+      
+l.521 $
+       N_t = 3$ and one spatial scale $N_s = 1$.
+Not a real error.
+
+! Preview: Snippet 68 ended.(438435+101743x1730635).
+<-><->
+      
+l.521 $N_t = 3$
+                and one spatial scale $N_s = 1$.
+Not a real error.
+
+[68]
+! Preview: Snippet 69 started.
+<-><->
+      
+l.521 $N_t = 3$ and one spatial scale $
+                                       N_s = 1$.
+Not a real error.
+
+! Preview: Snippet 69 ended.(438435+105872x1796237).
+<-><->
+      
+l.521 $N_t = 3$ and one spatial scale $N_s = 1$
+                                               .
+Not a real error.
+
+[69]
+! Preview: Snippet 70 started.
+<-><->
+      
+l.522 	$
+        I^{sky}_{3m\times 1}$ is a 1-D model of two point sources on an empt...
+
+Not a real error.
+
+! Preview: Snippet 70 ended.(635369+228686x1349123).
+<-><->
+      
+l.522 	$I^{sky}_{3m\times 1}$
+                              is a 1-D model of two point sources on an empt...
+
+Not a real error.
+
+[70]
+! Preview: Snippet 71 started.
+<-><->
+      
+l.523 ...ments correspond to Taylor coefficients $
+                                                  I^{m}_p$ for $p=0,1,2$.
+Not a real error.
+
+! Preview: Snippet 71 ended.(440663+256375x632028).
+<-><->
+      
+l.523 ...rrespond to Taylor coefficients $I^{m}_p$
+                                                   for $p=0,1,2$.
+Not a real error.
+
+[71]
+! Preview: Snippet 72 started.
+<-><->
+      
+l.523 ...nd to Taylor coefficients $I^{m}_p$ for $
+                                                  p=0,1,2$.
+Not a real error.
+
+! Preview: Snippet 72 ended.(438435+135003x2686887).
+<-><->
+      
+l.523 ...ylor coefficients $I^{m}_p$ for $p=0,1,2$
+                                                  .
+Not a real error.
+
+[72]
+! Preview: Snippet 73 started.
+<-><->
+      
+l.524 .../Beam matrix on the LHS is comprised of $
+                                                  3 \times 3$ blocks each
+Not a real error.
+
+! Preview: Snippet 73 ended.(438435+8846x1363432).
+<-><->
+      
+l.524 ...x on the LHS is comprised of $3 \times 3$
+                                                   blocks each
+Not a real error.
+
+[73]
+! Preview: Snippet 74 started.
+<-><->
+      
+l.525 	of size $
+                m\times m$. Each block is a Toeplitz operator (constructed f...
+
+Not a real error.
+
+! Preview: Snippet 74 ended.(336199+4915x1654412).
+<-><->
+      
+l.525 	of size $m\times m$
+                          . Each block is a Toeplitz operator (constructed f...
+
+Not a real error.
+
+[74]
+! Preview: Snippet 75 started.
+<-><->
+      
+l.527 ...applied to the corresponding segment of $
+                                                  I^{m}_t$.
+Not a real error.
+
+! Preview: Snippet 75 ended.(440663+168786x632028).
+<-><->
+      
+l.527 ...to the corresponding segment of $I^{m}_t$
+                                                  .
+Not a real error.
+
+[75]
+! Preview: Snippet 76 started.
+<-><->
+      
+l.533 	$
+        I^{dirty}_t = \sum_{p=0}^{3} I^{psf}_{t+p} \star I^{m}_p$.
+Not a real error.
+
+! Preview: Snippet 76 ended.(635369+281081x5828918).
+<-><->
+      
+l.533 ...um_{p=0}^{3} I^{psf}_{t+p} \star I^{m}_p$
+                                                  .
+Not a real error.
+
+[76]
+! Preview: Snippet 77 started.
+<-><->
+      
+l.534 	Note : The equations corresponding to $
+                                              t=0,p=0$ represent the standar...
+
+Not a real error.
+
+! Preview: Snippet 77 ended.(438435+135003x3061017).
+<-><->
+      
+l.534 ... The equations corresponding to $t=0,p=0$
+                                                   represent the standard co...
+
+Not a real error.
+
+[77]
+! Preview: Snippet 78 started.
+<-><->
+      
+l.539 $
+       N_t N_s \times N_t N_s$ blocks each of size $m\times m$ and
+Not a real error.
+
+! Preview: Snippet 78 ended.(428277+105872x3327544).
+<-><->
+      
+l.539 $N_t N_s \times N_t N_s$
+                               blocks each of size $m\times m$ and
+Not a real error.
+
+[78]
+! Preview: Snippet 79 started.
+<-><->
+      
+l.539 ...N_s \times N_t N_s$ blocks each of size $
+                                                  m\times m$ and
+Not a real error.
+
+! Preview: Snippet 79 ended.(336199+4915x1654412).
+<-><->
+      
+l.539 ... N_t N_s$ blocks each of size $m\times m$
+                                                   and
+Not a real error.
+
+[79]
+! Preview: Snippet 80 started.
+<-><->
+      
+l.541 and $
+           N_t$ Taylor coefficient images each of size $m\times 1$.
+Not a real error.
+
+! Preview: Snippet 80 ended.(428277+101743x622067).
+<-><->
+      
+l.541 and $N_t$
+                Taylor coefficient images each of size $m\times 1$.
+Not a real error.
+
+[80]
+! Preview: Snippet 81 started.
+<-><->
+      
+l.541 ... Taylor coefficient images each of size $
+                                                  m\times 1$.
+Not a real error.
+
+! Preview: Snippet 81 ended.(438435+4915x1508922).
+<-><->
+      
+l.541 ...efficient images each of size $m\times 1$
+                                                  .
+Not a real error.
+
+[81]
+
+LaTeX Warning: Reference `HESS1' on page 4 undefined on input line 542.
+
+! Preview: Snippet 82 started.
+<-><->
+      
+l.542 ...ator with a {\it spectral} PSF of order $
+                                                  t+p$
+Not a real error.
+
+! Preview: Snippet 82 ended.(361431+135003x1278889).
+<-><->
+      
+l.542 ... with a {\it spectral} PSF of order $t+p$
+                                                  
+Not a real error.
+
+[82]
+! Preview: Snippet 83 started.
+<-><->
+      
+l.544 The Spectral PSF $
+                         I^{psf}_{t} = \sum_{\nu} \wnt I^{psf}_{im,\nu}$
+Not a real error.
+
+! Preview: Snippet 83 ended.(635369+280067x4428261).
+<-><->
+      
+l.544 ...}_{t} = \sum_{\nu} \wnt I^{psf}_{im,\nu}$
+                                                  
+Not a real error.
+
+[83]
+! Preview: Snippet 84 started.
+<-><->
+      
+l.545 ...with Taylor-polynomial spectra of order $
+                                                  t$.
+Not a real error.
+
+! Preview: Snippet 84 ended.(361431+4915x193986).
+<-><->
+      
+l.545 ...th Taylor-polynomial spectra of order $t$
+                                                  .
+Not a real error.
+
+[84]
+! Preview: Snippet 85 started.
+<-><->
+      
+l.546 Similarly, the spatial PSF $
+                                   I^{psf}_s = I^{psf}_{im} \star I^{blob}_s...
+
+Not a real error.
+
+! Preview: Snippet 85 ended.(635369+218824x4688093).
+<-><->
+      
+l.546 ...{psf}_s = I^{psf}_{im} \star I^{blob}_s $
+                                                   is the instruments
+Not a real error.
+
+[85]
+! Preview: Snippet 86 started.
+<-><->
+      
+l.547 response function to a spatial scale $
+                                            s$ and unit integrated flux.
+Not a real error.
+
+! Preview: Snippet 86 ended.(289669+10813x287703).
+<-><->
+      
+l.547 response function to a spatial scale $s$
+                                               and unit integrated flux.
+Not a real error.
+
+[86]
+! Preview: Snippet 87 started.
+<-><->
+      
+l.556 \begin{figure}
+                    []
+Not a real error.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 556.
+
+File: pics/NEqn.cropped.pb.no.eps Graphic file (type eps)
+<pics/NEqn.cropped.pb.no.eps>
+! Preview: Snippet 87 ended.(11029444+104693x16761838).
+<-><->
+      
+l.576 \end{figure}
+                  
+Not a real error.
+
+[87
+
+
+]
+! Preview: Snippet 88 started.
+<-><->
+      
+l.585 ...scales are ignored. Each scale then has $
+                                                  [N_t \times N_t]$ blocks o...
+
+Not a real error.
+
+! Preview: Snippet 88 ended.(438435+102236x2388676).
+<-><->
+      
+l.585 ...d. Each scale then has $[N_t \times N_t]$
+                                                   blocks of size
+Not a real error.
+
+[88]
+! Preview: Snippet 89 started.
+<-><->
+      
+l.586 $
+       m\times m$ as shows in Fig.\ref{FIG_NEQN_1}.
+Not a real error.
+
+! Preview: Snippet 89 ended.(336199+4915x1654412).
+<-><->
+      
+l.586 $m\times m$
+                  as shows in Fig.\ref{FIG_NEQN_1}.
+Not a real error.
+
+[89]
+
+LaTeX Warning: Reference `FIG_NEQN_1' on page 4 undefined on input line 586.
+
+! Preview: Snippet 90 started.
+<-><->
+      
+l.588 ...n to the Hessian blocks yields a single $
+                                                  N_t \times N_t$ matrix
+Not a real error.
+
+! Preview: Snippet 90 ended.(428277+101743x1952206).
+<-><->
+      
+l.588 ...n blocks yields a single $N_t \times N_t$
+                                                   matrix
+Not a real error.
+
+[90]
+! Preview: Snippet 91 started.
+<-><->
+      
+l.589 that applies to all pixels. The $
+                                       t,s$ elements of this matrix come fro...
+
+Not a real error.
+
+! Preview: Snippet 91 ended.(361431+92405x754753).
+<-><->
+      
+l.589 that applies to all pixels. The $t,s$
+                                            elements of this matrix come fro...
+
+Not a real error.
+
+[91]
+! Preview: Snippet 92 started.
+<-><->
+      
+l.590 $
+       I^{psf}_{t+p}$, read off at the location of the peak of $I^{psf}_0$. ...
+
+Not a real error.
+
+! Preview: Snippet 92 ended.(635369+263093x1029306).
+<-><->
+      
+l.590 $I^{psf}_{t+p}$
+                     , read off at the location of the peak of $I^{psf}_0$. ...
+
+Not a real error.
+
+[92]
+! Preview: Snippet 93 started.
+<-><->
+      
+l.590 ...read off at the location of the peak of $
+                                                  I^{psf}_0$. These numbers
+Not a real error.
+
+! Preview: Snippet 93 ended.(635369+228686x1029306).
+<-><->
+      
+l.590 ...t the location of the peak of $I^{psf}_0$
+                                                  . These numbers
+Not a real error.
+
+[93]
+! Preview: Snippet 94 started.
+<-><->
+      
+l.591 correspond to the sum of weights $
+                                        \sum_{\nu} \wntp$.
+Not a real error.
+
+! Preview: Snippet 94 ended.(578713+142213x2044695).
+<-><->
+      
+l.591 ... to the sum of weights $\sum_{\nu} \wntp$
+                                                  .
+Not a real error.
+
+[94]
+! Preview: Snippet 95 started.
+<-><->
+      
+l.595 solving this $
+                    N_t \times N_t$ matrix for every component location.
+Not a real error.
+
+! Preview: Snippet 95 ended.(428277+101743x1952206).
+<-><->
+      
+l.595 solving this $N_t \times N_t$
+                                    matrix for every component location.
+Not a real error.
+
+[95]
+
+LaTeX Warning: Reference `APP_A' on page 4 undefined on input line 608.
+
+! Preview: Snippet 96 started.
+<-><->
+      
+l.610 \subsection
+                 {Algorithm Steps}
+Not a real error.
+
+! Preview: Snippet 96 ended.(443906+136969x16761838).
+<-><->
+      
+l.610 \subsection{Algorithm Steps}
+                                  
+Not a real error.
+
+[96
+
+]
+! Preview: Snippet 97 started.
+<-><->
+      
+l.611 \subsubsection
+                    {Pre-compute Hessian}
+Not a real error.
+
+! Preview: Snippet 97 ended.(443906+129809x16761838).
+<-><->
+      
+l.611 \subsubsection{Pre-compute Hessian}
+                                         
+Not a real error.
+
+[97
+
+]
+! Preview: Snippet 98 started.
+<-><->
+      
+l.612 All $
+           N_s N_t \times N_s N_t$ terms in the Hessian ($t,p \in [0,N_t]; s...
+
+Not a real error.
+
+! Preview: Snippet 98 ended.(428277+105872x3327544).
+<-><->
+      
+l.612 All $N_s N_t \times N_s N_t$
+                                   terms in the Hessian ($t,p \in [0,N_t]; s...
+
+Not a real error.
+
+[98]
+! Preview: Snippet 99 started.
+<-><->
+      
+l.612 ...t \times N_s N_t$ terms in the Hessian ($
+                                                  t,p \in [0,N_t]; s,q \in [...
+
+Not a real error.
+
+! Preview: Snippet 99 ended.(438435+136970x6838612).
+<-><->
+      
+l.612 ...ssian ($t,p \in [0,N_t]; s,q \in [0,N_s]$
+                                                  ) are
+Not a real error.
+
+[99]
+
+LaTeX Warning: Reference `HESS' on page 4 undefined on input line 613.
+
+! Preview: Snippet 100 started.
+<-><->
+      
+l.618 \begin{eqnarray}
+                      
+Not a real error.
+
+! Preview: Snippet 100 ended.(3099089+0x16761838).
+<-><->
+      
+l.621 \end{eqnarray}
+                    
+Not a real error.
+
+[100]
+! Preview: Snippet 101 started.
+<-><->
+      
+l.622 where $
+             I^{wt}_{pc} = \Fd P_s$, where $P_s$ is an anti-aliasing function,
+Not a real error.
+
+! Preview: Snippet 101 ended.(552139+256375x2892061).
+<-><->
+      
+l.622 where $I^{wt}_{pc} = \Fd P_s$
+                                   , where $P_s$ is an anti-aliasing function,
+Not a real error.
+
+[101]
+! Preview: Snippet 102 started.
+<-><->
+      
+l.622 where $I^{wt}_{pc} = \Fd P_s$, where $
+                                            P_s$ is an anti-aliasing function,
+Not a real error.
+
+! Preview: Snippet 102 ended.(428277+105872x650968).
+<-><->
+      
+l.622 where $I^{wt}_{pc} = \Fd P_s$, where $P_s$
+                                                 is an anti-aliasing function,
+Not a real error.
+
+[102]
+! Preview: Snippet 103 started.
+<-><->
+      
+l.623 and $
+           \G^{pc} = [\F I^{wt}_{pc}\Fd]$ is the corresponding gridding conv...
+
+Not a real error.
+
+! Preview: Snippet 103 ended.(552139+256375x4106444).
+<-><->
+      
+l.623 and $\G^{pc} = [\F I^{wt}_{pc}\Fd]$
+                                          is the corresponding gridding conv...
+
+Not a real error.
+
+[103]
+! Preview: Snippet 104 started.
+<-><->
+      
+l.629 {\it peak} of $
+                     I^{psf}_{im}$ occurs,
+Not a real error.
+
+! Preview: Snippet 104 ended.(635369+218824x1029306).
+<-><->
+      
+l.629 {\it peak} of $I^{psf}_{im}$
+                                   occurs,
+Not a real error.
+
+[104]
+! Preview: Snippet 105 started.
+<-><->
+      
+l.630 are separately recorded as $
+                                  N_t\times N_t$ matrices ($H^{peak}_{t,s,p,...
+
+Not a real error.
+
+! Preview: Snippet 105 ended.(428277+101743x1952206).
+<-><->
+      
+l.630 are separately recorded as $N_t\times N_t$
+                                                 matrices ($H^{peak}_{t,s,p,...
+
+Not a real error.
+
+[105]
+! Preview: Snippet 106 started.
+<-><->
+      
+l.630 ...y recorded as $N_t\times N_t$ matrices ($
+                                                  H^{peak}_{t,s,p,s}$) for e...
+
+Not a real error.
+
+! Preview: Snippet 106 ended.(635369+263093x1668741).
+<-><->
+      
+l.630 ...times N_t$ matrices ($H^{peak}_{t,s,p,s}$
+                                                  ) for each scale $s$.
+Not a real error.
+
+[106]
+! Preview: Snippet 107 started.
+<-><->
+      
+l.630 ...s ($H^{peak}_{t,s,p,s}$) for each scale $
+                                                  s$.
+Not a real error.
+
+! Preview: Snippet 107 ended.(289669+10813x287703).
+<-><->
+      
+l.630 ...($H^{peak}_{t,s,p,s}$) for each scale $s$
+                                                  .
+Not a real error.
+
+[107]
+! Preview: Snippet 108 started.
+<-><->
+      
+l.632 Note : Normalize all by the $
+                                   w_{sum}$ of Taylor 0.
+Not a real error.
+
+! Preview: Snippet 108 ended.(289669+105872x1231880).
+<-><->
+      
+l.632 Note : Normalize all by the $w_{sum}$
+                                            of Taylor 0.
+Not a real error.
+
+[108]
+! Preview: Snippet 109 started.
+<-><->
+      
+l.634 \subsubsection
+                    {Pre-compute Primary Beam}
+Not a real error.
+
+! Preview: Snippet 109 ended.(443906+133234x16761838).
+<-><->
+      
+l.634 \subsubsection{Pre-compute Primary Beam}
+                                              
+Not a real error.
+
+[109
+
+]
+! Preview: Snippet 110 started.
+<-><->
+      
+l.636 by applying the inverse of $
+                                  H^{peak}$ to RHS functions computed as fol...
+
+Not a real error.
+
+! Preview: Snippet 110 ended.(547552+0x1460140).
+<-><->
+      
+l.636 by applying the inverse of $H^{peak}$
+                                            to RHS functions computed as fol...
+
+Not a real error.
+
+[110]
+! Preview: Snippet 111 started.
+<-><->
+      
+l.637 \begin{eqnarray}
+                      
+Not a real error.
+
+! Preview: Snippet 111 ended.(3828737+0x16761838).
+<-><->
+      
+l.640 \end{eqnarray}
+                    
+Not a real error.
+
+[111]
+! Preview: Snippet 112 started.
+<-><->
+      
+l.641 where $
+             G_{\nu} = [\F P_{\nu} \Fd]$.
+Not a real error.
+
+! Preview: Snippet 112 ended.(552139+104037x3769850).
+<-><->
+      
+l.641 where $G_{\nu} = [\F P_{\nu} \Fd]$
+                                        .
+Not a real error.
+
+[112]
+! Preview: Snippet 113 started.
+<-><->
+      
+l.642 The effective $
+                     \alpha$ and $\beta$ in each direction on the sky, are c...
+
+Not a real error.
+
+! Preview: Snippet 113 ended.(289669+8191x388628).
+<-><->
+      
+l.642 The effective $\alpha$
+                             and $\beta$ in each direction on the sky, are c...
+
+Not a real error.
+
+[113]
+! Preview: Snippet 114 started.
+<-><->
+      
+l.642 The effective $\alpha$ and $
+                                  \beta$ in each direction on the sky, are c...
+
+Not a real error.
+
+! Preview: Snippet 114 ended.(428277+135003x332923).
+<-><->
+      
+l.642 The effective $\alpha$ and $\beta$
+                                         in each direction on the sky, are c...
+
+Not a real error.
+
+[114]
+! Preview: Snippet 115 started.
+<-><->
+      
+l.645 \item Note that $
+                       P^{dd}_{\nu_0},\alpha_{pb},\beta_{pb}$ as computed
+Not a real error.
+
+! Preview: Snippet 115 ended.(547552+235108x3252631).
+<-><->
+      
+l.645 ...t $P^{dd}_{\nu_0},\alpha_{pb},\beta_{pb}$
+                                                   as computed
+Not a real error.
+
+[115]
+! Preview: Snippet 116 started.
+<-><->
+      
+l.646 directly from the coefficients have $
+                                           PB^2$ in it, so take the sqrt of ...
+
+Not a real error.
+
+! Preview: Snippet 116 ended.(544799+0x1095760).
+<-><->
+      
+l.646 directly from the coefficients have $PB^2$
+                                                 in it, so take the sqrt of ...
+
+Not a real error.
+
+[116]
+! Preview: Snippet 117 started.
+<-><->
+      
+l.651 Therefore, $
+                  P^{dd}_{\nu_0},\alpha_{pb},\beta_{pb}$ represent the colle...
+
+Not a real error.
+
+! Preview: Snippet 117 ended.(547552+235108x3252631).
+<-><->
+      
+l.651 ..., $P^{dd}_{\nu_0},\alpha_{pb},\beta_{pb}$
+                                                   represent the collective ...
+
+Not a real error.
+
+[117]
+! Preview: Snippet 118 started.
+<-><->
+      
+l.655 \subsubsection
+                    {Major and Minor Cycles}
+Not a real error.
+
+! Preview: Snippet 118 ended.(454179+133234x16761838).
+<-><->
+      
+l.655 \subsubsection{Major and Minor Cycles}
+                                            
+Not a real error.
+
+[118
+
+]
+
+LaTeX Warning: Reference `stepRHS' on page 4 undefined on input line 656.
+
+
+LaTeX Warning: Reference `stepPredict' on page 4 undefined on input line 656.
+
+
+LaTeX Warning: Reference `stepRHS' on page 4 undefined on input line 658.
+
+
+LaTeX Warning: Reference `stepPredict' on page 4 undefined on input line 658.
+
+
+LaTeX Warning: Reference `stepFind' on page 4 undefined on input line 658.
+
+
+LaTeX Warning: Reference `stepUpdate' on page 4 undefined on input line 658.
+
+! Preview: Snippet 119 started.
+<-><->
+      
+l.662 $
+       s\in[0,N_s]$ and $t\in[0,N_t]$ are computed as in Eqn.\ref{HESS2}.
+Not a real error.
+
+! Preview: Snippet 119 ended.(438435+105872x2727939).
+<-><->
+      
+l.662 $s\in[0,N_s]$
+                    and $t\in[0,N_t]$ are computed as in Eqn.\ref{HESS2}.
+Not a real error.
+
+[119]
+! Preview: Snippet 120 started.
+<-><->
+      
+l.662 $s\in[0,N_s]$ and $
+                         t\in[0,N_t]$ are computed as in Eqn.\ref{HESS2}.
+Not a real error.
+
+! Preview: Snippet 120 ended.(438435+102236x2568620).
+<-><->
+      
+l.662 $s\in[0,N_s]$ and $t\in[0,N_t]$
+                                      are computed as in Eqn.\ref{HESS2}.
+Not a real error.
+
+[120]
+
+LaTeX Warning: Reference `HESS2' on page 5 undefined on input line 662.
+
+! Preview: Snippet 121 started.
+<-><->
+      
+l.663 \begin{eqnarray}
+                      
+Not a real error.
+
+! Preview: Snippet 121 ended.(3118324+0x16761838).
+<-><->
+      
+l.666 \end{eqnarray}
+                    
+Not a real error.
+
+[121]
+! Preview: Snippet 122 started.
+<-><->
+      
+l.667 where $
+             V^{residual}_{\nu} = V^{corr}_{\nu}$ for the first Major cycle ...
+
+Not a real error.
+
+! Preview: Snippet 122 ended.(547552+167607x4109391).
+<-><->
+      
+l.667 where $V^{residual}_{\nu} = V^{corr}_{\nu}$
+                                                  for the first Major cycle ...
+
+Not a real error.
+
+[122]
+! Preview: Snippet 123 started.
+<-><->
+      
+l.672 $
+       \G^{pc}$ and $\Gddnu$ are convolution operators used during gridding.
+Not a real error.
+
+! Preview: Snippet 123 ended.(440663+10813x973406).
+<-><->
+      
+l.672 $\G^{pc}$
+                and $\Gddnu$ are convolution operators used during gridding.
+Not a real error.
+
+[123]
+! Preview: Snippet 124 started.
+<-><->
+      
+l.672 $\G^{pc}$ and $
+                     \Gddnu$ are convolution operators used during gridding.
+Not a real error.
+
+! Preview: Snippet 124 ended.(547552+167607x989462).
+<-><->
+      
+l.672 $\G^{pc}$ and $\Gddnu$
+                             are convolution operators used during gridding.
+Not a real error.
+
+[124]
+! Preview: Snippet 125 started.
+<-><->
+      
+l.673 $
+       \G^{pc}$ applies an anti-aliasing function, and $\Gddnu$ corrects for...
+
+Not a real error.
+
+! Preview: Snippet 125 ended.(440663+10813x973406).
+<-><->
+      
+l.673 $\G^{pc}$
+                applies an anti-aliasing function, and $\Gddnu$ corrects for...
+
+Not a real error.
+
+[125]
+! Preview: Snippet 126 started.
+<-><->
+      
+l.673 ... applies an anti-aliasing function, and $
+                                                  \Gddnu$ corrects for direc...
+
+Not a real error.
+
+! Preview: Snippet 126 ended.(547552+167607x989462).
+<-><->
+      
+l.673 ...s an anti-aliasing function, and $\Gddnu$
+                                                   corrects for direction-de...
+
+Not a real error.
+
+[126]
+! Preview: Snippet 127 started.
+<-><->
+      
+l.682 For each scale $
+                      s$, the $N_t\times N_t$ Hessian matrix given by $H_{t,...
+
+Not a real error.
+
+! Preview: Snippet 127 ended.(289669+10813x287703).
+<-><->
+      
+l.682 For each scale $s$
+                        , the $N_t\times N_t$ Hessian matrix given by $H_{t,...
+
+Not a real error.
+
+[127]
+! Preview: Snippet 128 started.
+<-><->
+      
+l.682 For each scale $s$, the $
+                               N_t\times N_t$ Hessian matrix given by $H_{t,...
+
+Not a real error.
+
+! Preview: Snippet 128 ended.(428277+101743x1952206).
+<-><->
+      
+l.682 For each scale $s$, the $N_t\times N_t$
+                                              Hessian matrix given by $H_{t,...
+
+Not a real error.
+
+[128]
+! Preview: Snippet 129 started.
+<-><->
+      
+l.682 ...$N_t\times N_t$ Hessian matrix given by $
+                                                  H_{t,p,s,s}$
+Not a real error.
+
+! Preview: Snippet 129 ended.(428277+192805x1668741).
+<-><->
+      
+l.682 ..._t$ Hessian matrix given by $H_{t,p,s,s}$
+                                                  
+Not a real error.
+
+[129]
+! Preview: Snippet 130 started.
+<-><->
+      
+l.684 ($
+        I^{dirty}_{t,s};s\in[0,N_s]$), to generate
+Not a real error.
+
+! Preview: Snippet 130 ended.(635369+233274x4217938).
+<-><->
+      
+l.684 ($I^{dirty}_{t,s};s\in[0,N_s]$
+                                    ), to generate
+Not a real error.
+
+[130]
+! Preview: Snippet 131 started.
+<-><->
+      
+l.685 solution sets $
+                     \{I^{model}_{p,\delta}\};p\in[0,N_t]$ for each $s\in[0,...
+
+Not a real error.
+
+! Preview: Snippet 131 ended.(548436+309886x4907638).
+<-><->
+      
+l.685 ...ts $\{I^{model}_{p,\delta}\};p\in[0,N_t]$
+                                                   for each $s\in[0,N_s]$.
+Not a real error.
+
+[131]
+! Preview: Snippet 132 started.
+<-><->
+      
+l.685 ...del}_{p,\delta}\};p\in[0,N_t]$ for each $
+                                                  s\in[0,N_s]$.
+Not a real error.
+
+! Preview: Snippet 132 ended.(438435+105872x2727939).
+<-><->
+      
+l.685 ...ta}\};p\in[0,N_t]$ for each $s\in[0,N_s]$
+                                                  .
+Not a real error.
+
+[132]
+! Preview: Snippet 133 started.
+<-><->
+      
+l.686 The $
+           N_t$ element solution set of Taylor coefficients
+Not a real error.
+
+! Preview: Snippet 133 ended.(428277+101743x622067).
+<-><->
+      
+l.686 The $N_t$
+                element solution set of Taylor coefficients
+Not a real error.
+
+[133]
+! Preview: Snippet 134 started.
+<-><->
+      
+l.687 with the dominant $
+                         p=0$ component across all scales and pixel locations,
+Not a real error.
+
+! Preview: Snippet 134 ended.(438435+135003x1485399).
+<-><->
+      
+l.687 with the dominant $p=0$
+                              component across all scales and pixel locations,
+Not a real error.
+
+[134]
+! Preview: Snippet 135 started.
+<-><->
+      
+l.689 Let the scale size for this set be $
+                                          q$.
+Not a real error.
+
+! Preview: Snippet 135 ended.(289669+136970x327680).
+<-><->
+      
+l.689 Let the scale size for this set be $q$
+                                            .
+Not a real error.
+
+[135]
+! Preview: Snippet 136 started.
+<-><->
+      
+l.690 The chosen solution set is given by $
+                                           \{I^{model}_{p,q,\delta}\};p\in[0...
+
+Not a real error.
+
+! Preview: Snippet 136 ended.(548436+311263x4907638).
+<-><->
+      
+l.690 ... $\{I^{model}_{p,q,\delta}\};p\in[0,N_t]$
+                                                  .
+Not a real error.
+
+[136]
+! Preview: Snippet 137 started.
+<-><->
+      
+l.694 \begin{equation}
+                      
+Not a real error.
+
+! Preview: Snippet 137 ended.(580320+279379x16761838).
+<-><->
+      
+l.696 \end{equation}
+                    
+Not a real error.
+
+[137]
+! Preview: Snippet 138 started.
+<-><->
+      
+l.697 \begin{equation}
+                      
+Not a real error.
+
+! Preview: Snippet 138 ended.(1179940+910129x16761838).
+<-><->
+      
+l.700 \end{equation}
+                    
+Not a real error.
+
+[138]
+! Preview: Snippet 139 started.
+<-><->
+      
+l.708 \begin{eqnarray}
+                      
+Not a real error.
+
+! Preview: Snippet 139 ended.(3766733+0x16761838).
+<-><->
+      
+l.712 \end{eqnarray}
+                    
+Not a real error.
+
+[139]
+! Preview: Snippet 140 started.
+<-><->
+      
+l.715 \begin{equation}
+                      
+Not a real error.
+
+! Preview: Snippet 140 ended.(1179940+910129x16761838).
+<-><->
+      
+l.718 \end{equation}
+                    
+Not a real error.
+
+[140]
+! Preview: Snippet 141 started.
+<-><->
+      
+l.721 Residual visibilities are computed as $
+                                             V_{\nu}^{residual} = V_{\nu}^{c...
+
+Not a real error.
+
+! Preview: Snippet 141 ended.(547552+167607x6435152).
+<-><->
+      
+l.721 ...dual} = V_{\nu}^{corr} - V_{\nu}^{model}$
+                                                   and
+Not a real error.
+
+[141]
+
+LaTeX Warning: Reference `stepRHS' on page 5 undefined on input line 722.
+
+! Preview: Snippet 142 started.
+<-><->
+      
+l.724 \subsubsection
+                    {Restoration / Trivial Solution}
+Not a real error.
+
+! Preview: Snippet 142 ended.(454179+12763x16761838).
+<-><->
+      
+l.724 ...ubsection{Restoration / Trivial Solution}
+                                                  
+Not a real error.
+
+[142
+
+]
+
+LaTeX Warning: Reference `stepRHS' on page 5 undefined on input line 731.
+
+! Preview: Snippet 143 started.
+<-><->
+      
+l.732 The $
+           N_t \times N_t$ matrix formed from the Hessian peaks for the zero...
+
+Not a real error.
+
+! Preview: Snippet 143 ended.(428277+101743x1952206).
+<-><->
+      
+l.732 The $N_t \times N_t$
+                           matrix formed from the Hessian peaks for the zero...
+
+Not a real error.
+
+[143]
+! Preview: Snippet 144 started.
+<-><->
+      
+l.732 ...om the Hessian peaks for the zero-scale $
+                                                  H^{peak}_{t,0,p,0}$,
+Not a real error.
+
+! Preview: Snippet 144 ended.(635369+316996x1724709).
+<-><->
+      
+l.732 ...s for the zero-scale $H^{peak}_{t,0,p,0}$
+                                                  ,
+Not a real error.
+
+[144]
+
+LaTeX Warning: Reference `stepRHS' on page 5 undefined on input line 733.
+
+! Preview: Snippet 145 started.
+<-><->
+      
+l.741 \subsection
+                 {Error Analysis}
+Not a real error.
+
+! Preview: Snippet 145 ended.(443906+133234x16761838).
+<-><->
+      
+l.741 \subsection{Error Analysis}
+                                 
+Not a real error.
+
+[145
+
+]
+! Preview: Snippet 146 started.
+<-><->
+      
+l.749 \item Expansion about $
+                             \nuno$ (logarithmic PSFs)
+Not a real error.
+
+! Preview: Snippet 146 ended.(644873+308020x1031535).
+<-><->
+      
+l.749 \item Expansion about $\nuno$
+                                    (logarithmic PSFs)
+Not a real error.
+
+[146]
+! Preview: Snippet 147 started.
+<-><->
+      
+l.750 vs expand about $
+                       \alpha$ and $\beta$ (Taylor PSFs).
+Not a real error.
+
+! Preview: Snippet 147 ended.(289669+8191x388628).
+<-><->
+      
+l.750 vs expand about $\alpha$
+                               and $\beta$ (Taylor PSFs).
+Not a real error.
+
+[147]
+! Preview: Snippet 148 started.
+<-><->
+      
+l.750 vs expand about $\alpha$ and $
+                                    \beta$ (Taylor PSFs).
+Not a real error.
+
+! Preview: Snippet 148 ended.(428277+135003x332923).
+<-><->
+      
+l.750 vs expand about $\alpha$ and $\beta$
+                                           (Taylor PSFs).
+Not a real error.
+
+[148]
+! Preview: Snippet 149 started.
+<-><->
+      
+l.764 \subsection
+                 {Variants}\label{VARIANTS}
+Not a real error.
+
+! Preview: Snippet 149 ended.(443906+12763x16761838).
+<-><->
+      
+l.764 \subsection{Variants}
+                           \label{VARIANTS}
+Not a real error.
+
+[149
+
+]
+! Preview: Snippet 150 started.
+<-><->
+      
+l.768 ...s that satisfy the convolution equation $
+                                                  PSF \star (P I^{sky})$,
+Not a real error.
+
+! Preview: Snippet 150 ended.(547552+116326x3805823).
+<-><->
+      
+l.768 ...volution equation $PSF \star (P I^{sky})$
+                                                  ,
+Not a real error.
+
+[150]
+! Preview: Snippet 151 started.
+<-><->
+      
+l.770 ...oise map and the model image represents $
+                                                  (P I^{sky}$.
+Not a real error.
+
+! Preview: Snippet 151 ended.(547552+116326x1552414).
+<-><->
+      
+l.770 ...d the model image represents $(P I^{sky}$
+                                                  .
+Not a real error.
+
+[151]
+! Preview: Snippet 152 started.
+<-><->
+      
+l.778 \section
+              {Hybrid Algorithm}\label{HYBRID}
+Not a real error.
+
+! Preview: Snippet 152 ended.(493916+147936x16761838).
+<-><->
+      
+l.778 \section{Hybrid Algorithm}
+                                \label{HYBRID}
+Not a real error.
+
+[152
+
+]
+! Preview: Snippet 153 started.
+<-><->
+      
+l.795 \subsection
+                 {Procedure and Error Analysis}
+Not a real error.
+
+! Preview: Snippet 153 ended.(443906+133234x16761838).
+<-><->
+      
+l.795 \subsection{Procedure and Error Analysis}
+                                               
+Not a real error.
+
+[153
+
+]
+! Preview: Snippet 154 started.
+<-><->
+      
+l.798 $
+       \sigma_{chan}$.
+Not a real error.
+
+! Preview: Snippet 154 ended.(289669+101743x1369571).
+<-><->
+      
+l.798 $\sigma_{chan}$
+                     .
+Not a real error.
+
+[154]
+! Preview: Snippet 155 started.
+<-><->
+      
+l.801 $
+       \sigma_{cont} = {\sigma_{chan}}/{\sqrt{N_{chan}}}$.
+Not a real error.
+
+! Preview: Snippet 155 ended.(568935+123125x5663490).
+<-><->
+      
+l.801 ...ont} = {\sigma_{chan}}/{\sqrt{N_{chan}}}$
+                                                  .
+Not a real error.
+
+[155]
+! Preview: Snippet 156 started.
+<-><->
+      
+l.807 Weak sources whose flux values lie below $
+                                                \sigma_{chan}$ but above $\s...
+
+Not a real error.
+
+! Preview: Snippet 156 ended.(289669+101743x1369571).
+<-><->
+      
+l.807 ...ose flux values lie below $\sigma_{chan}$
+                                                   but above $\sigma_{cont}$
+Not a real error.
+
+[156]
+! Preview: Snippet 157 started.
+<-><->
+      
+l.807 ...ues lie below $\sigma_{chan}$ but above $
+                                                  \sigma_{cont}$
+Not a real error.
+
+! Preview: Snippet 157 ended.(289669+101743x1275985).
+<-><->
+      
+l.807 ...$\sigma_{chan}$ but above $\sigma_{cont}$
+                                                  
+Not a real error.
+
+[157]
+! Preview: Snippet 158 started.
+<-><->
+      
+l.809 ... if these spectral errors are less than $
+                                                  \sigma_{cont}$, it will not
+Not a real error.
+
+! Preview: Snippet 158 ended.(289669+101743x1275985).
+<-><->
+      
+l.809 ...tral errors are less than $\sigma_{cont}$
+                                                  , it will not
+Not a real error.
+
+[158]
+! Preview: Snippet 159 started.
+<-><->
+      
+l.812 $
+       \sigma_{chan}/\sigma_{cont} < 1000$,
+Not a real error.
+
+! Preview: Snippet 159 ended.(442368+105513x5026177).
+<-><->
+      
+l.812 $\sigma_{chan}/\sigma_{cont} < 1000$
+                                          ,
+Not a real error.
+
+[159]
+! Preview: Snippet 160 started.
+<-><->
+      
+l.813 ...ors should not be visible. This implies $
+                                                  \sqrt{N_{chan}} < 1000$ wh...
+
+Not a real error.
+
+! Preview: Snippet 160 ended.(568935+123125x4039641).
+<-><->
+      
+l.813 ...le. This implies $\sqrt{N_{chan}} < 1000$
+                                                   which will almost
+Not a real error.
+
+[160]
+! Preview: Snippet 161 started.
+<-><->
+      
+l.820 ...or are random enough to average down by $
+                                                  \sqrt{N_{chan}}$. CCW also...
+
+Not a real error.
+
+! Preview: Snippet 161 ended.(568935+123125x1948033).
+<-><->
+      
+l.820 ...ough to average down by $\sqrt{N_{chan}}$
+                                                  . CCW also comment on this.
+Not a real error.
+
+[161]
+! Preview: Snippet 162 started.
+<-><->
+      
+l.835 \section
+              {Wide-band ASP-Clean}
+Not a real error.
+
+! Preview: Snippet 162 ended.(504143+11930x16761838).
+<-><->
+      
+l.835 \section{Wide-band ASP-Clean}
+                                   
+Not a real error.
+
+[162
+
+]
+! Preview: Snippet 163 started.
+<-><->
+      
+l.853 \section
+              {Simulations}\label{SIMULATIONS}
+Not a real error.
+
+! Preview: Snippet 163 ended.(493916+11930x16761838).
+<-><->
+      
+l.853 \section{Simulations}
+                           \label{SIMULATIONS}
+Not a real error.
+
+[163
+
+]
+! Preview: Snippet 164 started.
+<-><->
+      
+l.868 \section
+              {Data}\label{DATA}
+Not a real error.
+
+! Preview: Snippet 164 ended.(493916+8521x16761838).
+<-><->
+      
+l.868 \section{Data}
+                    \label{DATA}
+Not a real error.
+
+[164
+
+]
+! Preview: Snippet 165 started.
+<-><->
+      
+l.869 \subsection
+                 {Narrow-field CygA, no Primary Beam Correction}
+Not a real error.
+
+! Preview: Snippet 165 ended.(454179+136969x16761838).
+<-><->
+      
+l.869 ...w-field CygA, no Primary Beam Correction}
+                                                  
+Not a real error.
+
+[165
+
+]
+! Preview: Snippet 166 started.
+<-><->
+      
+l.876 \subsection
+                 {Wide-field 3C286, Primary Beam Correction}
+Not a real error.
+
+! Preview: Snippet 166 ended.(454179+133234x16761838).
+<-><->
+      
+l.876 ...ide-field 3C286, Primary Beam Correction}
+                                                  
+Not a real error.
+
+[166
+
+]
+! Preview: Snippet 167 started.
+<-><->
+      
+l.885 \section
+              {Discussion}
+Not a real error.
+
+! Preview: Snippet 167 ended.(493916+11930x16761838).
+<-><->
+      
+l.885 \section{Discussion}
+                          
+Not a real error.
+
+[167
+
+]
+! Preview: Snippet 168 started.
+<-><->
+      
+l.929 \begin{thebibliography}{}
+                               
+Not a real error.
+
+LaTeX Font Info:    Font shape `OT1/txss/bx/n' in size <10> not available
+(Font)              Font shape `OT1/txss/b/n' tried instead on input line 929.
+LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
+(Font)              scaled to size 9.49997pt on input line 929.
+! Preview: Snippet 168 ended.(451066+7782x16761838).
+<-><->
+      
+l.929 \begin{thebibliography}{}
+                               
+Not a real error.
+
+[168]
+! Preview: Snippet 169 started.
+<-><->
+      
+l.935 \section
+              {Relation to MF-CLEAN}\label{APP_A}
+Not a real error.
+
+! Preview: Snippet 169 ended.(504143+141459x16761838).
+<-><->
+      
+l.935 \section{Relation to MF-CLEAN}
+                                    \label{APP_A}
+Not a real error.
+
+[169
+
+]
+! Preview: Snippet 170 started.
+<-><->
+      
+l.946 MF-Clean does the following : $
+                                     I^{res}_t = I^{res}_0 \star B_t$ where ...
+
+Not a real error.
+
+! Preview: Snippet 170 ended.(441547+228686x3887703).
+<-><->
+      
+l.946 ...owing : $I^{res}_t = I^{res}_0 \star B_t$
+                                                   where $B_t = [\Fd]\left\{...
+
+Not a real error.
+
+[170]
+! Preview: Snippet 171 started.
+<-><->
+      
+l.946 ...$I^{res}_t = I^{res}_0 \star B_t$ where $
+                                                  B_t = [\Fd]\left\{ \sum_{\...
+
+Not a real error.
+
+! Preview: Snippet 171 ended.(674855+307692x8272513).
+<-><->
+      
+l.946 ...{\nu} \wnt [\Snd][\Wimnd]V^{1} \right\} $
+                                                  . Also, the Hessian elemen...
+
+Not a real error.
+
+[171]
+! Preview: Snippet 172 started.
+<-><->
+      
+l.946 ...o, the Hessian elements are computed as $
+                                                  H_{t,p} = B_t \star B_p$.
+Not a real error.
+
+! Preview: Snippet 172 ended.(428277+192805x3847858).
+<-><->
+      
+l.946 ...are computed as $H_{t,p} = B_t \star B_p$
+                                                  .
+Not a real error.
+
+[172]
+! Preview: Snippet 173 started.
+<-><->
+      
+l.947 Computed this way, $
+                          B_t \star B_p = B_{t+p}$ {\bf only} when $\Wimn$ i...
+
+Not a real error.
+
+! Preview: Snippet 173 ended.(428277+192805x3952191).
+<-><->
+      
+l.947 Computed this way, $B_t \star B_p = B_{t+p}$
+                                                   {\bf only} when $\Wimn$ i...
+
+Not a real error.
+
+[173]
+! Preview: Snippet 174 started.
+<-><->
+      
+l.947 ..._t \star B_p = B_{t+p}$ {\bf only} when $
+                                                  \Wimn$ is the
+Not a real error.
+
+! Preview: Snippet 174 ended.(537689+167607x1085276).
+<-><->
+      
+l.947 ...ar B_p = B_{t+p}$ {\bf only} when $\Wimn$
+                                                   is the
+Not a real error.
+
+[174]
+! Preview: Snippet 175 started.
+<-><->
+      
+l.949 $
+       \Sna$ is a pseudo-unitary Boolean operator, or the UV-coverage of the...
+
+Not a real error.
+
+! Preview: Snippet 175 ended.(428277+104037x670693).
+<-><->
+      
+l.949 $\Sna$
+             is a pseudo-unitary Boolean operator, or the UV-coverage of the...
+
+Not a real error.
+
+[175]
+! Preview: Snippet 176 started.
+<-><->
+      
+l.952 $
+       \left\{ \sum_{\nu} \wnt [\Snd\Wimnd] \right\}\left\{ \sum_{\nu} \wnp ...
+
+Not a real error.
+
+! Preview: Snippet 176 ended.(674855+307692x14901683).
+<-><->
+      
+l.952 ...\{ \sum_{\nu} \wntp [\Snd\Wimnd]\right\}$
+                                                  .
+Not a real error.
+
+[176]
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 308 strings out of 92788
+ 4188 string characters out of 1158301
+ 77090 words of memory out of 1000000
+ 5159 multiletter control sequences out of 10000+50000
+ 47131 words of font info for 131 fonts, out of 500000 for 2000
+ 580 hyphenation exceptions out of 1000
+ 25i,12n,22p,288b,268s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on _region_.dvi (176 pages, 32260 bytes).
