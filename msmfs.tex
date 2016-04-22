@@ -13,6 +13,12 @@
 \usepackage{verbatim}
 \usepackage{mathtools}
 \usepackage{hhtensor}
+\usepackage{color}
+\usepackage{txfonts}
+
+%\usepackage{stylefiles/fmtcount}
+\usepackage{natbib}
+
 \graphicspath{ {images/} }
 
 \usepackage[boxruled,linesnumbered]{algorithm2e}
@@ -128,33 +134,15 @@
 \sdplistofabbreviations
 \begin{basedescript}{\desclabelstyle{\pushlabel}\desclabelwidth{6em}}
     \item[CDR] Critical Design Review \vspace{-0.2cm}
-    \item[CPU] Central Processing Unit\vspace{-0.2cm}
-    \item[CSP] Central Signal Processor\vspace{-0.2cm}
-    \item[CUFFT] \textcolor{red}{Define it.}\vspace{-0.2cm}
-    \item[DFT] \textcolor{red}{Only used once, in a title. Remove/expand?}\vspace{-0.2cm}
-    \item[DM] \textcolor{red}{Define it.}\vspace{-0.2cm}
-    \item[EoR] Epoch of Reionisation\vspace{-0.2cm}
     \item[FFT] Fast Fourier Transform\vspace{-0.2cm}
     \item[FLOP] Floating Point Operations \vspace{-0.2cm}
     \item[FLOPS] Floating Point Operations per Second \vspace{-0.2cm}
     \item[FoV] Field of View\vspace{-0.2cm}
-    \item[GPU] Graphics Processing Unit \vspace{-0.2cm}
-    \item[ICD] Interface Control Document\vspace{-0.2cm}
-    \item[LMA] Levenberg-Marquardt Algorithm \vspace{-0.2cm}
-    \item[LOFAR] LOw Frequency ARray\vspace{-0.2cm}
-    \item[LSM] Local Sky Model\vspace{-0.2cm}
     \item[MS-MFS] Multi-Scale Multi-Frequency Synthesis\vspace{-0.2cm}
-    \item[NVRAM] \textcolor{red}{Define it.} \vspace{-0.2cm}
-    \item[OCLD] Optimised Candidate List and Data \vspace{-0.2cm}
-    \item[PDR] Preliminary Design Review\vspace{-0.2cm}
-    \item[RFI] Radio Frequency Interference\vspace{-0.2cm}
-    \item[PSF] \textcolor{red}{Define it.} \vspace{-0.2cm}
-    \item[PSS] Pulsar Search\vspace{-0.2cm}
-    \item[PST] Pulsar Timing\vspace{-0.2cm}
+    \item[PSF] Point Spread Function \vspace{-0.2cm}
     \item[SDP] Scientific Data Processor\vspace{-0.2cm}
     \item[SKA] Square Kilometre Array\vspace{-0.2cm}
     \item[SKAO] SKA Organisation\vspace{-0.2cm}
-    \item[WCS] \textcolor{red}{Define it.} \vspace{-0.2cm}
 %    \item[] \vspace{-0.2cm}
 \end{basedescript} 
 
@@ -166,38 +154,51 @@
 \newcommand{\Xd}{\vec{{x}^\dag}}
 \newcommand{\B}{\vec{b}}
 \newcommand{\Bd}{\vec{b^\dag}}
-\newcommand{\A}{{\tens{A}}}
-\newcommand{\Ad}{{\tens{A^\dag}}}
-\newcommand{\F}{{\tens{F}}}
-\newcommand{\Fd}{{\tens{F^\dag}}}
-\newcommand{\He}{{\tens{H}}}
-\newcommand{\Sa}{{\tens{S}{N}}}
-\newcommand{\Sd}{{\tens{S^\dag}}}
-\newcommand{\Sna}{\tens{{S_{\nu}}{N}}}
-\newcommand{\Snd}{\tens{{S_{\nu}^\dag}}}
-\newcommand{\T}{{\tens{T}}}
-\newcommand{\W}{{\tens{W}}}
-\newcommand{\Wd}{{\tens{W^\dag}}}
-\newcommand{\Pb}{{P_b}}
+\newcommand{\V}{\vec{V}}
+\newcommand{\Vd}{\vec{V^\dag}}
+\newcommand{\A}{{\tens{A}{s}}}
+\newcommand{\Ad}{{\tens{A^\dag}{s}}}
+\newcommand{\F}{{\tens{F}{s}}}
+\newcommand{\Fd}{{\tens{F^\dag}{s}}}
+\newcommand{\He}{{\tens{H}{s}}}
+\newcommand{\Sa}{{\tens{S}{s}}}
+\newcommand{\Sd}{{\tens{S^\dag}{s}}}
+\newcommand{\Sna}{\tens{{S_{\nu}}{s}}}
+\newcommand{\Snd}{\tens{{S_{\nu}^\dag}{s}}}
+\newcommand{\T}{{\tens{T}{s}}}
+\newcommand{\W}{{\tens{W}{s}}}
+\newcommand{\Wd}{{\tens{W^\dag}{s}}}
+\newcommand{\Pb}{{\vec{P}}}
 
-\newcommand{\Wim}{{\tens{W^{im}}}}
-\newcommand{\Wimd}{{\tens{{W^{im}}^\dag}}}
-\newcommand{\Wnt}{{\tens{W^{mfs}_t}}}
-\newcommand{\Wntd}{{\tens{{W^{mfs}_t}^\dag}}}
-\newcommand{\Wnp}{{\tens{W^{mfs}_p}}}
-\newcommand{\Wnpd}{{\tens{{W^{mfs}_p}^\dag}}}
-\newcommand{\Wnq}{{\tens{W^{mfs}_q}}}
-\newcommand{\Wnqd}{{\tens{{W^{mfs}_q}^\dag}}}
-\newcommand{\Wimn}{{\tens{W^{im}_{\nu}}}}
-\newcommand{\Wimnd}{{\tens{{W^{im}_{\nu}}^\dag}}}
+%\newcommand{\Wim}{{\tens{W^{im}}}}
+%\newcommand{\Wimd}{{\tens{{W^{im}}^\dag}}}
+%\newcommand{\Wnt}{{\tens{W^{\rm {mfs}}_t}}}
+%\newcommand{\Wntd}{{\tens{{W^{\rm {mfs}}_t}^\dag}}}
+%\newcommand{\Wnp}{{\tens{W^{\rm mfs}_p}}}
+%\newcommand{\Wnpd}{{\tens{{W^{\rm mfs}_p}^\dag}}}
+%\newcommand{\Wnq}{{\tens{W^{\rm mfs}_q}}}
+%\newcommand{\Wnqd}{{\tens{{W^{\rm {mfs}}_q}^\dag}}}
+%\newcommand{\Wimn}{{\tens{W^{im}_{\nu}}}}
+%\newcommand{\Wimnd}{{\tens{{W^{im}_{\nu}}^\dag}}}
+
+\newcommand{\Wim}{{{\W^{\rm im}}}}
+\newcommand{\Wimd}{{{{\W^{\rm im}}^\dag}}}
+\newcommand{\Wnt}{{{\W^{\rm {mfs}}_t}}}
+\newcommand{\Wntd}{{{{\W^{\rm {mfs}}_t}^\dag}}}
+\newcommand{\Wnp}{{{\W^{\rm mfs}_p}}}
+\newcommand{\Wnpd}{{{{\W^{\rm mfs}_p}^\dag}}}
+\newcommand{\Wnq}{{{\W^{\rm mfs}_q}}}
+\newcommand{\Wnqd}{{{{\W^{\rm {mfs}}_q}^\dag}}}
+\newcommand{\Wimn}{{{\W^{\rm im}_{\nu}}}}
+\newcommand{\Wimnd}{{{{\W^{\rm im}_{\nu}}^\dag}}}
 
 \newcommand{\wnt}{{w_{\nu}^t}}
 \newcommand{\wnq}{{w_{\nu}^q}}
 \newcommand{\wntq}{{w_{\nu}^{t+q}}}
-\newcommand{\Wntn}{{\tens{w^{mfs}_{t,\nu}}}}
-\newcommand{\Wntnd}{{\tens{{w^{mfs}_{t,\nu}}^\dag}}}
-\newcommand{\Wnpn}{{\tens{W^{mfs}_{p,\nu}}}}
-\newcommand{\Wnpnd}{{\tens{{W^{mfs}_{p,\nu}}^\dag}}}
+%\newcommand{\Wntn}{{\tens{w^{\rm mfs}_{t,\nu}}}}
+%\newcommand{\Wntnd}{{\tens{{w^{\rm mfs}_{t,\nu}}^\dag}}}
+%\newcommand{\Wnpn}{{\tens{W^{\rm mfs}_{p,\nu}}}}
+%\newcommand{\Wnpnd}{{\tens{{W^{\rm mfs}_{p,\nu}}^\dag}}}
 
 \newcommand{\pd}{{\partial}}
 \newcommand{\mi}{{m_{I}}}
@@ -205,6 +206,9 @@
 \newcommand{\Rd}{{R^\dag}}
 \newcommand{\I}{{\vec{I}}}
 
+\newcommand{\Nt}{N_{\rm t}}
+\newcommand{\Ns}{N_{\rm s}}
+\newcommand{\Nc}{N_{\rm c}}
 
 % Add here the symbols used in your document
 %\clearpage \sdplistofsymbols
@@ -476,8 +480,10 @@ conflict between the contents of the referenced documents and this document,
 
 The purpose of this document is to describe the Multi-Scale MultiFrequency Synthesis algorithm, the variant implementations in CASA and ASKAPsoft, and the scaling for insertion in the SDP Performance Model. We conclude with some recommendations.
 
+\clearpage
 \section{Scope of the document}
 
+\clearpage
 \section{Background}
 
 MS-MFS was developed by Urvashi [RD17], melding together the concepts from multi-scale clean [RD34] and multi-frequency synthesis e.g. [RD35], with the goal of improving the reconstruction of sky brightness from radio interferometric data. The explicit model used for the sky brightness is a collection of blobs of varying scale sizes and strengths, each with spectral behaviour described by a power law expanded into a Taylor series.
@@ -488,7 +494,7 @@ The algorithm is an elaboration of the Multiscale CLEAN. It consists of two part
 \item[Minor cycle] The minor cycle is a greedy algorithm which identifies the dominant candidate scale and removes that using the appropriate PSF centered on that component. The minor cycle repeats this until convergence. Typically hundreds or thousands of iterations are required.
 \end{description}
 
-A canonical major/minor cycle algorithm is shown in Figure \ref{fig:major/minor}. The two functions Predict and MakeImage are sub-pipelines. ASKAPSoft and CASA both follow this form but with different ways of performing Predict (\ref{fig:predictuv} and \ref{fig:predictimage}) and MakeImage (\ref{fig:makeimageuv} and \ref{fig:makeimageimage})
+A canonical major/minor cycle algorithm is shown in Figure \ref{fig:majorminor}. The two functions Predict and MakeImage are sub-pipelines. ASKAPSoft and CASA both follow this form but with different ways of performing Predict (Figures \ref{fig:predictuv} and \ref{fig:predictimage}) and MakeImage (Figures \ref{fig:makeimageuv} and \ref{fig:makeimageimage})
 
 \begin{figure}[htb]
   \centering
@@ -509,7 +515,7 @@ MSMFS is relatively high in complexity because the usual CLEAN process is couple
 
 \subsection{Mathematical description}
 
-The MSMFS algorithm decomposes the image into a set of blobs, using a greedy algorithm in which the peak (in scale space) is found by searching for the peak in the reference frequency residual images each convolved with scale. For bright pixels, the principal solution is calculated by applying the inverse Hessian of the PSF convolved with scale. For faint pixels, just the peak in the reference frequency image is used.
+In the Multi-Scale CLEAN [RD??], the sky is modelled as a set of blobs. Performing this decomposition using a gradient search algorithm is very demanding of resources. Instead, in MSCLEAN, a greedy algorithm obtained by generalising the CLEAN algorithm is used. The greedy algorithm locates the amplitude, scale and location of the blob by a straightforward search in the set of residual images, each smoothed with the appropriate blob. For each minor cycle this produces an amplitude, location, and scale. The smoothed residual images and model images are updated, and iteration proceeds.
 
 \begin{equation}
 \vec{I}^{model} = \sum_{s=0}^{N_s-1}  \vec{I}^{shp}_{s} \star \vec{I}^{sky,\delta}_s
@@ -521,6 +527,8 @@ $\vec{I}^{sky,\delta}_{s}$ represents a collection of $\delta$-functions that de
 and integrated amplitudes of flux components of scale $s$ in the image. $\vec{I}^{shp}_s$ is a tapered truncated parabola of width proportional to $s$.
 The symbol $\star$ denotes convolution. 
 
+The MSMFS algorithm decomposes the image into a set of $N_s$ blobs each with $N_t$ Taylor terms. 
+
 \begin{eqnarray}
 \label{eqn:mf_model}
 \vec{I}^{model}_{\nu} = \sum_{t=0}^{N_t-1} \wnt \vec{I}^{sky}_{t} ~~~\mathrm{where}~~~ \wnt&=&\dnuno^t 
@@ -528,6 +536,9 @@ The symbol $\star$ denotes convolution.
 
 where $N_t$ is the order of the Taylor series expansion, and 
 the $I^m_t$ represent multi-scale Taylor coefficient images.
+
+Before performing any search, it is necessary to decouple the pixels in Taylor term space as well as possible. In practice, the Hessian (for each scale) for the peak of the PSF in Taylor term space is of modest size and can be inverted and used. The greedy algorithm then locates the scale and location in the reference-frequency image (as convolved with the set of scales). For each minor cycle this produces a location, scale, and values for all Taylor terms. The residual images and model images are updated, and iteration proceeds. The actual algorithm is shown in Figure \ref{fig:CASA}.
+
 
 The image flux model at each frequency can be written as a linear sum of  
 coefficient images at different spatial scales. 
@@ -542,6 +553,231 @@ a collection of $\delta$-functions that describe the locations
 and integrated amplitudes of flux components of scale $s$ in the image of the $t^{th}$ series 
 coefficient. 
 
+\clearpage
+\section{CASA and ASKAPsoft implementations}
+
+The MS-MFS algorithm as implemented in CASA shown in Algorithm \ref{CASA}. The ASKAPsoft version is shown in Algorithm \ref{ASKAP} with the variant lines in red.
+
+%\begin{figure}[htb]
+%  \centering
+%  \includegraphics[width=\textwidth]{./algorithm.pdf}
+%  \caption{The MSMFS algorithm as implemented in CASA [RD??]}
+%  \label{fig:algoCASA}
+%\end{figure}
+
+\clearpage
+
+\begin{algorithm}
+\scriptsize
+  \SetLine
+  \linesnumbered
+  \dontprintsemicolon
+%  \SetKwRepeat{Repeat}{Repeat}{Until}
+%  \SetKwFor{ForEach}{ForEach}{Do}{End}
+%\KwData{ $\vec{V}^{corr}_{\nu}, \vec{I}^{\rm shp}_s~\forall~s\in\{0,\Ns $-$1\}, ~ [\Sna]~ \forall \nu$ }
+%\KwResult{ $\vec{I}^{\rm psf}_{{sp}\atop{tq}},[{H^{\rm peak}_s}], \vec{I}^m_{\nu_0}, \vec{I}^{\alpha}, \vec{I}^{\beta}$ }
+  \KwData{calibrated visibilities : $\vec{V}^{\rm obs}_{\nu}~~\forall \nu$}
+  \KwData{$uv$-sampling function and weights : $[{\Sa}_{\nu}], [\Wimn]$}
+  \KwData{input : number of Taylor-terms $\Nt $, number of scales $\Ns $}
+  \KwData{input : image noise threshold, $\sigma_{\rm thr}$, loop gain $g$}
+  \KwData{input : scale basis functions : $\I^{\rm shp}_s ~ \forall s\in\{0,\Ns -1\}$}
+  \KwData{input : reference frequency $\nu_0$ to compute $w_{\nu}=\dnuno$}
+  \KwResult{model coefficient images : $\I^{\rm m}_{t}~ \forall t\in\{0,\Nt -1\}$}
+  \KwResult{intensity, spectral index and curvature : $\I^{\rm m}_{\nuup_0},\I^{\rm m}_{\alphaup},\I^{\rm m}_{\betaup}$}
+ 
+%{Compute the dirty image $\vec{I}^{\rm dirty}$ and psf $\vec{I}^{\rm psf}$}\;
+  \For{ $t \in \{0,\Nt -1\}, q \in \{t,\Nt -1\}$}
+  {
+        { Compute the spectral Hessian kernel } $\vec{I}^{\rm psf}_{tq} = \sum_{\nu} \wntq \vec{I}^{\rm psf}_{\nu}$\;
+        \For{ $s \in \{0,\Ns -1\}, p \in \{s,\Ns -1\}$}
+	{
+		{Compute scale-spectral kernels} $\vec{I}^{\rm psf}_{{sp}\atop{tq}} = \vec{I}^{\rm shp}_s \star \vec{I}^{\rm shp}_p \star \vec{I}^{\rm psf}_{tq} $\;
+	}
+  }
+  \For { $s \in \{0,\Ns -1\}$}
+  {
+     Construct scale-dependent Taylor space Hessian $[{\He^{\rm peak}_s}]$ from $mid(\I^{\rm psf}_{{s,s}\atop{t,q}})$ and compute $[{\He^{\rm peak}_s}^{-1}]$\;
+  }
+%%%%%%%%%%%%%%%%%%%%%%
+%%%\vspace{0.5cm}
+%%  \caption[MS-MFS CLEAN : Pre-Deconvolution Setup]
+%%          {MS-MFS CLEAN : Pre-Deconvolution Setup}
+%%\end{algorithm}
+%%%\newpage
+%%
+%%\begin{algorithm}[\He]
+%%  \SetLine
+%%  \linesnumbered
+%%  \dontprintsemicolon
+%%%%%%%%%%%%%%%%%%%%%%%  
+%%\KwData{ $\vec{V}^{corr}_{\nu}, \vec{I}^{\rm shp}_s, \vec{I}^{\rm psf}_{{sp}\atop{tq}},[{H^{\rm peak}_s}]~~~\forall~~s \in \{0,\Ns -1\}, p \in \{s,\Ns -1\}, \sigma_{thr}$ }
+%%\KwResult{$I^{\rm m}_{q}~ \forall q \in \{0,\Nt -1\}$}
+%%%%%%%%%%%%%%%%%%%%%  
+  Initialize the model $\vec{I}^{\rm m}_t$ for all $t \in \{0,\Nt -1\}$\; % and compute $f_{sidelobe}$ \;
+%  \vspace{0.5cm} 
+  \Repeat (\tcc*[f]{Major Cycle}) { Peak residual in $\vec{I}^{\rm res}_0 < \sigma_{\rm thr}$ }
+  {
+    \For{$t \in \{0,\Nt $-$1\}$}
+    {
+      Compute $\vec{I}^{\rm res}_t = \sum_{\nu} \wnt \vec{I}^{\rm res}_{\nu}$ from frequency-weighted residual images $\I^{\rm res}_{\nu}$\;
+      \For{$s \in \{0,\Ns $-$1\}$}
+      {
+	    Convolve with $s^{th}$ scale-function $\vec{I}^{\rm res}_{{s}\atop{t}} = \vec{I}^{\rm shp}_s \star \vec{I}^{\rm res}_t$
+      }
+    }
+    Calculate minor-cycle threshold $f_{\rm limit}$ from $\vec{I}^{\rm res}_{{0}\atop{0}}$\;
+%  \vspace{0.5cm} 
+    \Repeat (\tcc*[f]{Minor Cycle}){ Peak residual in $\vec{I}^{\rm res}_{{0}\atop{0}} < f_{\rm limit} $ } 
+    {
+%     Compute $I^{\rm m}_q~\forall q\in \{0.\Nt -1\}$ and update $\vec{I}^{\rm res}_{{s},{t}}~\forall s,t$ (Algorithm \vref{MSMFS_2})\;
+     \For{$s \in \{0,\Ns $-$1\}$}
+     {
+%      \uIf{Peak of $\vec{I}^{\rm res}_{s,0} > 10~\sigma_{thr} $}
+%      {
+       \ForEach{pixel}
+       {
+          Construct $\I^{\rm rhs}_s$, an $\Nt \times 1$ vector from $\I^{\rm res}_{{s}\atop{t}} ~~\forall ~ t \in \{0,\Nt $-$1\}$\;
+          Compute principal solution $\I^{\rm sol}_s = [{\He^{\rm peak}_s}^{-1}] \I^{\rm rhs}_s$\;
+          Fill solution $\I^{\rm sol}_s$ into model images $\forall t$ : $\I^{\rm m,sol}_{{s}\atop{t}}$
+       }
+ %     }
+  %    \Else
+%      {
+ %      Find the location of the peak in $\vec{I}^{\rm res}_{s,0},~\forall~s\in\{0,\Ns $-$1\}$\;
+ %      Construct $I^{\rm rhs}_s$, from $I^{\rm res}_{s,t}$ for the chosen $s$, at this location\;
+ %      Compute $I^{sol} = [{H^{\rm peak}_s}^{-1}] I^{\rm rhs}_s$ at this location\;
+ %     }
+    }
+       Choose $\I^{\rm m}_{{p}\atop{t}} = max\{\I^{\rm m,sol}_{{s}\atop{t=0}},~\forall~s\in\{0,\Ns $-$1\}\}$ \;
+       \For{$t \in \{0,\Nt -1\}$}
+       {
+        Update the model image : $\I^{\rm m}_t = I^{\rm m}_t + g ~[ \I^{\rm shp}_{p} \star \I^{\rm m}_{{p}\atop{t}}]$ \;
+        \For{$s \in \{0,\Ns $-$1\}$}
+	{
+          Update the residual image : $\I^{\rm res}_{{s}\atop{t}} = \I^{\rm res}_{{s}\atop{t}} - g ~\sum_{q=0}^{\Nt -1}[\I^{\rm psf}_{{sp}\atop{tq}} \star \I^{\rm m}_{{p}\atop{t}}]$\;
+	}
+       }
+    }
+%  \vspace{0.5cm} 
+   Compute model visibilities $\V^{\rm m}_{\nu}$ from  $\I^{\rm m}_t~\forall t\in \{0.\Nt -1\}$\;
+   Compute residual visibilities $\V^{\rm res}_{\nu} = \V^{\rm obs}_{\nu}-\V^{\rm m}_{\nu}$\;
+  }
+  \vspace{0.5cm} 
+Restore the model Taylor-coefficients $\I^{\rm m}_t~\forall t\in \{0.\Nt -1\}$ \;
+Calculate $\vec{I}^{\rm m}_{\nuup_0}, \vec{I}^{\rm m}_{\alphaup}, \vec{I}^{\rm m}_{\betaup}$ from $\I^{\rm m}_t~\forall t\in \{0.\Nt -1\}$\;
+If required, remove average primary beam : $\vec{I}^{\rm new}_{\nuup_0}=\vec{I}^{\rm m}_{\nuup_0}/\vec{P}_{\nuup_0};  \vec{I}^{\rm new}_{\alphaup}=\vec{I}^{\rm m}_{\alphaup}-\vec{P}_{\alphaup};  \vec{I}^{\rm new}_{\betaup}=\vec{I}^{\rm m}_{\betaup}-\vec{P}_{\betaup}$\;
+%\vspace{0.5cm}
+
+  \caption[MS-MFS Algorithm]
+         {MS-MFS, as implemented in CASA}\label{CASA}
+
+\end{algorithm}
+
+\begin{algorithm}
+\scriptsize
+  \SetLine
+  \linesnumbered
+  \dontprintsemicolon
+%  \SetKwRepeat{Repeat}{Repeat}{Until}
+%  \SetKwFor{ForEach}{ForEach}{Do}{End}
+%\KwData{ $\vec{V}^{corr}_{\nu}, \vec{I}^{\rm shp}_s~\forall~s\in\{0,\Ns $-$1\}, ~ [\Sna]~ \forall \nu$ }
+%\KwResult{ $\vec{I}^{\rm psf}_{{sp}\atop{tq}},[{H^{\rm peak}_s}], \vec{I}^m_{\nu_0}, \vec{I}^{\alpha}, \vec{I}^{\beta}$ }
+  \KwData{calibrated visibilities : $\vec{V}^{\rm obs}_{\nu}~~\forall \nu$}
+  \KwData{$uv$-sampling function and weights : $[{\Sa}_{\nu}], [\Wimn]$}
+  \KwData{input : number of Taylor-terms $\Nt $, number of scales $\Ns $}
+  \KwData{input : image noise threshold, $\sigma_{\rm thr}$, loop gain $g$}
+  \KwData{input : scale basis functions : $\I^{\rm shp}_s ~ \forall s\in\{0,\Ns -1\}$}
+  \KwData{input : reference frequency $\nu_0$ to compute $w_{\nu}=\dnuno$}
+  \KwResult{model coefficient images : $\I^{\rm m}_{t}~ \forall t\in\{0,\Nt -1\}$}
+  \KwResult{intensity, spectral index and curvature : $\I^{\rm m}_{\nuup_0},\I^{\rm m}_{\alphaup},\I^{\rm m}_{\betaup}$}
+ 
+%{Compute the dirty image $\vec{I}^{\rm dirty}$ and psf $\vec{I}^{\rm psf}$}\;
+  \For{ $t \in \{0,\Nt -1\}, q \in \{t,\Nt -1\}$}
+  {
+{\color{red}        { Compute the spectral Hessian kernel $\vec{I}^{\rm psf}_{tq}$ from transform of frequency weight sampling } $\sum_{\nu} \wntq \Sa_{\nu}$\;}
+        \For{ $s \in \{0,\Ns -1\}, p \in \{s,\Ns -1\}$}
+	{
+		{Compute scale-spectral kernels} $\vec{I}^{\rm psf}_{{sp}\atop{tq}} = \vec{I}^{\rm shp}_s \star \vec{I}^{\rm shp}_p \star \vec{I}^{\rm psf}_{tq} $\;
+	}
+  }
+  \For { $s \in \{0,\Ns -1\}$}
+  {
+     Construct scale-dependent Taylor space Hessian $[{\He^{\rm peak}_s}]$ from $mid(\I^{\rm psf}_{{s,s}\atop{t,q}})$ and compute $[{\He^{\rm peak}_s}^{-1}]$\;
+  }
+%%%%%%%%%%%%%%%%%%%%%%
+%%%\vspace{0.5cm}
+%%  \caption[MS-MFS CLEAN : Pre-Deconvolution Setup]
+%%          {MS-MFS CLEAN : Pre-Deconvolution Setup}
+%%\end{algorithm}
+%%%\newpage
+%%
+%%\begin{algorithm}[\He]
+%%  \SetLine
+%%  \linesnumbered
+%%  \dontprintsemicolon
+%%%%%%%%%%%%%%%%%%%%%%%  
+%%\KwData{ $\vec{V}^{corr}_{\nu}, \vec{I}^{\rm shp}_s, \vec{I}^{\rm psf}_{{sp}\atop{tq}},[{H^{\rm peak}_s}]~~~\forall~~s \in \{0,\Ns -1\}, p \in \{s,\Ns -1\}, \sigma_{thr}$ }
+%%\KwResult{$I^{\rm m}_{q}~ \forall q \in \{0,\Nt -1\}$}
+%%%%%%%%%%%%%%%%%%%%%  
+  Initialize the model $\vec{I}^{\rm m}_t$ for all $t \in \{0,\Nt -1\}$\; % and compute $f_{sidelobe}$ \; 
+  \Repeat (\tcc*[f]{Major Cycle}) { Peak residual in $\vec{I}^{\rm res}_0 < \sigma_{\rm thr}$ }
+  {
+    \For{$t \in \{0,\Nt $-$1\}$}
+    {
+{\color{red}      Compute $\vec{I}^{\rm res}_t = \sum_{\nu} \wnt \vec{I}^{\rm res}_{\nu}$ from frequency-weighted residual visibilities $\V^{\rm res}_{\nu}$\;}
+      \For{$s \in \{0,\Ns $-$1\}$}
+      {
+	    Convolve with $s^{th}$ scale-function $\vec{I}^{\rm res}_{{s}\atop{t}} = \vec{I}^{\rm shp}_s \star \vec{I}^{\rm res}_t$
+      }
+    }
+    Calculate minor-cycle threshold $f_{\rm limit}$ from $\vec{I}^{\rm res}_{{0}\atop{0}}$\;
+%  \vspace{0.5cm} 
+    \Repeat (\tcc*[f]{Minor Cycle}){ Peak residual in $\vec{I}^{\rm res}_{{0}\atop{0}} < f_{\rm limit} $ } 
+    {
+%     Compute $I^{\rm m}_q~\forall q\in \{0.\Nt -1\}$ and update $\vec{I}^{\rm res}_{{s},{t}}~\forall s,t$ (Algorithm \vref{MSMFS_2})\;
+     \For{$s \in \{0,\Ns $-$1\}$}
+     {
+%      \uIf{Peak of $\vec{I}^{\rm res}_{s,0} > 10~\sigma_{thr} $}
+%      {
+       \ForEach{pixel}
+       {
+          Construct $\I^{\rm rhs}_s$, an $\Nt \times 1$ vector from $\I^{\rm res}_{{s}\atop{t}} ~~\forall ~ t \in \{0,\Nt $-$1\}$\;
+          Compute principal solution $\I^{\rm sol}_s = [{\He^{\rm peak}_s}^{-1}] \I^{\rm rhs}_s$\;
+          Fill solution $\I^{\rm sol}_s$ into model images $\forall t$ : $\I^{\rm m,sol}_{{s}\atop{t}}$
+       }
+ %     }
+  %    \Else
+%      {
+ %      Find the location of the peak in $\vec{I}^{\rm res}_{s,0},~\forall~s\in\{0,\Ns $-$1\}$\;
+ %      Construct $I^{\rm rhs}_s$, from $I^{\rm res}_{s,t}$ for the chosen $s$, at this location\;
+ %      Compute $I^{sol} = [{H^{\rm peak}_s}^{-1}] I^{\rm rhs}_s$ at this location\;
+ %     }
+     }
+     Choose $\I^{\rm m}_{{p}\atop{t}} = max\{\I^{\rm m,sol}_{{s}\atop{t=0}},~\forall~s\in\{0,\Ns $-$1\}\}$ \;
+       \For{$t \in \{0,\Nt -1\}$}
+       {
+        Update the model image : $\I^{\rm m}_t = I^{\rm m}_t + g ~[ \I^{\rm shp}_{p} \star \I^{\rm m}_{{p}\atop{t}}]$ \;
+        \For{$s \in \{0,\Ns $-$1\}$}
+	{
+          Update the residual image : $\I^{\rm res}_{{s}\atop{t}} = \I^{\rm res}_{{s}\atop{t}} - g ~\sum_{q=0}^{\Nt -1}[\I^{\rm psf}_{{sp}\atop{tq}} \star \I^{\rm m}_{{p}\atop{t}}]$\;
+	}
+       }
+    }
+%  \vspace{0.5cm} 
+   {\color{red} Compute model visibilities $\V^{\rm m}_{\nu}$ from  $\V^{\rm m}_t~\forall t\in \{0.\Nt -1\}$}\;
+   Compute residual visibilities $\V^{\rm res}_{\nu} = \V^{\rm obs}_{\nu}-\V^{\rm m}_{\nu}$\;
+  } 
+Restore the model Taylor-coefficients $\I^{\rm m}_t~\forall t\in \{0.\Nt -1\}$ \;
+Calculate $\vec{I}^{\rm m}_{\nuup_0}, \vec{I}^{\rm m}_{\alphaup}, \vec{I}^{\rm m}_{\betaup}$ from $\I^{\rm m}_t~\forall t\in \{0.\Nt -1\}$\;
+If required, remove average primary beam : $\vec{I}^{\rm new}_{\nuup_0}=\vec{I}^{\rm m}_{\nuup_0}/\vec{P}_{\nuup_0};  \vec{I}^{\rm new}_{\alphaup}=\vec{I}^{\rm m}_{\alphaup}-\vec{P}_{\alphaup};  \vec{I}^{\rm new}_{\betaup}=\vec{I}^{\rm m}_{\betaup}-\vec{P}_{\betaup}$\;
+%\vspace{0.5cm}
+
+  \caption[MS-MFS Algorithm]
+         {MS-MFS, as implemented in ASKAPsoft: {\color{red} red denotes difference from CASA}}\label{ASKAP}
+
+\end{algorithm}
+
+We can relate these back to the graphical form Figure \ref{fig:majorminor} by introducing variant sub pipelines for Predict and MakeImage. These are graphically shown in Figures \ref{fig:predictuv} to \ref{fig:makeimageimage}: 
 
 \begin{figure}[htb]
   \centering
@@ -573,105 +809,25 @@ coefficient.
   \label{fig:makeimageimage}
 \end{figure}
 
-\clearpage
-\section{Serial and Parallel implementations}
+The CASA and ASKAPsoft approaches should be equivalent apart from numerical differences such as due to the convolution function. Hence either can be used according to the most favourable scaling. Compared to CASA, ASKAPsoft does approximately two orders of magnitude less FFTs and 5 times as much gridding. Both forms should therefore be available in the SDP Performance Model and used as the context dictates.
 
-\subsection{Serial}
-\label{sec:serial}
-
-The serial algorithm is as shown in Figure \ref{fig:algoCASA}.
+The Minor Cycle is identical in CASA and ASKAPsoft. The Minor cycle is depicted graphically in Figure \ref{fig:minor}.
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=\textwidth]{./algorithm.pdf}
-  \caption{The MSMFS algorithm as implemented in CASA [RD??]}
-  \label{fig:algoCASA}
+  \includegraphics[width=\textwidth]{./MSMFS_Minor.pdf}
+  \caption{Structure of Minor cycle for MSMFS as used in both CASA and ASKAPsoft.}
+  \label{fig:minor}
 \end{figure}
 
-\clearpage
-
-%\begin{algorithm}[htp!]
-%\scriptsize
-%\label{alg:MSMFS_1}
-%  \KwData{calibrated visibilities : $\vec{V}^{corr}_{\nu}~~\forall \nu$}
-%  \KwData{Fourier plane sampling function : {\tens{S_\nu}{4} }}
-%  \KwData{image noise threshold and loop gain $\sigma_{thr}, g_s$}
-%  \KwData{scale basis functions : $\I^{shp}_s ~ \forall s\in\{0,N_s-1\}$}
-%  \KwResult{model coefficient images : $\I^{m}_{q}~ \forall q\in\{0,N_t-1\}$}
-%  \KwResult{spectral index and curvature : $\I^{m}_{\alpha},\I^{m}_{\beta}$}
-%
-%  \vspace{0.5cm} 
-%  \For{ $t \in \{0,N_t-1\}, q \in \{t,N_t-1\}$}
-%  {
-%        { Compute the spectral PSF } $\vec{I}^{psf}_{tq}$\;
-%        \For{ $s \in \{0,N_s-1\}, p \in \{s,N_s-1\}$}
-%	{
-%		{Compute the scale-spectral PSF} $\vec{I}^{psf}_{{sp}\atop{tq}} = \vec{I}^{shp}_s \star \vec{I}^{shp}_p \star \vec{I}^{psf}_{tq} $\;
-%	}
-%  }
-%  \For { $s \in \{0,N_s-1\}$}
-%  {
-%     Construct $[{H^{peak}_s}]$ from $mid(I^{psf}_{{s,s}\atop{t,q}})$ and compute $[{H^{peak}_s}^{-1}]$\;
-%  }
-%  Initialize the model $\vec{I}^{m}_t$ for all $t \in \{0,N_t-1\}$ and compute $f_{sidelobe}$ \;
-%  \Repeat (\tcc*[f]{Major Cycle}) { Peak residual in $\vec{I}^{res}_0 < \sigma_{thr}$ }
-%  {
-%    \For{$t \in \{0,N_t$-$1\}$}
-%    {
-%      Compute the residual image $\vec{I}^{res}_t$ \tcc*[r]{Makeimage}
-%      \For{$s \in \{0,N_s$-$1\}$}
-%      {
-%	      Compute $\vec{I}^{res}_{{s},{t}} = \vec{I}^{shp}_s \star \vec{I}^{res}_t$
-%      }
-%    }
-%    Calculate $f_{limit}$ from $\vec{I}^{res}_{0,0}$\;
-%    \Repeat (\tcc*[f]{Minor Cycle}){ Peak residual in $\vec{I}^{res}_{0,0} < f_{limit} $ } 
-%    {
-%     \For{$s \in \{0,N_s$-$1\}$} 
-%     {
-%      \uIf{Peak of $\vec{I}^{res}_{s,0} > 10~\sigma_{thr} $}
-%      {
-%       \ForEach{pixel}
-%       {
-%          Construct $I^{rhs}_s$, an $N_t\times 1$ vector from $I^{res}_{s,t} ~~\forall ~ t \in \{0,N_t$-$1\}$\;
-%          Compute principal solution $I^{sol}_s = [{H^{peak}_s}^{-1}] I^{rhs}_s$\;
-%       }
-%       Choose $I^{sol} = max\{I^{sol}_{t=0},~\forall~s\in\{0,N_s$-$1\}\}$ \;
-%      }
-%      \Else
-%      {
-%       Find the location of the peak in $\vec{I}^{res}_{s,0},~\forall~s\in\{0,N_s$-$1\}$\;
-%       Construct $I^{rhs}_s$, from $I^{res}_{s,t}$ for the chosen $s$, at this location\;
-%       Compute $I^{sol} = [{H^{peak}_s}^{-1}] I^{rhs}_s$ at this location\;
-%      }
-%     }
-%       \For{$t \in \{0,N_t-1\}$}
-%       {
-%        Update the model image : $I^{m}_t = I^{m}_t + g_s ~ I^{shp}_{s_i} \star I^{sol}_t$ \;
-%        \For{$s \in \{0,N_s$-$1\}$}
-%	{
-%          Update the residual image : $I^{res}_{s,t} = I^{res}_{s,t} - g ~\sum_{p=0}^{N_s-1}\sum_{q=0}^{N_t-1}[I^{psf}_{{sp}\atop{tq}} \star I^{sol}_q]$\;
-%	}
-%       }
-%    }
-%   Compute model visibilities $V^{m}_{\nu}$ from  $I^{m}_t~\forall t\in \{0.N_t-1\}$\tcc*[r]{Predict} 
-%   Compute a new residual image $I^{res}$ from residual visibilities $V^{corr}_{\nu}-V^{m}_{\nu}$ \tcc*[r]{Makeimage}
-%}
-%Calculate $\vec{I}^m_{\nu_0}, \vec{I}^{\alpha}, \vec{I}^{\beta}$ from $I^{m}_t~\forall t\in \{0.N_t-1\}$ and restore the results \;
-%If required, remove average primary beam : $\vec{I}^{new}_{\nu_0}=\vec{I}^m_{\nu_0}/\vec{\Pb}_{\nu_0}, \vec{I}^{new}_{\alpha}=\vec{I}^m_{\alpha}-\vec{\Pb}_{\alpha}, \vec{I}^{new}_{\beta}=\vec{I}^m_{\beta}-\vec{\Pb}_{\beta}$\;
-%\vspace{0.5cm}
-%
-%  \caption[MS-MFS Algorithm]
-%          {MS-MFS Algorithm : }
-%\end{algorithm}
 
 \clearpage
-\subsection{Parallel processing}
+\section{Parallel processing}
 \label{sec:parallel}
 
-When moving the MSMFS algorithm to a distributed (slow interconnect) and parallel (fast interconnect) architecture such as the SDP architecture, there are a large number of important factors that must be considered.
+When moving the MSMFS algorithm to a distributed (loosely coupled) and parallel (tightly coupled) architecture such as the SDP architecture, there are a large number of important factors that must be considered.
 \begin{description}
-\item[Order of iterations]
+\item[Optimum partitioning] 
 \item[Coupling across partitions] e.g. is the same pixel addressed in two different partitions? If so, is there a satisfactory approach to reconciling the two values?
 \item[Synchronisation points] e.g. is a global synchronisation point required so that the deconvolutions can be made consistent? Is there an acceptable algorithm for reconciling separate facets?
 \item[Amount of CU memory]
@@ -679,11 +835,8 @@ When moving the MSMFS algorithm to a distributed (slow interconnect) and paralle
 \item[Access to visibility store]
 \end{description}
 
-\subsubsection{Minor cycle}
-\label{subsec:minorcycle}
-
-\subsubsection{Partitioning}
-\label{subsec:partitoning}
+\subsection{Partitioning for Predict and MakeImage}
+\label{subsec:partitoningpredictmakeimage}
 
 The SDP pipeline framework [RD:??], allows partitioning across multiple axes. In this case, the natural partitions and typical values are:
 
@@ -698,12 +851,13 @@ The SDP pipeline framework [RD:??], allows partitioning across multiple axes. In
 \item[Taylor terms] O(5) terms are required to represent the spectral behaviour
 \end{description}
 
-According to the logic of the MSMFS algorithm, Sub-bands can be defined as the limit of the power law approximation for brightness so consequently can always be used as the coarsest partition. For Predict and MakeImage the remaining choices are between (most rapid first):
+According to the logic of the MSMFS algorithm, Sub-bands can be defined as the limit of the power law approximation for brightness so consequently can always be used as the coarsest partition. For Predict and MakeImage the remaining choices are as shown in Figure \ref{tab:partitions} (most rapid first):
 
 \begin{table}[htp]
  \caption{Possible ordering of partitions $UV$ weighting version of Predict and MakeImage}
+ \label{tab:partitions}
  \begin{center}
- \begin{tabular}{|c|c|c|c|c|}
+ \begin{tabular}{|c|c|c|c|}
 \hline
 Frequency & Time & Facet & Sub-Band \\
 Frequency & Facet & Time & Sub-Band \\
@@ -716,14 +870,14 @@ Facet & Frequency & Time & Sub-Band \\
 \end{center}
 \end{table}
 
-Frequency and Taylor terms are tight coupled and so to avoid excess inter-CU communication, the order should be [Taylor, Frequency]. The remaining choices are then between the two orderings of Time and Facet. Since deconvolution is non-linear, we prefer that all times be represented in a single facet rather than the other way around.
+The only choice is between the two orderings of Time and Facet. Since deconvolution is non-linear, we prefer that all times be represented in a single facet rather than the other way around.
 
 Hence according to this level of analysis, the best ordering is [Frequency, Time, Facet, Sub-Band]. Parallelisation over Compute Nodes starts from the left to the right, Distribution over Compute Islands works from the right to the left (see Figure \ref{fig:order}):
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=\textwidth]{./MSMFS_Order.pdf}
-  \caption{Preferred order of parallelisation and distribution for MSMFS algorithm}
+  \includegraphics[width=\textwidth]{./Order.pdf}
+  \caption{Preferred order of parallelisation and distribution for MakeImage and Predict sub-pipelines.}
   \label{fig:order}
 \end{figure}
 
@@ -734,29 +888,76 @@ In this approach, the facets will almost certainly be processed on different com
 \item Construct the facets without padding, send all facets to one compute island, perform deconvolution, distribute models to facets. 
 \end{itemize}
 
-The first approach will inevitably introduce edge effects in the final image revealing the facet grid, while the second will block processing while deconvolution proceeds on the different sub-band compute nodes. We would then require two different types of nodes:
+The first approach will inevitably introduce edge effects in the final image revealing the facet grid, while the second will block processing while deconvolution proceeds on the different sub-band compute nodes. We would then benefit from two different types of nodes:
 \begin{description}
 \item[Predict and MakeImage] Requires the visibility data but not many scratch images. Stalled during MinorCycle.
 \item[MinorCycle] Requires a substantial number of scratch images, but not the visibility data. Stalled during Predict and MakeImage.	
 \end{description}
 
 
-\subsection{Minor Cycles}
+\subsection{Partitioning for Minor Cycle}
 
-\subsubsection{CASA}
+In the minor cycle, the first calculation is [Pixel, Taylor Term], and then the Scale convolutions are calculated. Hence the natural order overall is [Pixel, Taylor Term, Scale]. This is used in both CASA and ASKAPsoft. Both use a single threaded Minor Cycle. For SDP, a multi-threaded but not-distributed Minor Cycle should be prototyped.
 
-\subsubsection{ASKAPsoft}
-The core algorithm is in C++ Template DeconvolverMultiTermBasisFunction.tcc. The basis function is abstracted and can be any class having the interface DeconvolverMultiTermBasisFunction. There are two forms present: one for point sources, and one for the same blobs used in CASA - a truncated upside down parabola. 
+We have a modelling problem that is not going to be wished away. The science demands seamless imaging in multiple axes, whereas computing would like to partition the image cube in those same axes. There is a tendency to assert that one axis or another does not have to be seamless but that has not be conclusively argued. Distributing the minor cycle across Compute Islands may be possible in some cases (e.g. spectral line after continuum estimation and subtraction), but we should also be considering how best to parallelise the Minor Cycle on a single, appropriately specified Compute Island.
 
-The expansion in Taylor terms is generalised to any form obeying an equation like: $D = B(0)*I(0) + B(1)*I(1) + B(2)*I(2)$, where D is the dirty image, B(?) are the spectral dirty beams, and I(?) are the images for each term. The coupling matrices between the terms are calculated for each basis function. Once a suitable peak component is found, the inverse of the coupling matrix is used to decouple the different terms for the optimum scale. The optimum blob location and scale is found by using one of a number of criteria:
+\subsection{Implementation in CASA}
+
+The CASA tclean program supports parallel execution using python to run copies on different nodes. The visibility data are partitioned in time across the available processors. Gridding and transforms (i.e. Predict and MakeImage) are done separately and in parallel per partition. Then the Images (and weights) are gathered and then normalised. A serial minor cycle is run, blocking all other processing, and then the model image is scattered to all processes. The Major cycle is done in parallel per partition.
+
+Thus in summary, the Major Cycles are parallelised while the deconvolution runs serially.
+
+\subsection{Implementation in ASKAPsoft}
+
+The ASKAPsoft code is mirrored in the SDP Github repository. The ASKAPsoft cimager is an MPI-enabled program. Since it was written as parallel program from the beginning, the structure is easier to follow than the CASA version. Distribution over MPI is via frequency, rather than time as in CASA. Predict and MakeImage are distributed using MPI (via a thin bookkeeping layer). The MinorCycle is performed on the master, and thus blocks until the deconvolution steps have completed.
+
+The minor cycle  algorithm is in C++ Template DeconvolverMultiTermBasisFunction.tcc. The basis function is abstracted and can be any class having the interface DeconvolverMultiTermBasisFunction. There are two forms present: one for point sources, and one for the same blobs used in CASA - a truncated upside down parabola. The basis functions may optionally be orthogonalised using the Gramm-Schmidt algorithm.
+
+The optimum blob location and scale is found by using one of two criteria:
+
 \begin{description}
 \item[MAXBASE0] The peak of term 0 across after decoupling in term.
 \item[MAXCHISQ] The peak of chisquared across scale after decoupling in term.
 \end{description}
 
-The second criterion is expensive to compute and usually MAXBASE0 is used.
+The second criterion is expensive to compute and usually MAXBASE0 is used. Thus for each scale and for each pixel the pixel value at the reference frequency has to be determined by pre-multipling by the inverse Hessian (in term-term space). This means that the cost of the search is:
 
-Once the optimum blob scale and location is found, the vector in term-space is found by decoupling. The model images (one for each term) are then updated, and the effects of this blob removed from all the cached images.
+\begin{equation}
+Rflop_{MSMFSminor} = N_{minor} N_{pix}^2 N_s N_T	
+\end{equation}
+
+
+To save on calculation, a number of cached images are used. For ASKAPsoft, these are shown in Table \ref{tab:askapmemory}.
+
+\begin{table}[tbh]
+\caption{ASKAPsoft cimager use of memory during minor cycles}\label{tab:askapmemory}
+
+\begin{tabular}{|l|c|c|c|}
+\hline
+Item & Axes & Size (words) & Needed? \\
+\hline
+Basis function FFT & scales & $N_{pix} N_S $ & During initialisation \\
+PSF FFT & 2 * Taylor terms & $2 N_{pix} N_T $ & During initialisation \\
+Spectral Dirty image & Taylor terms, scales & $N_{pix} N_T N_s$ & During iteration \\
+Spectral Dirty PSF & Taylor terms, scales & $N_{patch} N_T N_s$ & During iteration \\
+Spectral Model image & Taylor terms & $N_{pix} N_T $ & During iteration \\	
+Basis functions & scales & $N_{pix} N_s$ & During iteration \\
+Inverse of Hessian & Taylor terms, Taylor terms, scales & $N^2_T N_s$ & During Iteration \\
+\hline
+\end{tabular}	
+\end{table}
+
+where $N_{pix}$ is the number of pixels in an image, $N_{patch}$ is the number of pixels in the patch of the Dirty beam used, $N_T$ is the number of Taylor terms, and $N_S$ is the number of scales/basis functions.
+
+Thus, keeping only the dominant terms, the total memory used during iteration is: 
+
+\begin{equation}
+M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix} 
+\end{equation}
+
+Using typical values of $N_t=5$ and $N_s=5$, we find that the memory use is about $35 N_{pix}$. For a 200,000 by 200,000 pixel image, this requires 5.6 TB total. Spread over O(100) Compute Islands (partitioning by facet and sub-band), this requires 56 GB per CI.
+
+
 
 \clearpage
 \section{A projection}
@@ -773,12 +974,18 @@ Once the optimum blob scale and location is found, the vector in term-space is f
 
 
 \clearpage
-\section{Modelling MSMFS in the SDP Performance Manager}
-\label{sec:modelling}
+\section{Recommendations}
+\label{sec:recommendations}
 
-\clearpage
-\section{Resource usage}
-\label{sec:resource}
+\begin{enumerate}
+\item Implement both Image and Visibility based calculation of the Taylor term images in the Performance Model.
+\item Update the Performance Model to reflect the memory usage:
+\begin{equation}
+M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix} 
+\end{equation}
+\item A multi-threaded Minor Cycle on one Compute Island should be prototyped.
+\end{enumerate}
+
 
 
 % \label{section:main}
