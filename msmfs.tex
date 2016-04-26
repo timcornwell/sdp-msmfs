@@ -1,6 +1,6 @@
 %rubber: module pdflatex
 
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper,variablewidth]{article}
 
 \usepackage[sans]{tcc_doc} % SDP style file
 \usepackage[english]{babel}
@@ -23,6 +23,9 @@
 
 \usepackage[boxruled,linesnumbered]{algorithm2e}
 \usepackage{fmtcount}
+
+\usepackage{array}
+\newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
 
 
 % TODO:
@@ -156,18 +159,18 @@
 \newcommand{\Bd}{\vec{b^\dag}}
 \newcommand{\V}{\vec{V}}
 \newcommand{\Vd}{\vec{V^\dag}}
-\newcommand{\A}{{\tens{A}{s}}}
-\newcommand{\Ad}{{\tens{A^\dag}{s}}}
+\newcommand{\A}{{\tens{A}{}}}
+\newcommand{\Ad}{{\tens{A^\dag}{}}}
 \newcommand{\F}{{\tens{F}{s}}}
-\newcommand{\Fd}{{\tens{F^\dag}{s}}}
-\newcommand{\He}{{\tens{H}{s}}}
-\newcommand{\Sa}{{\tens{S}{s}}}
-\newcommand{\Sd}{{\tens{S^\dag}{s}}}
-\newcommand{\Sna}{\tens{{S_{\nu}}{s}}}
-\newcommand{\Snd}{\tens{{S_{\nu}^\dag}{s}}}
-\newcommand{\T}{{\tens{T}{s}}}
-\newcommand{\W}{{\tens{W}{s}}}
-\newcommand{\Wd}{{\tens{W^\dag}{s}}}
+\newcommand{\Fd}{{\tens{F^\dag}{}}}
+\newcommand{\He}{{\tens{H}{}}}
+\newcommand{\Sa}{{\tens{S}{}}}
+\newcommand{\Sd}{{\tens{S^\dag}{}}}
+\newcommand{\Sna}{\tens{{S_{\nu}}{}}}
+\newcommand{\Snd}{\tens{{S_{\nu}^\dag}{}}}
+\newcommand{\T}{{\tens{T}{}}}
+\newcommand{\W}{{\tens{W}{}}}
+\newcommand{\Wd}{{\tens{W^\dag}{}}}
 \newcommand{\Pb}{{\vec{P}}}
 
 %\newcommand{\Wim}{{\tens{W^{im}}}}
@@ -210,186 +213,6 @@
 \newcommand{\Ns}{N_{\rm s}}
 \newcommand{\Nc}{N_{\rm c}}
 
-% Add here the symbols used in your document
-%\clearpage \sdplistofsymbols
-%\begin{basedescript}{\desclabelstyle{\pushlabel}\desclabelwidth{6em}}
-%\item[$\bytes$] Length of a complex number in bytes \vspace{-0.2cm}
-%\item[$\cbytes$] Length of a complex number in bytes \vspace{-0.2cm}
-%\item[$\rbytes$] Length of a real number in bytes \vspace{-0.2cm}
-%\item[$\bl$] Baseline length / GPU memory bandwidth \vspace{-0.2cm}
-%\item[$\maxbl$] Maximum baseline length \vspace{-0.2cm}
-%\item[$\membw$] Memory bandwidth \vspace{-0.2cm}
-%\item [$\pciebw$] PCI-e bandwidth \vspace{-0.2cm}
-%\item[$\viscompr$] Compression factor of visibilities for grdding for facets
-%  \textcolor{red}{This symbol is not used in the document, consider removing.}
-%  \vspace{-0.2cm}
-%\item[$\vism$] Matrix of observed visibilities \vspace{-0.2cm}
-%\item[$\da$] Extent of aperture \vspace{-0.2cm}
-%\item[$\ds$] Diameter of antennas/stations \vspace{-0.2cm}
-%\item[$\reff$] Reference frequency\vspace{-0.2cm}
-%\item[$\fcc$] Convolution kernel computational cost\vspace{-0.2cm}
-%\item[$\fci$] Factor between bandwidth and FLOPS (bytes/operations)\vspace{-0.2cm}
-%\item[$\fgrid$] Gridding cost\vspace{-0.2cm}
-%\item[$\fpatch$] Fraction of the maximum baseline below which the $\uv$
-%  coverage is almost filled\vspace{-0.2cm}
-%\item[$\fpr$] Cost for phase rotation\vspace{-0.2cm}
-%\item[$\gainm$] 2$\times$2 block diagonal matrix of complex
-%  gains\vspace{-0.2cm}
-%\item[$\modskyvism$] Matrix of model sky visibilities\vspace{-0.2cm}
-%\item[$\skymodbufsize$] Size of the sky model buffer\vspace{-0.2cm}
-%\item[$\visbufsize$] Size of the visibility buffer \vspace{-0.2cm}
-%\item[$\visbufsizespec$] Size of the visibility buffer needed for spectral line processing\vspace{-0.2cm}
-%\item[$\visbufsizecont$] Size of the visibility buffer needed for continuum imaging\vspace{-0.2cm}
-%\item[$\bufsize$] Size of buffer \vspace{-0.2cm}
-%\item[$\slowmemsize$] Size of slow working memory \vspace{-0.2cm}
-%\item[$\cumemsize$] Size of working memory of compute unit \vspace{-0.2cm}
-%\item[$\imgsize$] Size of image (bytes) \vspace{-0.2cm}
-%\item[$\imgsizeoneax$] Image size along one axis \vspace{-0.2cm}
-%\item[$\targgridsize$] Target grid size (per facet) \vspace{-0.2cm}
-%\item[$\uvgridsize$] Size of the $\uv$ grid (bytes) \vspace{-0.2cm}
-%\item[$\vissize$] Size of visibility data (bytes) \vspace{-0.2cm}
-%\item[$\wgridsize$] Size of weight grid (bytes)\vspace{-0.2cm}
-%\item[$\gridcachesize$] Cache size of gridding kernel \vspace{-0.2cm}
-%\item[$\nbins$] Number of bins \vspace{-0.2cm}
-%\item[$\ntel$] Number of antennas or stations in the array
-%  \vspace{-0.2cm}
-%\item[$\nateam$] Number of A-team sources \vspace{-0.2cm}
-%\item[$\ngridpakern$] Number of grid points for A-kernel support (along one
-%  axis) \vspace{-0.2cm}
-%\item[$\naccvis$] Number of accesses per visibility \vspace{-0.2cm}
-%\item[$\navg$] Number of averages\vspace{-0.2cm}
-%\item[$\nbeam$] Number of beams simultaneously observed by the array
-%  \vspace{-0.2cm}
-%\item[$\nbits$] Number of bits\vspace{-0.2cm}
-%\item[$\rma$] Number of flops in real multiply and add\vspace{-0.2cm}
-%\item[$\cma$] Number of flops in complex multiply and add\vspace{-0.2cm}
-%\item[$\nbl$] Number of baselines \vspace{-0.2cm}
-%\item[$\nbyteacc$] Number of bytes per access \vspace{-0.2cm}
-%\item[$\nbyte$] Number of bytes \vspace{-0.2cm}
-%\item[$\nbyteperpix$] Number of bytes per pixel \vspace{-0.2cm}
-%\item[$\nbytepervis$] Number of bytes per individual visibility 
-%
-%\item[$\nch$] Number of channels \vspace{-0.2cm}
-%\item[$\ncompu$] Number of compute units \vspace{-0.2cm}
-%\item[$\ndatait$] Number of data items required per source (e.g. position)\vspace{-0.2cm}
-%\item[$\ngridp$] Number of grid points along one axis for the gridding
-%  convolution function \vspace{-0.2cm}
-%\item[$\nfch$] Number of frequency channels/sub-bands \vspace{-0.2cm}
-%\item[$\nfchcorr$] Number of frequency channels output by the correlator
-%  \vspace{-0.2cm}
-%\item[$\nfchgrid$] Number of frequency channels to be gridded
-%  \vspace{-0.2cm}
-%\item[$\nfchdegrid$] Number of frequency channels to be de-gridded
-%  \vspace{-0.2cm}
-%\item[$\nfchout$] Number of frequency channels to be FFT-ed and reprojected
-%  (output) or output from the CSP pulsar timing backend\vspace{-0.2cm}
-%\item[$\nfchdist$] Minimum number of frequency channels to maintain distributability in the SDP
-%\item[$\nfkernel$] Number of convolution kernels needed to cover frequency axis for a given baseline
-%\item[$\nfacet$] Number of facets along one axis \vspace{-0.2cm}
-%\item[$\nflop$] Number of floating point operations
-%  \vspace{-0.2cm}
-%\item[$\nflopsamp$] Number of floating point operations per sample
-%  \vspace{-0.2cm}
-%\item[$\nflopvis$] Number of floating point operations per visibility
-%\item[$\npixgrid$] Number of pixels in the grid (i.e. the square of the linear
-%  dimension) \vspace{-0.2cm}
-%\item[$\ngridwkern$] Number of grid points for w-kernel support (along one
-%  axis) \vspace{-0.2cm}
-%\item[$\nit$] Number of iterations \vspace{-0.2cm}
-%\item[$\nawkern$] Linear size of combined A and $\w$-kernels \vspace{-0.2cm}
-%\item[$\nmaj$] Number of major CLEAN cycles (within each self-cal loop if appropriate) \vspace{-0.2cm}
-%\item[$\nselfcal$] Number of self-calibration cycles \vspace{-0.2cm}
-%\item[$\nmin$] Number of minor CLEAN cycles (within each major cycle loop if appropriate)\vspace{-0.2cm}
-%\item[$\facgridoffdiagmuller$] Factor to account for gridding of off-diagonal
-%  M\"uller terms \vspace{-0.2cm}
-%\item[$\nops$] Number of operations \vspace{-0.2cm}
-%\item[$\npatchpix$] Number of pixels of PSF to be used in minor cycle
-%  decorrelation \vspace{-0.2cm}
-%\item[$\npix$] Number of pixels along one axis of a grid\vspace{-0.2cm}
-%\item[$\npixfacet$] Number of pixels on one side of a facet \vspace{-0.2cm}
-%\item[$\npol$] Number of polarisation products \vspace{-0.2cm}
-%\item[$\nsource$] Number of sources \vspace{-0.2cm}
-%\item[$\ntslot$] Number of time slots \vspace{-0.2cm}
-%\item[$\ntaylor$] Number of Taylor terms (in MS-MFS)\vspace{-0.2cm}
-%\item[$\ntslotave$] Number of time slots that are averaged (in de-mixing)
-%  \vspace{-0.2cm}
-%\item[$\nvis$] Number of visibilities in an observation \vspace{-0.2cm}
-%\item[$\qfacbw$] Quality factor \vspace{-0.2cm}
-%\item[$\qfacreuse$] Factor to allow for the reuse of functions between
-%  neighbouring frequency channels \vspace{-0.2cm}
-%\item[$\qfacfov$] Quality factor defining how much bigger the diameter of the
-%  field of view is than the first zero of the Airy function \vspace{-0.2cm}
-%\item[$\facgridovers$] Gridding oversampling factor \vspace{-0.2cm}
-%\item[$\facmsmf$] Factor to account for multiple subtractions (multi-frequency
-%  multi-scale CLEAN\vspace{-0.2cm}
-%\item[$\qfacbeamovers$] Quality factor defining the oversampling of the
-%  synthesised beam \vspace{-0.2cm}
-%\item[$\qfac$] Quality factor \vspace{-0.2cm}
-%\item[$\Qkernel$] Convolution kernel quality factor, for kernel re-use in frequency
-%\item[$\corrfacw$] Correction factor for w values (0 to 1) \vspace{-0.2cm}
-%\item[$\earthrad$] Radius of the Earth ($6400\times 10^3$\,m) \vspace{-0.2cm}
-%\item[$\covm$] Covariance matrix \vspace{-0.2cm}
-%\item[$\covmfilt$] Filtered covariance matrix \vspace{-0.2cm}
-%\item[$\comprate$] Compute rate (FLOPS) \vspace{-0.2cm}
-%\item[$\compratespec$] Compute rate (FLOPS) for spectral line processing \vspace{-0.2cm}
-%\item[$\compratecont$] Compute rate (FLOPS) for continuum imaging \vspace{-0.2cm}
-%\item[$\compratefast$] Compute rate (FLOPS) for fast imaging \vspace{-0.2cm}
-%\item[$\bwtoworkmem$] Bandwidth to working memory \vspace{-0.2cm}
-%\item[$\maxmembw$] Maximum memory bandwidth of compute unit \vspace{-0.2cm}
-%\item[$\peakflop$] Peak FLOPS of compute unit \vspace{-0.2cm}
-%\item[$\maxiobwbuff$] Maximum I/O bandwidth of compute unit to buffer
-%  \vspace{-0.2cm}
-%\item[$\bwbuff$] Bandwidth to buffer \vspace{-0.2cm}
-%\item[$\bwbuffcont$] Bandwidth to buffer for continuum imaging\vspace{-0.2cm}
-%\item[$\bwbuffspec$] Bandwidth to buffer for spectral line processing\vspace{-0.2cm}
-%\item[$\convkernflops$] Convolution kernel compute rate (FLOPS)\vspace{-0.2cm}
-%\item[$\fftflops$] FFT compute rate (FLOPS)\vspace{-0.2cm}
-%\item[$\griddingflops$] Gridding compute rate (FLOPS)\vspace{-0.2cm}
-%\item[$\phaserotflops$] Phase rotation compute rate (FLOPS)\vspace{-0.2cm}
-%\item[$\reprojflops$] Re-projection compute rate (FLOPS)\vspace{-0.2cm}
-%\item[$\rcorr$] Correlator output rate\vspace{-0.2cm} TRY TO REMOVE
-%\item[$\facetoverlap$]  ratio for linear size increase of facets to account for overlap, typically 1.2-1.5 \vspace{-0.2cm}
-%\item[$\telsensit$] Telescope sensitivity \vspace{-0.2cm} TRY TO REMOVE
-%\item[$\corrdumpt$] Correlator dump time (sec) \vspace{-0.2cm}
-%\item[$\compt$] Computation time \vspace{-0.2cm}
-%\item[$\gridkernupdate$] Update timescale for gridding kernel \vspace{-0.2cm}
-%\item[$\lsmupdate$] Update timescale for the LSM \vspace{-0.2cm}
-%\item[$\obst$] Observation time \vspace{-0.2cm}
-%\item[$\snapshot$] Snapshot duration \vspace{-0.2cm}
-%\item[$\minsnapshot$] Minimum duration of a snapshot in which w-correction is
-%  not dominated by the Earth's curvature \vspace{-0.2cm}
-%\item[$\optsnapshot$] Optimum snapshot duration (sec) \vspace{-0.2cm}
-%\item[$\subint$] Sub-integration time\vspace{-0.2cm}
-%\item[$\uvw$] Visibility coordinates \vspace{-0.2cm}
-%\item [$\w$] Visibility $w$ coordinate \vspace{-0.2cm}
-%\item[$\maxwdev$] Maximum deviation of the $w$ coordinate due to the Earth's
-%  curvature \vspace{-0.2cm}
-%\item[$\minwdev$] Minimum deviation of the $w$ coordinate due to the Earth's
-%  curvature \vspace{-0.2cm}
-%\item[$\spfiltm$] Spatial filter matrix \vspace{-0.2cm}
-%\item[$\fres$] Frequency resolution \vspace{-0.2cm}
-%\item[$\tres$] Time resolution (sec) \vspace{-0.2cm}
-%\item[$\tressmear$]  Smearing Time resolution (sec)  \vspace{-0.2cm}
-%\item[$\fracconvfuncamp$] Fraction of maximal amplitude of envelope of
-%  convolution function \vspace{-0.2cm}
-%\item[$\compeff$] Computational efficiency \vspace{-0.2cm}
-%\item[$\fracfband$] Fraction of frequency band \vspace{-0.2cm}
-%\item[$\beamsq$] Beam squint \vspace{-0.2cm}
-%\item[$\fovdiam$] Angular diameter of the field of view (rad) \vspace{-0.2cm}
-%\item[$\pixres$] Angular resolution of pixel size (rad) \vspace{-0.2cm}
-%\item[$\beamdiam$] Angular diameter of the synthesised beam (rad)
-%  \vspace{-0.2cm}
-%\item[$\wavel$] Wavelength \vspace{-0.2cm}
-%\item[$\maxwavel$] Maximum wavelength \vspace{-0.2cm}
-%\item[$\minwavel$] Minimum wavelength \vspace{-0.2cm}
-%\item[$\maxwavelsubb$] Maximum wavelength of an imaging sub-band (channels
-%  over which image and pixel size are matched) \vspace{-0.2cm}
-%\item[$\minwavelsubb$] Minimum wavelength of an imaging sub-band (channels
-%  over which image and pixel size are matched) \vspace{-0.2cm}
-%\item[$\earthrot$] Angular velocity of the Earth
-%  ($7.27\times10^{-5}$\,rad/sec) \vspace{-0.2cm}
-%\item[$\epsilonf$] Fraction of a uv cell that we allow uv track to move in time- or frequency- smearing-limited averaging \vspace{-0.2cm}
-%\end{basedescript}
 
 \sdplistoffigures
 
@@ -460,21 +283,18 @@ conflict between the contents of the referenced documents and this document,
    {\bf [RD22]} & Rik Jongerius, S. W. (2014). An End-to-End Computing Model for the Square Kilometre Array. IEEE Computer, volume 47, number 9\\
    {\bf [RD24]} & SDP Element Concept. Paul Alexander, Chris Broekema, Simon Ratcliffe, Rosie Bolton, Bojan Nikolic, 2013, SDP-PROP-DR-001-1 (part of SKA SDP Consortium proposal)\\
    {\bf [RD34]} & Cornwell, T. J. (2008). Multi-Scale CLEAN deconvolution of radio synthesis images. IEEE Journal of Selected Topics in Sig. Proc., 2, 793–801.\\
-   {\bf [RD35]} & Conway, J. E., Cornwell, T. J., and Wilkinson, P. N. (1990). Multi-Frequency Synthesis - a New Technique in Radio Interferometric Imaging. Monthly Notices of the Royal Astronomical Society, 246, 490.\\  
+   {\bf [RD35]} & Conway, J. E., Cornwell, T. J., and Wilkinson, P. N. (1990). Multi-Frequency Synthesis - a New Technique in Radio Interferometric Imaging. Monthly Notices of the Royal Astronomical Society, 246, 490.\\
+   {\bf [RD36]} & http://www.aanda.org/component/citedby/?task=crossref\&doi=10.1051/0004-6361/201117104 \\  
+   {\bf [RD37]} & Junklewitz, H., Bell, M. R., and Ensslin, T. (2015). A new approach to multifrequency synthesis in radio interferometry. Astronomy \& Astrophysics, 581, A59. http://doi.org/10.1051/0004-6361/201423465 \\
    \hline
  \end{tabularx}
 \end{center}
-
-
-
-
-
-
 
 % The actual content goes here
 \newpage
 \section{Introduction}
 
+\clearpage
 \section{Purpose of the document}
 
 
@@ -486,7 +306,9 @@ The purpose of this document is to describe the Multi-Scale MultiFrequency Synth
 \clearpage
 \section{Background}
 
-MS-MFS was developed by Urvashi [RD17], melding together the concepts from multi-scale clean [RD34] and multi-frequency synthesis e.g. [RD35], with the goal of improving the reconstruction of sky brightness from radio interferometric data. The explicit model used for the sky brightness is a collection of blobs of varying scale sizes and strengths, each with spectral behaviour described by a power law expanded into a Taylor series.
+The imaging performance of a radio synthesis telescope is related to the uv coverage. The uv coverage is dependent on the observing wavelength so diversity in uv can be obtained by observing over a range of frequencies [RD35]. This Multi-Frequency Synthesis (MFS) only works for radio sources in which broadband emission is present, giving a way to relate measurements at different frequencies. There have been multiple attempts at an MFS algorithm (e.g. [RD35]). MFS is usually most important for sources having extended emission. Hence multi-scale algorithms are favoured.
+
+The Multi-Scale, Multi-Frequency Synthesis (MS-MFS) algorithm was developed by Urvashi [RD17], melding together the concepts from multi-scale clean [RD34] and multi-frequency synthesis e.g. [RD35], with the goal of improving the reconstruction of sky brightness from radio interferometric data. The explicit model used for the sky brightness is a collection of blobs of varying scale sizes and strengths, each with spectral behaviour described by a power law expanded into a Taylor series. It has been used in JVLA, ALMA, and ATCA observations [RD36].
 
 The algorithm is an elaboration of the Multiscale CLEAN. It consists of two parts:
 \begin{description}
@@ -510,6 +332,61 @@ MSMFS is relatively high in complexity because the usual CLEAN process is couple
 
 
 \clearpage
+
+\section{Is MFS needed?}
+\label{sec:mfsneeded}
+
+There is an L1 requirement, $SKA1-SYS\_REQ-2324$ specifying that MSMFS must be used (see Table\ref{tab:L1}).
+
+\begin{table}[htp]
+\begin{tabular}{|c|L|c|c|c|}
+\hline
+ID & Requirement & Status & Parent Requirement & Verification \\
+\hline$SKA1-SYS\_REQ-2324$ &Multi-frequency synthesis imaging. All imaging shall construct and make use of frequency dependent image models over the entire observed bandwidth. & Accepted & Reference [2] & Demonstration \\
+\hline 
+\end{tabular}	
+\caption{Relevant L1 requirement}\label{tab:L1}	
+\end{table}
+
+This is reflected in the L2 requirements shown in Table\ref{tab:L2}.
+\begin{table}[htp]
+\begin{tabular}{|L|L|L|L|L|}
+\hline
+\multicolumn{2}{|c|}{Function}&\multicolumn{3}{c|}{Satisfies requirement}\\
+\hline
+Number & 	Name & 	Number	& Name	& Description \\
+\hline
+F1.9 & Calibrate and Image & $SDP\_REQ-390$	&Multi-frequency synthesis
+  imaging	& The SDP shall construct and make
+  use of frequency-dependent image models over the entire observed bandwidth. \\
+\hline
+F1.9 & Calibrate and Image & $SDP\_REQ-676$	& Continuum imaging deconvolution
+  scales &	While performing continuum
+  imaging the SDP shall deconvolve using a maximum number of 10 (TBC) scales.\\
+\hline
+F1.9 & Calibrate and Image & $SDP\_REQ-677$	& Continuum imaging deconvolution
+  Taylor terms &	While performing continuum
+  imaging the SDP shall deconvolve using a maximum number of 5 (TBC) Taylor
+  terms.\\
+\hline
+F1.9 & Calibrate and Image & $SDP\_REQ-678$	& Continuum imaging deconvolution
+  by sub-band	& While performing continuum
+  imaging the SDP shall deconvolve by sub-band (TBC).\\\hline 
+\end{tabular}
+\caption{Relevant L2 requirements}	\label{tab:L2}
+\end{table}
+
+The last three L2 requirements, $SDP\_REQ-676$, $SDP\_REQ-677$, $SDP\_REQ-678$, are an attempt to give some constraints to $SKA1-SYS\_REQ-2324$. However, they beg the same question as the original L1 requirement: is MSMFS needed to meet the scientific goals? If so, how many scales, Taylor terms, and sub-bands are required? In addition, there is also a potentially missing requirement concerning the connection between the models for different sub-bands - is there allowed to be a seam in the continuum-subtracted spectral line cube at the transitions between sub-bands?
+
+Finally we could ask is there a superior algorithm already published? (see e.g. [RD37]).
+
+Some caution is advised in advocating that any form of MFS is not needed. Clearly ALMA and JVLA, which also have relatively good uv coverage, have benefited from the use of MSMFS. Furthermore, although the uv-coverage of SKA1-LOW and SKA1-MID is excellent after a long observation, there will inevitably be pressure to observe with shorter observation times. We should remember than the VLA was supposed to take 8 hours to image every field. With the advent of CLEAN and self-calibration, it was known even in the early eighties that 400 sources could be imaged in a day.
+
+There is no mechanism to address these questions beyond simulations. Arguing from uv coverage metrics such as the UVGAP only helps in a relative sense.
+
+\clearpage
+
+
 \section{Overview of MSMFS}
 \label{sec:overview}
 
@@ -537,9 +414,6 @@ The MSMFS algorithm decomposes the image into a set of $N_s$ blobs each with $N_
 where $N_t$ is the order of the Taylor series expansion, and 
 the $I^m_t$ represent multi-scale Taylor coefficient images.
 
-Before performing any search, it is necessary to decouple the pixels in Taylor term space as well as possible. In practice, the Hessian (for each scale) for the peak of the PSF in Taylor term space is of modest size and can be inverted and used. The greedy algorithm then locates the scale and location in the reference-frequency image (as convolved with the set of scales). For each minor cycle this produces a location, scale, and values for all Taylor terms. The residual images and model images are updated, and iteration proceeds. The actual algorithm is shown in Figure \ref{fig:CASA}.
-
-
 The image flux model at each frequency can be written as a linear sum of  
 coefficient images at different spatial scales. 
 \begin{equation}
@@ -553,10 +427,191 @@ a collection of $\delta$-functions that describe the locations
 and integrated amplitudes of flux components of scale $s$ in the image of the $t^{th}$ series 
 coefficient. 
 
+The visibility function corresponding to \ref{eqn:msmf_model} is:
+\begin{eqnarray}
+\vec{V}^{\rm obs}_{\nu} &=& [\Sna][\F]\vec{I}^{\rm m}_{\nu}
+= \sum_{t=0}^{\Nt } \sum_{s=0}^{\Ns } \wnt [\Sna][\T_s][\F] \vec{I}^{\rm sky}_{s\atop t}
+\label{eqn:msmfs_meqn}
+\end{eqnarray}
+
+$\vec{V}^{\rm obs}_{\nu}$ is a vector of $n\times 1$ visibilities
+measured at frequency $\nu$.
+$w_{\nu}$ are Taylor-weights (shown in Eqn.\ref{Eq:msmf_model}).
+$[\Sna]$ is an $n\times m$ projection operator that represents the 
+spatial-frequency sampling function for frequency $\nu$. 
+The image-domain convolution of model $\vec{I}^{\rm sky}_{s\atop t}$ with
+ $\I^{\rm shp}_s$ is written as a spatial-frequency-domain multiplication.
+$ \vec{I}^{\rm shp}_s \star \vec{I}^{\rm sky}_{s\atop t} = [\Fd][\T_s][\F] \vec{I}^{\rm sky}_{s\atop t}$
+where $[\T_s]_{m\times m} = diag([\F] \vec{I}^{\rm shp}_s)$ is a spatial-frequency
+taper function.  All images are vectors of shape $m\times 1$.
+
+The normal equations 
+for the system described in Eqn. \ref{Eq:msmfs_meqn}
+can be written in block matrix form, with each block-row 
+(for scale size $s$, and Taylor term $t$) given by
+\begin{eqnarray}
+\label{Eq:msmfs_neqn_1}
+\sum_{p=0}^{\Ns -1}\sum_{q=0}^{\Nt -1} \left[\He_{{s,p}\atop{t,q}}\right] \vec{I}^{\rm sky}_{{p}\atop{q}} &=& \vec{I}^{\rm dirty}_{{s}\atop{t}}~~~  \forall~ s \in [0,\Ns -1], t\in[0,\Nt -1]
+\end{eqnarray}
+Here, each $\left[\He_{{s,p}\atop{t,q}} \right]$ is an $m\times m$ block of the 
+Hessian matrix, and $\vec{I}^{\rm dirty}_{{s}\atop{t}}$ is one of $\Ns  \Nt $ dirty images.
+\begin{eqnarray}
+\left[\He_{{s,p}\atop{t,q}} \right] &=& \left[\A_{{s}\atop{t}}^{\dag}\right][\Wim] \left[\A_{{p}\atop{q}}\right] \\
+ &=&    [\Fd \T_s  \Sd \Wntd ]  [\Wim]  [\W^{\rm mfs}_q \Sa \T_p \F] \\
+ &=&    [\Fd \T_s \F] [\Fd  \Sd \Wntd  \Wim  \W^{\rm mfs}_q \Sa  \F] [\Fd \T_p \F]\\
+% &=&    [\Fd \T_s \F] [\He^{\rm mfs}_{t,q}] [\Fd \T_p \F]
+ &=& [\Fd \T_s \F] \left\{  \sum_{\nu} \wntq [\Fd\Snd\Wimn\Sna\F] \right\} [\Fd \T_p \F] \\
+ &=& [\Fd \T_s \F] \left\{  \sum_{\nu} \wntq [\He_{\nu}\} \right\} [\Fd \T_p \F] 
+\end{eqnarray}
+
+$[\Wim]$ is a diagonal matrix of data-weights (and imaging-weights) and  
+$[\W^{\rm mfs}_t]$ is a diagonal matrix containing Taylor-weights $\wnt$.
+$[\He_{\nu}] =  [\Fd\Snd\Wimn\Sna\F]$ is the Hessian matrix formed using only one
+ frequency channel, and
+is a convolution operator containing a shifted version of the single-frequency 
+point-spread-function $\I^{\rm psf}_{\nu} = diag[\Fd \Sd \Wimn \Sa]$ in each row 
+(see appendix \ref{App:normal} for details).
+$[\Fd \T_s\F]$ and $[\Fd\T_p\F]$ are also convolution operators 
+with $\I^{\rm shp}_s$ and $\I^{\rm shp}_p$ as their kernels. 
+The process of convolution is associative and commutative, and 
+therefore, $\left[\He_{{s,p}\atop{t,q}}\right]$  is also a convolution operator 
+whose kernel is given by 
+\begin{equation}
+\label{Eq:msmfs_neqn_2.5}
+\vec{I}^{\rm psf}_{{s,p}\atop{t,q}} = \I^{\rm shp}_s  \star \left\{ \sum_{\nu} \wntq \vec{I}^{\rm psf}_{\nu} \right\} \star \I^{\rm shp}_p 
+%&=& \I^{\rm shp}_s \star I^{\rm psf}_{t,q} \star \I^{\rm shp}_p
+\end{equation}
+
+\noindent The dirty images on the RHS of Eqn.\ref{Eq:msmfs_neqn_1} can be written as follows.
+\begin{eqnarray}
+\label{Eq:msmfs_neqn_3}
+\vec{I}^{\rm dirty}_{{s}\atop{t}}  &=&  \left[\A_{{s}\atop{t}}^{\dag}\right][\Wim]  \vec{V}^{\rm obs}\\
+&=& [\Fd \T_s \Sd\Wntd\Wim] \vec{V}^{\rm obs} \\
+&=& [\Fd \T_s \F][\Fd\Sd\Wntd\Wim] \vec{V}^{\rm obs} \\
+&=& [\Fd \T_s \F] \left\{  \sum_{\nu} \wnt [\Fd\Snd\Wimn] \vec{V}_{\nu}^{\rm obs}  \right\} \\
+&=& \I^{\rm shp}_s \star \left\{\sum_{\nu} \wnt \vec{I}^{\rm dirty}_{\nu}  \right\} 
+%&=& [\Fd \T_s \F] \vec{I}^{\rm dirty}_t = \I^{\rm shp}_s \star \vec{I}^{\rm dirty}_t\\
+\label{Eq:msmfs_neqn_3a}
+%\vec{I}^{\rm dirty}_{t}  &=& [\Fd\Sd\Wntd\Wim] \vec{V}^{corr}\\
+% &=& \sum_{\nu} \wnt [\Fd\Snd\Wimn] \vec{V}_{\nu}^{corr} = \sum_{\nu} \wnt \vec{I}^{\rm dirty}_{\nu}\\
+%\label{Eq:specPSF}
+%\vec{I}^{\rm psf}_{t,q}&=& \sum_{\nu} \wntq [\Fd\Snd\Wimn] \vec{1} = \sum_{\nu} \wntq \vec{I}^{\rm psf}_{\nu}
+\end{eqnarray}
+where ${\I}_{\nu}^{\rm dirty} = [\Fd \Snd \Wimn] \vec{V}^{\rm obs}_{\nu} $ is the dirty
+image formed by direct Fourier inversion of weighted visibilities from one frequency channel.
+
+
+When all scales and Taylor terms are combined, 
+the full Hessian matrix contains
+$\Nt  \Ns  \times \Nt  \Ns $ blocks each of size $m\times m$, 
+and $\Nt $ Taylor coefficient images each of size $m\times 1$, 
+for all $\Ns $ spatial scales.
+
+The normal equations in block matrix form for the example 
+in Eqn.\ref{meqn_msmfs_math} for $\Nt =3, \Ns =2$ is shown
+in Eqn.\ref{Eq:msmfs_neqn_matrix}.
+The Hessian matrix consists of $\Ns \times \Ns =2\times 2$ blocks 
+(the four quandrants of the matrix), each for one pair of spatial scale $s,p$ (the upper indices).
+Within each quadrant, the $\Nt \times \Nt  = 3\times 3$
+matrices correspond to various pairs of $t,q$ (Taylor coefficient indices; the lower indices).
+This layout shows how the multi-scale and multi-frequency aspects of
+this imaging problem are combined and illustrates the 
+dependencies between the spatial and spectral basis functions.
+
+\begin{equation}\small
+\left[\begin{array}{llllll} 
+\noalign{\medskip}
+   \left[\He_{{ 0, 0}\atop{ 0, 0}}\right] & \left[\He_{{ 0, 0}\atop{ 0, 1}}\right] & \left[\He_{{ 0, 0}\atop{ 0, 2}}\right] & \left[\He_{{ 0, 1}\atop{ 0, 0}}\right] & \left[\He_{{ 0, 1}\atop{ 0, 1}}\right] & \left[\He_{{ 0, 1}\atop{ 0, 2}}\right] \\  
+\noalign{\medskip}
+   \left[\He_{{ 0, 0}\atop{ 1, 0}} \right] & \left[\He_{{ 0, 0}\atop{ 1, 1}}\right] & \left[\He_{{ 0, 0}\atop{ 1, 2}}\right] & \left[\He_{{ 0, 1}\atop{ 1, 0}}\right] & \left[\He_{{ 0, 1}\atop{ 1, 1}}\right] & \left[\He_{{ 0, 1}\atop{ 1, 2}}\right] \\  
+\noalign{\medskip}
+   \left[\He_{{ 0, 0}\atop{ 2, 0}} \right] & \left[\He_{{ 0, 0}\atop{ 2, 1}}\right] & \left[\He_{{ 0, 0}\atop{ 2, 2}}\right] & \left[\He_{{ 0, 1}\atop{ 2, 0}}\right] & \left[\He_{{ 0, 1}\atop{ 2, 1}}\right] & \left[\He_{{ 0, 1}\atop{ 2, 2}}\right] \\  
+\noalign{\medskip}
+%   \hline
+\noalign{\medskip}
+   \left[\He_{{ 1, 0}\atop{ 0, 0}} \right] & \left[\He_{{ 1, 0}\atop{ 0, 1}}\right] & \left[\He_{{ 1, 0}\atop{ 0, 2}}\right] & \left[\He_{{ 1, 1}\atop{ 0, 0}}\right] & \left[\He_{{ 1, 1}\atop{ 0, 1}}\right] & \left[\He_{{ 1, 1}\atop{ 0, 2}}\right] \\  
+\noalign{\medskip}
+   \left[\He_{{ 1, 0}\atop{ 1, 0}} \right] & \left[\He_{{ 1, 0}\atop{ 1, 1}}\right] & \left[\He_{{ 1, 0}\atop{ 1, 2}}\right] & \left[\He_{{ 1, 1}\atop{ 1, 0}}\right] & \left[\He_{{ 1, 1}\atop{ 1, 1}}\right] & \left[\He_{{ 1, 1}\atop{ 1, 2}}\right] \\  
+\noalign{\medskip}
+   \left[\He_{{ 1, 0}\atop{ 2, 0}} \right] & \left[\He_{{ 1, 0}\atop{ 2, 1}}\right] & \left[\He_{{ 1, 0}\atop{ 2, 2}}\right] & \left[\He_{{ 1, 1}\atop{ 2, 0}}\right] & \left[\He_{{ 1, 1}\atop{ 2, 1}}\right] & \left[\He_{{ 1, 1}\atop{ 2, 2}}\right] \\  
+\noalign{\medskip}
+   \end{array} \right]
+\left[\begin{array}{l} 
+\noalign{\medskip}
+		       \vec{I}^{\rm sky}_{{ 0}\atop{ 0}} \\ 
+\noalign{\medskip}
+                       \vec{I}^{\rm sky}_{{ 0}\atop{ 1}}\\ 
+\noalign{\medskip}
+		       \vec{I}^{\rm sky}_{{ 0}\atop{ 2}}\\ 
+\noalign{\medskip}
+%\hline
+\noalign{\medskip}
+		       \vec{I}^{\rm sky}_{{ 1}\atop{ 0}} \\ 
+\noalign{\medskip}
+		       \vec{I}^{\rm sky}_{{ 1}\atop{ 1}}\\ 
+\noalign{\medskip}
+		       \vec{I}^{\rm sky}_{{ 1}\atop{ 2}}\\
+\noalign{\medskip}
+			       \end{array}\right] =
+\left[\begin{array}{l} 
+\noalign{\medskip}
+                       \vec{I}^{\rm dirty}_{{ 0}\atop{ 0}}  \\ 
+\noalign{\medskip}
+                       \vec{I}^{\rm dirty}_{{ 0}\atop{ 1}} \\ 
+\noalign{\medskip}
+		       \vec{I}^{\rm dirty}_{{ 0}\atop{ 2}}\\ 
+\noalign{\medskip}
+%\hline
+\noalign{\medskip}
+		       \vec{I}^{\rm dirty}_{{ 1}\atop{ 0}} \\ 
+\noalign{\medskip}
+		       \vec{I}^{\rm dirty}_{{ 1}\atop{ 1}} \\ 
+\noalign{\medskip}
+		       \vec{I}^{\rm dirty}_{{ 1}\atop{ 2}} \\
+\noalign{\medskip}
+			       \end{array}\right] 
+\label{Eq:msmfs_neqn_matrix}
+\end{equation}
+
+This is the system of equations to be solved.
+% to obtain estimates of the model parameters $I^{\rm sky}_{p\atop q}$.
+The spatial-frequency sampling  of a real interferometer is always incomplete 
+($[\Sa]$ is rank-deficient).
+Therefore, each Hessian block, and the entire Hessian matrix is singular, and an exact inverse
+does not exist\footnote
+{Even if $[\He]$ were invertible, it is impractical to evaluate and invert the full Hessian
+(each row of each Hessian block represents an image).
+}. An accurate reconstruction can be obtained only via successive approximation
+(iterative numerical optimization).
+ 
+However, the Hessian is still useful since some of the diagonal terms can used to decouple the pixels in Taylor term space as well as possible. In practice, the Hessian (for each scale) for the peak of the PSF in Taylor term space is of modest size and can be inverted and used. The greedy algorithm then locates the scale and location in the reference-frequency image (as convolved with the set of scales). For each minor cycle this produces a location, scale, and values for all Taylor terms. The residual images and model images are updated, and iteration proceeds. The actual algorithm is shown in Algorithm \ref{algo:CASA} (CASA form) and Algorithm \ref{algo:ASKAP} (ASKAP form).
+
+In summary, MSMFS decouples Taylor terms using the Hessian in Taylor-space evaluated at the peak of the PSF, and uses a greedy CLEAN-like algorithm to decouple in scale and sky position. The scales can be decoupled by an orthogonalisation process prior to deconvolution but the resulting images tend to have non-physical regions of negative brightness.
+
+
+
 \clearpage
 \section{CASA and ASKAPsoft implementations}
 
-The MS-MFS algorithm as implemented in CASA shown in Algorithm \ref{CASA}. The ASKAPsoft version is shown in Algorithm \ref{ASKAP} with the variant lines in red.
+The MS-MFS algorithm as implemented in CASA shown in Algorithm \ref{algo:CASA}. The ASKAPsoft version is shown in Algorithm \ref{algo:ASKAP} with the variant lines in red.
+
+We can relate these back to the graphical form Figure \ref{fig:majorminor} by introducing variant sub pipelines for Predict and MakeImage. These are graphically shown in Figures \ref{fig:predictuv} to \ref{fig:makeimageimage}: 
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=\textwidth]{./MSMFS_Predict_UV.pdf}
+  \caption{Structure of UV-weighting Predict, as used in ASKAPsoft. }
+  \label{fig:predictuv}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=\textwidth]{./MSMFS_MakeImage_UV.pdf}
+  \caption{Structure of UV-weighting MakeImage, as used in ASKAPsoft. Note that the three loops (denoted by the rectangle with curved ends) can be permutated at will.}
+  \label{fig:predictimage}
+\end{figure}
+
+
 
 %\begin{figure}[htb]
 %  \centering
@@ -669,7 +724,7 @@ If required, remove average primary beam : $\vec{I}^{\rm new}_{\nuup_0}=\vec{I}^
 %\vspace{0.5cm}
 
   \caption[MS-MFS Algorithm]
-         {MS-MFS, as implemented in CASA}\label{CASA}
+         {MS-MFS, as implemented in CASA}\label{algo:CASA}
 
 \end{algorithm}
 
@@ -773,25 +828,9 @@ If required, remove average primary beam : $\vec{I}^{\rm new}_{\nuup_0}=\vec{I}^
 %\vspace{0.5cm}
 
   \caption[MS-MFS Algorithm]
-         {MS-MFS, as implemented in ASKAPsoft: {\color{red} red denotes difference from CASA}}\label{ASKAP}
+         {MS-MFS, as implemented in ASKAPsoft: {\color{red} red denotes difference from CASA}}\label{algo:ASKAP}
 
 \end{algorithm}
-
-We can relate these back to the graphical form Figure \ref{fig:majorminor} by introducing variant sub pipelines for Predict and MakeImage. These are graphically shown in Figures \ref{fig:predictuv} to \ref{fig:makeimageimage}: 
-
-\begin{figure}[htb]
-  \centering
-  \includegraphics[width=\textwidth]{./MSMFS_Predict_UV.pdf}
-  \caption{Structure of UV-weighting Predict, as used in ASKAPsoft. }
-  \label{fig:predictuv}
-\end{figure}
-
-\begin{figure}[htb]
-  \centering
-  \includegraphics[width=\textwidth]{./MSMFS_MakeImage_UV.pdf}
-  \caption{Structure of UV-weighting MakeImage, as used in ASKAPsoft. Note that the three loops (denoted by the rectangle with curved ends) can be permutated at will.}
-  \label{fig:predictimage}
-\end{figure}
 
 
 \begin{figure}[htb]
@@ -886,6 +925,7 @@ In this approach, the facets will almost certainly be processed on different com
 \begin{itemize}	
 \item Construct the facets with some padding, deconvolve each separately, and reconcile after deconvolution by facet to facet broadcast.
 \item Construct the facets without padding, send all facets to one compute island, perform deconvolution, distribute models to facets. 
+\item Each CI holds a distinct facet, which do not overlap. Synchronise after peak finding and residual updates. After a peak is found, all islands receive the global peak and update accordingly. Since the limit of coupling is assumed to be the CLEAN patch size, all peaks sufficiently far apart can be processed simultaneously.
 \end{itemize}
 
 The first approach will inevitably introduce edge effects in the final image revealing the facet grid, while the second will block processing while deconvolution proceeds on the different sub-band compute nodes. We would then benefit from two different types of nodes:
@@ -894,6 +934,7 @@ The first approach will inevitably introduce edge effects in the final image rev
 \item[MinorCycle] Requires a substantial number of scratch images, but not the visibility data. Stalled during Predict and MakeImage.	
 \end{description}
 
+The third approach to deconvolution requires low latency communications. It should be investigated.
 
 \subsection{Partitioning for Minor Cycle}
 
@@ -911,7 +952,7 @@ Thus in summary, the Major Cycles are parallelised while the deconvolution runs 
 
 The ASKAPsoft code is mirrored in the SDP Github repository. The ASKAPsoft cimager is an MPI-enabled program. Since it was written as parallel program from the beginning, the structure is easier to follow than the CASA version. Distribution over MPI is via frequency, rather than time as in CASA. Predict and MakeImage are distributed using MPI (via a thin bookkeeping layer). The MinorCycle is performed on the master, and thus blocks until the deconvolution steps have completed.
 
-The minor cycle  algorithm is in C++ Template DeconvolverMultiTermBasisFunction.tcc. The basis function is abstracted and can be any class having the interface DeconvolverMultiTermBasisFunction. There are two forms present: one for point sources, and one for the same blobs used in CASA - a truncated upside down parabola. The basis functions may optionally be orthogonalised using the Gramm-Schmidt algorithm.
+The minor cycle  algorithm is in C++ Template DeconvolverMultiTermBasisFunction.tcc. The basis function is abstracted and can be any class having the interface DeconvolverMultiTermBasisFunction. There are two forms present: one for point sources, and one for the same blobs used in CASA - a truncated upside down parabola. The basis functions may optionally be orthogonalised using the Gramm-Schmidt algorithm though there is little relevant experience.
 
 The optimum blob location and scale is found by using one of two criteria:
 
@@ -955,35 +996,48 @@ Thus, keeping only the dominant terms, the total memory used during iteration is
 M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix} 
 \end{equation}
 
-Using typical values of $N_t=5$ and $N_s=5$, we find that the memory use is about $35 N_{pix}$. For a 200,000 by 200,000 pixel image, this requires 5.6 TB total. Spread over O(100) Compute Islands (partitioning by facet and sub-band), this requires 56 GB per CI.
+Using L2 assumptions values of $N_t=5$ and $N_s=10$, we find that the memory use is about $65 N_{pix}$. For a 200,000 by 200,000 pixel image, this requires 10.4 TB total. Spread over O(100) Compute Islands (partitioning by facet and sub-band), this requires 104 GB per CI. The overhead for performing the MSMFS minor cycle is a factor of fifty, and for the major cycle a factor of 5 (if ASKAP) in gridding, and a factor of O(500) in FFT (if CASA).
 
 
-
-\clearpage
-\section{A projection}
-\label{sec:minor}
-
-\clearpage
-\section{Wide-band behaviour}
-\label{sec:wideband}
-
-\begin{itemize}
-\item Does naive broadband work?
-\item Bhatnagar et al WB algorithm	
-\end{itemize}
-
+%
+%\clearpage
+%\section{A projection}
+%\label{sec:minor}
+%
+%\clearpage
+%\section{Wide-band behaviour}
+%\label{sec:wideband}
+%
+%\begin{itemize}
+%\item Does naive broadband work?
+%\item Bhatnagar et al WB algorithm	
+%\end{itemize}
+%
 
 \clearpage
 \section{Recommendations}
 \label{sec:recommendations}
 
+
+
+Parallel versions of both variants exist. These work by distributing in time (CASA) and frequency (ASKAPsoft). Parallelisation of the Minor Cycle is not straightforward and consequently both CASA and ASKAPsoft use single-threaded inner loops. This is unlikely to be successful for SKA, and instead the Minor Cycle has to be parallelised inside one CI and perhaps additionally distributed over multiple CI's.
+
+In light of this memo, the following recommendations are made:
+
 \begin{enumerate}
-\item Implement both Image and Visibility based calculation of the Taylor term images in the Performance Model.
-\item Update the Performance Model to reflect the memory usage:
+\item Perform simulations to explore the need for MSMFS in SKA. Currently an L1 requirement directs SDP to implement MSMFS. However there is no justification given for this very computationally demanding processing. Indeed the promised excellent UV coverage of the SKA telescopes makes it at least questionable. Adding to the desire to see some more justification of the requirement, we note that the L1 requirements do not address the number of scales required, the number of Taylor terms, or the possibility of sub-banding (all of which appear in the SDP L2 requirements. We note three possible outcomes of the simulations: MFS can be ignored, MFS is required and MSMFS is sufficient, or MFS is needed and MFMFS is not sufficient. In the case of the latter outcome, investigation of other deconvolution techniques (e.g. [RD37]) would be required.
+\item Implement both Image (CASA) and Visibility based (ASKAPsoft) calculation of the Taylor term images in the Performance Model. The only reasons to choose one over the other are to do with the relative speed of gridding and FFTs. When it comes to implementation during construction, the costs of implementing both approaches should be minimal, and unimportant compared to the risk of implementing the wrong choice.
+\item Update the SDP Performance Model to reflect the MSMFS memory usage:
 \begin{equation}
 M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix} 
 \end{equation}
-\item A multi-threaded Minor Cycle on one Compute Island should be prototyped.
+\item Update the SDP Performance Model to reflect the MSMFS Flops:
+\begin{equation}
+Rflop_{MSMFSminor} = N_{minor} N_{pix}^2 N_s N_T	
+\end{equation}
+\item Prototype a multi-threaded Minor Cycle on one Compute Island. GPUMultiscaleCLEAN might be a good starting point. Do MS and then MSMFS. This can be done without implementing a major cycle.
+\item Model and then, if promising, prototype a distributed Minor Cycle on multiple CI's where synchronisation occurs every iteration. Do MS and then MSMFS. This can be done without implementing a major cycle.
+\item The SKAO Science Team should be consulted about the possibility of seams in the images or spectral cubes. These may occur both spatially (if the facets are deconvolved separately, or in frequency, because of the disjoint use of MSMFS in the different sub-bands.
 \end{enumerate}
 
 

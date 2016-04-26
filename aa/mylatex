@@ -1,3 +1,0 @@
-export TEXINPUTS="/usr/share/texmf/tex//:.:./stylefiles"
-latex msmfs_aa.tex
-
