@@ -15,6 +15,8 @@
 \usepackage{hhtensor}
 \usepackage{color}
 \usepackage{txfonts}
+\usepackage{enumitem}
+
 
 %\usepackage{stylefiles/fmtcount}
 \usepackage{natbib}
@@ -48,7 +50,7 @@
 % Context
 \newcommand{\context}{(SDP.PIP)}
 % Revision
-\newcommand{\revision}{2\xspace}
+\newcommand{\revision}{3\xspace}
 % Author(s)
 \newcommand{\docauthor}{T.J.\ Cornwell\xspace}
 % Lead author (goes in the footer)
@@ -62,19 +64,21 @@
 
 % The definitions below are used for the signature tables in the preamble of
 % the document
-\newcommand{\firstsigname}{Name 1 - to be filled in}
-\newcommand{\firstsigdesignation}{Designation 1 - to be filled in}
-\newcommand{\firstsigaffiliation}{Affiliation 1 - to be filled in}
+\newcommand{\firstsigname}{T.J. Cornwell}
+\newcommand{\firstsigdesignation}{Author}
+\newcommand{\firstsigaffiliation}{TCC}
 
-\newcommand{\secondsigname}{Name 2 - to be filled in}
-\newcommand{\secondsigdesignation}{Designation 2 - to be filled in}
-\newcommand{\secondsigaffiliation}{Affiliation 2 - to be filled in}
+\newcommand{\secondsigname}{T.J. Cornwell}
+\newcommand{\secondsigdesignation}{Lead Consultant}
+\newcommand{\secondsigaffiliation}{TCC}
 
 % Table with version numbers
 \newcommand{\versiontable}{
   \begin{tabularx}{\textwidth}{|X|X|X|X|}
     \hline
     \bf{Version} & {\bf Date of issue} & {\bf Prepared by} & {\bf Comments}\\
+    \hline
+    0.3 & 27/04/2016 & T.J. Cornwell & Ready for review by Anna and Steve \\
     \hline
   \end{tabularx}
 }
@@ -106,7 +110,7 @@
     \centering
     \begin{tabular}[htb]{|l|l|}
       \hline
-      Name & Science Data Processor Consortium\\
+      Name & Tim Cornwell Consulting\\
       \hline
     \end{tabular}
   \end{table}
@@ -221,6 +225,38 @@
 % Add here the executive summary
 \sdpsummary
 
+Parallel versions of both variants of MSMFS exist. These work by distributing in time (CASA) and frequency (ASKAPsoft). Parallelisation of the Minor Cycle is not straightforward and consequently both CASA and ASKAPsoft currently use single-threaded inner loops. This is unlikely to be successful for SKA, and instead the Minor Cycle has to be parallelised inside one CI and perhaps additionally distributed over multiple CI's.
+
+In light of this memo, the following recommendations are made concerning the need for MFS:
+
+\begin{enumerate}
+\item Perform simulations to explore the need for MSMFS in SKA. Currently an L1 requirement directs SDP to implement MSMFS. However there is no justification given for this very computationally demanding processing. Indeed the promised excellent UV coverage of the SKA telescopes makes it at least questionable, although arguing from the work of Urvashi [RD??] does indicate that with MFS, the dynamic range would be limited to $10^4$ for wide frequency span. Either CASA or ASKAPsoft could be used for the reconstructions.
+\item Adding to the desire to see some more justification of the requirement, we note that the L1 requirements do not address the number of scales required, the number of Taylor terms, or the possibility of sub-banding (all of which appear in the SDP L2 requirements. We note three possible outcomes of the simulations: MFS can be ignored, MFS is required and MSMFS is sufficient, or MFS is needed and MFMFS is not sufficient. In the case of the latter outcome, investigation of other deconvolution techniques (e.g. [RD14]) would be required.
+\item Assess the importance of the considerations in Section \ref{sec:other}.
+\end{enumerate}
+
+The following recommendations address the resource usage:
+\begin{enumerate}[resume]
+\item Implement both Image (CASA) and Visibility based (ASKAPsoft) calculation of the Taylor term images in the SDP Performance Model. The main reasons to choose one over the other are to do with the relative speed of gridding and FFTs. When it comes to implementation during construction, the costs of implementing both approaches should be minimal, and unimportant compared to the risk of implementing the wrong choice.
+\item Update the SDP Performance Model to reflect the MSMFS memory usage:
+\begin{equation}
+M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix}^2 
+\end{equation}
+\item Update the SDP Performance Model to reflect the MSMFS Flops:
+\begin{equation}
+Rflop_{MSMFSminor} = N_{minor} N_{pix}^2 N_s N_T	
+\end{equation}
+\item Prototype a multi-threaded Minor Cycle on one Compute Island. GPUMultiscaleCLEAN might be a good starting point. Do MS and then MSMFS. This can be done without implementing a major cycle.
+\item Model and then, if promising, prototype a distributed Minor Cycle on multiple CI's where synchronisation occurs every iteration. Do MS and then MSMFS. This can be done without implementing a major cycle.\end{enumerate}
+
+The following recommendations address wider issues:
+\begin{enumerate}[resume]
+\item The SKAO Science Team should be consulted about the impact of seams in the images or spectral cubes. These may occur both spatially (if the facets are deconvolved separately, or in frequency, because of the disjoint use of MSMFS in the different sub-bands. It seems questionable that these can be tolerated.
+
+\item We should note that MSMFS was developed in a serial platform where computation was expensive and memory access cheap. In the SDP context, the processing is distributed and parallel, and computation is cheap and memory access expensive. Although SDP has no remit to develop new algorithms, it could encourage researchers to address this new context.
+\end{enumerate}
+
+
 
 \newpage
 
@@ -266,33 +302,26 @@ conflict between the contents of the referenced documents and this document,
      \bf{Reference} & \bf{Reference}\\
      \bf{Number} & \\
      \hline
-   {\bf [RD01]} & SKA-TEL-SDP-0000041, F. Malan: iPython Performance Model Description\\
-   {\bf [RD02]} & SKA-TEL-SDP-0000027, R. Nijboer: Pipelines Element Subsystem Design\\
-   {\bf [RD03]} & SKA-TEL-SDP-0000038, R. Bolton: High Priority Science Objectives: Performance Analysis\\
-   {\bf [RD04]} & SKA-TEL-SDP-0000028, A.-J. Boonstra: Ingest Pipeline\\
-   {\bf [RD05]} & SKA-TEL-SDP-0000029, S. Salvini: Pipelines: Calibration\\
-   {\bf [RD06]} & SKA-TEL-SDP-0000030, A. Scaife: Imaging Pipeline\\
-   {\bf [RD07]} & SKA-TEL-SDP-0000031, M. Johnston-Hollitt: Science Analysis Pipeline\\
-   {\bf [RD08]} & SKA-TEL-SDP-0000017, S. Wijnholds: Baseline-Dependent Averaging\\
-   {\bf [RD09]} & SKA-TEL-SDP-0000058, S. Salvini: Fast Fourier Transforms\\
-   {\bf [RD10]} & SKA-TEL-SDP-0000057, C. Skipper: Time and Channel Averaging\\
-   {\bf [RD13]} & \url{http://www.astron.nl/casacore/trunk/casacore/doc/notes/229.html}\\
-   {\bf [RD15]} & Imager.cc C++ source, CASA source code SVN revision 30821, \url{https://svn.cv.nrao.edu/svn/casa/trunk}\\ 
-   {\bf [RD17]} & Parameterized deconvolution for wide-band radio synthesis imaging, Urvashi Rao Venkata, 2010, PhD thesis\\
-   {\bf [RD18]} & S. Bhatnagar, T. J. (2008). Correcting direction-dependent gains in the deconvolution of radio interferometric images. A\&A, 419-429\\
-   {\bf [RD22]} & Rik Jongerius, S. W. (2014). An End-to-End Computing Model for the Square Kilometre Array. IEEE Computer, volume 47, number 9\\
-   {\bf [RD24]} & SDP Element Concept. Paul Alexander, Chris Broekema, Simon Ratcliffe, Rosie Bolton, Bojan Nikolic, 2013, SDP-PROP-DR-001-1 (part of SKA SDP Consortium proposal)\\
-   {\bf [RD34]} & Cornwell, T. J. (2008). Multi-Scale CLEAN deconvolution of radio synthesis images. IEEE Journal of Selected Topics in Sig. Proc., 2, 793–801.\\
-   {\bf [RD35]} & Conway, J. E., Cornwell, T. J., and Wilkinson, P. N. (1990). Multi-Frequency Synthesis - a New Technique in Radio Interferometric Imaging. Monthly Notices of the Royal Astronomical Society, 246, 490.\\
-   {\bf [RD36]} & http://www.aanda.org/component/citedby/?task=crossref\&doi=10.1051/0004-6361/201117104 \\  
-   {\bf [RD37]} & Junklewitz, H., Bell, M. R., and Ensslin, T. (2015). A new approach to multifrequency synthesis in radio interferometry. Astronomy \& Astrophysics, 581, A59. http://doi.org/10.1051/0004-6361/201423465 \\
-   \hline
+   {\bf [RD01]} & SKA-TEL-SDP-0000027, R. Nijboer: Pipelines Element Subsystem Design\\
+   {\bf [RD02]} & SKA-TEL-SDP-0000038, R. Bolton: High Priority Science Objectives: Performance Analysis\\
+   {\bf [RD03]} & SKA-TEL-SDP-0000029, S. Salvini: Pipelines: Calibration\\
+   {\bf [RD04]} & SKA-TEL-SDP-0000030, A. Scaife: Imaging Pipeline\\
+   {\bf [RD05]} & \url{http://www.astron.nl/casacore/trunk/casacore/doc/notes/229.html}\\
+   {\bf [RD06]} & Imager.cc C++ source, CASA source code SVN revision 30821, \url{https://svn.cv.nrao.edu/svn/casa/trunk}\\ 
+   {\bf [RD07]} & Parameterized deconvolution for wide-band radio synthesis imaging, Urvashi Rao Venkata, 2010, PhD thesis\\
+   {\bf [RD08]} & S. Bhatnagar, T. J. (2008). Correcting direction-dependent gains in the deconvolution of radio interferometric images. A\&A, 419-429\\
+   {\bf [RD09]} & Rik Jongerius, S. W. (2014). An End-to-End Computing Model for the Square Kilometre Array. IEEE Computer, volume 47, number 9\\
+   {\bf [RD10]} & SDP Element Concept. Paul Alexander, Chris Broekema, Simon Ratcliffe, Rosie Bolton, Bojan Nikolic, 2013, SDP-PROP-DR-001-1 (part of SKA SDP Consortium proposal)\\
+   {\bf [RD11]} & Cornwell, T. J. (2008). Multi-Scale CLEAN deconvolution of radio synthesis images. IEEE Journal of Selected Topics in Sig. Proc., 2, 793–801.\\
+   {\bf [RD12]} & Conway, J. E., Cornwell, T. J., and Wilkinson, P. N. (1990). Multi-Frequency Synthesis - a New Technique in Radio Interferometric Imaging. Monthly Notices of the Royal Astronomical Society, 246, 490.\\
+   {\bf [RD13]} & http://www.aanda.org/component/citedby/?task=crossref\&doi=10.1051/0004-6361/201117104 \\  
+   {\bf [RD14]} & Junklewitz, H., Bell, M. R., and Ensslin, T. (2015). A new approach to multifrequency synthesis in radio interferometry. Astronomy \& Astrophysics, 581, A59. http://doi.org/10.1051/0004-6361/201423465 \\
+   {\bf [RD15]} & Cornwell, T.J. (2016) Extension of the SDP performance model for cross data-island connectivity, TCC-SDP-151123-1-1 \\
+	{\bf [RD16]} & Rau, U., \& Cornwell, T. J. (2011, June 14). A multi-scale multi-frequency deconvolution algorithm for synthesis imaging in radio interferometry. arXiv.org. EDP Sciences. http://doi.org/10.1051/0004-6361/201117104   \\
+	{\bf [RD17]} & Bhatnagar, S., Rau, U., \& Golap, K. (2013). Wide-field wide-band Interferometric Imaging: The WB A-Projection and Hybrid Algorithms. The Astrophysical Journal, 770(2), 91. http://doi.org/10.1088/0004-637X/770/2/91 \\
+	\hline
  \end{tabularx}
 \end{center}
-
-% The actual content goes here
-\newpage
-\section{Introduction}
 
 \clearpage
 \section{Purpose of the document}
@@ -300,17 +329,17 @@ conflict between the contents of the referenced documents and this document,
 
 The purpose of this document is to describe the Multi-Scale MultiFrequency Synthesis algorithm, the variant implementations in CASA and ASKAPsoft, and the scaling for insertion in the SDP Performance Model. We conclude with some recommendations.
 
-\clearpage
 \section{Scope of the document}
 
-\clearpage
+The scope includes only the published Multi-Scale, Multi-Frequency algorithm, existing implementations, and inclusion in the SDP processing pipelines. No other MFS algorithms are explored.
+
 \section{Background}
 
-The imaging performance of a radio synthesis telescope is related to the uv coverage. The uv coverage is dependent on the observing wavelength so diversity in uv can be obtained by observing over a range of frequencies [RD35]. This Multi-Frequency Synthesis (MFS) only works for radio sources in which broadband emission is present, giving a way to relate measurements at different frequencies. There have been multiple attempts at an MFS algorithm (e.g. [RD35]). MFS is usually most important for sources having extended emission. Hence multi-scale algorithms are favoured.
+The imaging performance of a radio synthesis telescope is related to the uv coverage. The uv coverage is dependent on the observing wavelength so diversity in uv can be obtained by observing over a range of frequencies [RD12]. This Multi-Frequency Synthesis (MFS) only works for radio sources in which broadband emission is present, giving a way to relate measurements at different frequencies. There have been multiple attempts at an MFS algorithm (e.g. [RD12]). MFS is usually most important for sources having extended emission. Hence multi-scale algorithms are favoured.
 
-The Multi-Scale, Multi-Frequency Synthesis (MS-MFS) algorithm was developed by Urvashi [RD17], melding together the concepts from multi-scale clean [RD34] and multi-frequency synthesis e.g. [RD35], with the goal of improving the reconstruction of sky brightness from radio interferometric data. The explicit model used for the sky brightness is a collection of blobs of varying scale sizes and strengths, each with spectral behaviour described by a power law expanded into a Taylor series. It has been used in JVLA, ALMA, and ATCA observations [RD36].
+The Multi-Scale, Multi-Frequency Synthesis (MS-MFS) algorithm was developed by Urvashi [RD07], melding together the concepts from multi-scale clean [RD11] and multi-frequency synthesis e.g. [RD12], with the goal of improving the reconstruction of sky brightness from radio interferometric data. The explicit model used for the sky brightness is a collection of blobs of varying scale sizes and strengths, each with spectral behaviour described by a power law expanded into a Taylor series. It has been used in JVLA, ALMA, and ATCA observations [RD13].
 
-The algorithm is an elaboration of the Multiscale CLEAN. It consists of two parts:
+The algorithm is an elaboration of the Multiscale CLEAN [RD11]. It consists of two parts:
 \begin{description}
 \item[Major cycle] The image residuals for the current model are calculated by Fourier transform of the images constituting the power law expansion and degridding to obtain the predicted visibility, subtraction from the observed visibility, then gridding, and Fourier transformation to the image plane. There are two ways of performing this cycle depending on whether the Taylor series is calculated in image or uv space. Typically 5 - 10 major cycles are required.
 \item[Minor cycle] The minor cycle is a greedy algorithm which identifies the dominant candidate scale and removes that using the appropriate PSF centered on that component. The minor cycle repeats this until convergence. Typically hundreds or thousands of iterations are required.
@@ -329,27 +358,26 @@ The major cycle returns to the visibility data each iteration, whereas the minor
 
 MSMFS is relatively high in complexity because the usual CLEAN process is coupled over both scale (MSClean) and frequency or Taylor terms (MFS). The minor cycle must conduct a search in scale and Taylor term for each peak search. The major cycle requires calculation of the residual Taylor terms, which implies gridding and degridding all relevant frequency information. Memory use is high since a large number of images must be kept and updated as the iteration proceeds.
 
-
-
 \clearpage
 
 \section{Is MFS needed?}
 \label{sec:mfsneeded}
 
-There is an L1 requirement, $SKA1-SYS\_REQ-2324$ specifying that MSMFS must be used (see Table\ref{tab:L1}).
+There is an L1 requirement [AD03], $SKA1-SYS\_REQ-2324$ specifying that MSMFS must be used for continuum imaging (see Table\ref{tab:L1}).
 
 \begin{table}[htp]
 \begin{tabular}{|c|L|c|c|c|}
 \hline
 ID & Requirement & Status & Parent Requirement & Verification \\
-\hline$SKA1-SYS\_REQ-2324$ &Multi-frequency synthesis imaging. All imaging shall construct and make use of frequency dependent image models over the entire observed bandwidth. & Accepted & Reference [2] & Demonstration \\
+\hline$SKA1-SYS\_REQ-2324$ &Multi-frequency synthesis imaging. All imaging shall construct and make use of frequency dependent image models over the entire observed bandwidth. & Accepted & Reference & Demonstration \\
 \hline 
 \end{tabular}	
 \caption{Relevant L1 requirement}\label{tab:L1}	
 \end{table}
 
-This is reflected in the L2 requirements shown in Table\ref{tab:L2}.
+This is reflected in the L2 requirements shown in Table \ref{tab:L2}.
 \begin{table}[htp]
+\begin{center}
 \begin{tabular}{|L|L|L|L|L|}
 \hline
 \multicolumn{2}{|c|}{Function}&\multicolumn{3}{c|}{Satisfies requirement}\\
@@ -374,25 +402,33 @@ F1.9 & Calibrate and Image & $SDP\_REQ-678$	& Continuum imaging deconvolution
   imaging the SDP shall deconvolve by sub-band (TBC).\\\hline 
 \end{tabular}
 \caption{Relevant L2 requirements}	\label{tab:L2}
+\end{center}
 \end{table}
 
 The last three L2 requirements, $SDP\_REQ-676$, $SDP\_REQ-677$, $SDP\_REQ-678$, are an attempt to give some constraints to $SKA1-SYS\_REQ-2324$. However, they beg the same question as the original L1 requirement: is MSMFS needed to meet the scientific goals? If so, how many scales, Taylor terms, and sub-bands are required? In addition, there is also a potentially missing requirement concerning the connection between the models for different sub-bands - is there allowed to be a seam in the continuum-subtracted spectral line cube at the transitions between sub-bands?
 
-Finally we could ask is there a superior algorithm already published? (see e.g. [RD37]).
+Finally we could ask is there a superior algorithm already published? (see e.g. [RD14]). The degree of tuning required for MSMFS (number of scales and number of Taylor terms) is acceptable in a hands-on data processing scenario but may be not acceptable for a general purpose pipeline.
 
 Some caution is advised in advocating that any form of MFS is not needed. Clearly ALMA and JVLA, which also have relatively good uv coverage, have benefited from the use of MSMFS. Furthermore, although the uv-coverage of SKA1-LOW and SKA1-MID is excellent after a long observation, there will inevitably be pressure to observe with shorter observation times. We should remember than the VLA was supposed to take 8 hours to image every field. With the advent of CLEAN and self-calibration, it was known even in the early eighties that 400 sources could be imaged in a day.
 
+Urvashi has discussed the use of MSMFS for the JVLA (section 8.4.2.1 of [RD??]. With regard to just ignoring the effect of spectral index variations, she says:
+
+\begin{quotation}
+Dynamic-range limits when source spectra are ignored : If continuum imaging is done with only MFS gridding and source spectra are ignored, spectral structure will masquerade as spurious spatial structure. These errors will affect regions of the image both on-source and off-source and their magnitudes depend on the available uv-coverage, the frequency range being covered, the choice of reference frequency, and the intensity and spectral index of the source. A rough rule of thumb for an EVLA-type uv-coverages (see section 6.2.4.2) is that for a point source of with spectral index α = −1.0 measured between 1 and 2 GHz, the peak error obtained if the spectrum is ignored is at a dynamic range of $ < 10^3$. Note that when all sources in the observed region of the sky have similar spectral indices, these errors can be reduced by dividing out an average spectral index (one single number over the entire sky) from the visibilities before imaging the\end{quotation}
+
+If we suppose that the SKA PSF is ten times better than that of the JVLA (an over estimate since the RMS sidelobe level goes only as the inverse of the number of antennas), the dynamic range limitation for SKA1-LOW and SKA1-MID still appears at about $10^4$, which is clearly insufficient. Furthermore, the primary beam will vary across the frequency span, and this will lead to spurious structure if spectral effects are ignored (cf Urvashi). The introduction of sub-bands does ameliorate these problems to some degree but then the continuum structure model is only defined in pieces that are not necessarily consistent at the edges.
+
 There is no mechanism to address these questions beyond simulations. Arguing from uv coverage metrics such as the UVGAP only helps in a relative sense.
 
-\clearpage
 
+\clearpage
 
 \section{Overview of MSMFS}
 \label{sec:overview}
 
 \subsection{Mathematical description}
 
-In the Multi-Scale CLEAN [RD??], the sky is modelled as a set of blobs. Performing this decomposition using a gradient search algorithm is very demanding of resources. Instead, in MSCLEAN, a greedy algorithm obtained by generalising the CLEAN algorithm is used. The greedy algorithm locates the amplitude, scale and location of the blob by a straightforward search in the set of residual images, each smoothed with the appropriate blob. For each minor cycle this produces an amplitude, location, and scale. The smoothed residual images and model images are updated, and iteration proceeds.
+In the Multi-Scale CLEAN [RD11], the sky is modelled as a set of blobs. Performing this decomposition using a gradient search algorithm is very demanding of resources. Instead, in MSCLEAN, a greedy algorithm obtained by generalising the CLEAN algorithm is used. The greedy algorithm locates the amplitude, scale and location of the blob by a straightforward search in the set of residual images, each smoothed with the appropriate blob. For each minor cycle this produces an amplitude, location, and scale. The smoothed residual images and model images are updated, and iteration proceeds.
 
 \begin{equation}
 \vec{I}^{model} = \sum_{s=0}^{N_s-1}  \vec{I}^{shp}_{s} \star \vec{I}^{sky,\delta}_s
@@ -404,7 +440,7 @@ $\vec{I}^{sky,\delta}_{s}$ represents a collection of $\delta$-functions that de
 and integrated amplitudes of flux components of scale $s$ in the image. $\vec{I}^{shp}_s$ is a tapered truncated parabola of width proportional to $s$.
 The symbol $\star$ denotes convolution. 
 
-The MSMFS algorithm decomposes the image into a set of $N_s$ blobs each with $N_t$ Taylor terms. 
+The MSMFS [RD07] algorithm decomposes the image into a set of $N_s$ blobs each with $N_t$ Taylor terms. The following description is drawn from [RD07]
 
 \begin{eqnarray}
 \label{eqn:mf_model}
@@ -611,14 +647,6 @@ We can relate these back to the graphical form Figure \ref{fig:majorminor} by in
   \label{fig:predictimage}
 \end{figure}
 
-
-
-%\begin{figure}[htb]
-%  \centering
-%  \includegraphics[width=\textwidth]{./algorithm.pdf}
-%  \caption{The MSMFS algorithm as implemented in CASA [RD??]}
-%  \label{fig:algoCASA}
-%\end{figure}
 
 \clearpage
 
@@ -867,30 +895,30 @@ The Minor Cycle is identical in CASA and ASKAPsoft. The Minor cycle is depicted 
 When moving the MSMFS algorithm to a distributed (loosely coupled) and parallel (tightly coupled) architecture such as the SDP architecture, there are a large number of important factors that must be considered.
 \begin{description}
 \item[Optimum partitioning] 
-\item[Coupling across partitions] e.g. is the same pixel addressed in two different partitions? If so, is there a satisfactory approach to reconciling the two values?
+\item[Coupling across partitions] e.g. is the same pixel addressed in two different partitions? If so, is there a satisfactory approach to reconciling the two values? This is a generic question that should be considered for all distributed and parallel processing.
 \item[Synchronisation points] e.g. is a global synchronisation point required so that the deconvolutions can be made consistent? Is there an acceptable algorithm for reconciling separate facets?
 \item[Amount of CU memory]
-\item[Loading of CU memory backplane]
-\item[Access to visibility store]
+\item[Loading of CU memory backplane] The intrinsic operations in MSMFS are mostly simple SAXBY type operations. Hence the memory backplane will be overloaded, and the CPU data-starved.
+\item[Access to visibility store] What access to the visibility store is required? A straightforward implementation of the Major/Minor cycle algorithm loads the observed data every major cycle. However, as discussed in [RD15], this is actually only true of the initialisation and any self-calibration cycles. For other cycles, it is necessary only to load the uvw coordinates and flagging information.
 \end{description}
 
 \subsection{Partitioning for Predict and MakeImage}
 \label{subsec:partitoningpredictmakeimage}
 
-The SDP pipeline framework [RD:??], allows partitioning across multiple axes. In this case, the natural partitions and typical values are:
+The SDP pipeline framework [RD04], allows partitioning across multiple axes. In this case, the natural partitions and typical values are:
 
 \begin{description}
-\item[Polarisation] Only Stokes I can be modelled using MSMFS
-\item[Frequency] O(500) coarse channels are required to avoid bandwidth smearing
+\item[Polarisation] Only Stokes I can be modelled using MSMFS. Modelling the Faraday Rotation is possible but there is no existing algorithm.
+\item[Frequency] O(500) coarse channels are required to avoid bandwidth smearing/ There is no advantage to finer channels (see e.g. section 8.4 in [RD??]).
 \item[Sub-bands] O(1-3) partitions of the coarse channels are required to ensure that the power law approximation is adequate.
 \item[Time] O(43200) ~ O(1s) correlator samples are required to avoid smearing on the longest baselines
 \item[Facet] O(100) facets to limit the size of the AW projection kernel
 %\item[Snapshot time] O(100s) long gridding/degridding sequences are required to limit smearing due to w-plane rotation
-\item[Scales] O(5) scales are typically required to model extended structure
-\item[Taylor terms] O(5) terms are required to represent the spectral behaviour
+\item[Scales] O(5) scales are typically required to model extended structure (see section 8.4 in [RD??])
+\item[Taylor terms] O(5) terms are required to represent the spectral behaviour for moderately complex spectrum sources (see section 8.4 in [RD??])
 \end{description}
 
-According to the logic of the MSMFS algorithm, Sub-bands can be defined as the limit of the power law approximation for brightness so consequently can always be used as the coarsest partition. For Predict and MakeImage the remaining choices are as shown in Figure \ref{tab:partitions} (most rapid first):
+According to the logic of the MSMFS algorithm, sub-bands can be defined as the limit of the power law approximation for brightness so consequently can always be used as the coarsest partition. For Predict and MakeImage the remaining choices are as shown in Figure \ref{tab:partitions} (most rapid first):
 
 \begin{table}[htp]
  \caption{Possible ordering of partitions $UV$ weighting version of Predict and MakeImage}
@@ -909,9 +937,7 @@ Facet & Frequency & Time & Sub-Band \\
 \end{center}
 \end{table}
 
-The only choice is between the two orderings of Time and Facet. Since deconvolution is non-linear, we prefer that all times be represented in a single facet rather than the other way around.
-
-Hence according to this level of analysis, the best ordering is [Frequency, Time, Facet, Sub-Band]. Parallelisation over Compute Nodes starts from the left to the right, Distribution over Compute Islands works from the right to the left (see Figure \ref{fig:order}):
+The choice is between the two orderings of Time and Facet. Since deconvolution is non-linear, we prefer that all times be represented in a single facet rather than the other way around. Hence according to this level of analysis, the best ordering is [Frequency, Time, Facet, Sub-Band]. Parallelisation over Compute Nodes starts from the left to the right, Distribution over Compute Islands works from the right to the left (see Figure \ref{fig:order}):
 
 \begin{figure}[htb]
   \centering
@@ -925,13 +951,13 @@ In this approach, the facets will almost certainly be processed on different com
 \begin{itemize}	
 \item Construct the facets with some padding, deconvolve each separately, and reconcile after deconvolution by facet to facet broadcast.
 \item Construct the facets without padding, send all facets to one compute island, perform deconvolution, distribute models to facets. 
-\item Each CI holds a distinct facet, which do not overlap. Synchronise after peak finding and residual updates. After a peak is found, all islands receive the global peak and update accordingly. Since the limit of coupling is assumed to be the CLEAN patch size, all peaks sufficiently far apart can be processed simultaneously.
+\item Each CI holds a distinct facet, which do not need to overlap. Synchronise in each minor cycle after peak finding. After a peak is found, all islands receive all peaks and choose the same global peak and update accordingly. Since the limit of coupling is assumed to be the CLEAN patch size, all peaks sufficiently far apart can be processed simultaneously.
 \end{itemize}
 
 The first approach will inevitably introduce edge effects in the final image revealing the facet grid, while the second will block processing while deconvolution proceeds on the different sub-band compute nodes. We would then benefit from two different types of nodes:
 \begin{description}
-\item[Predict and MakeImage] Requires the visibility data but not many scratch images. Stalled during MinorCycle.
-\item[MinorCycle] Requires a substantial number of scratch images, but not the visibility data. Stalled during Predict and MakeImage.	
+\item[Predict and MakeImage] Requires the visibility data but not many scratch images. Stalls during MinorCycle.
+\item[MinorCycle] Requires a substantial number of scratch images, but not the visibility data. Stalls during Predict and MakeImage.	
 \end{description}
 
 The third approach to deconvolution requires low latency communications. It should be investigated.
@@ -940,17 +966,17 @@ The third approach to deconvolution requires low latency communications. It shou
 
 In the minor cycle, the first calculation is [Pixel, Taylor Term], and then the Scale convolutions are calculated. Hence the natural order overall is [Pixel, Taylor Term, Scale]. This is used in both CASA and ASKAPsoft. Both use a single threaded Minor Cycle. For SDP, a multi-threaded but not-distributed Minor Cycle should be prototyped.
 
-We have a modelling problem that is not going to be wished away. The science demands seamless imaging in multiple axes, whereas computing would like to partition the image cube in those same axes. There is a tendency to assert that one axis or another does not have to be seamless but that has not be conclusively argued. Distributing the minor cycle across Compute Islands may be possible in some cases (e.g. spectral line after continuum estimation and subtraction), but we should also be considering how best to parallelise the Minor Cycle on a single, appropriately specified Compute Island.
+However, in the minor cycle, we have a modelling problem that is not going to be wished away. The science demands seamless imaging in multiple axes, whereas computing would like to partition the image cube in those same axes. There is a tendency to assert that one axis or another does not have to be seamless but that has not be conclusively argued. Distributing the minor cycle across Compute Islands may be possible in some cases (e.g. spectral line after continuum estimation and subtraction), but we should also be considering how best to parallelise the Minor Cycle on a single, appropriately specified Compute Island.
 
 \subsection{Implementation in CASA}
 
-The CASA tclean program supports parallel execution using python to run copies on different nodes. The visibility data are partitioned in time across the available processors. Gridding and transforms (i.e. Predict and MakeImage) are done separately and in parallel per partition. Then the Images (and weights) are gathered and then normalised. A serial minor cycle is run, blocking all other processing, and then the model image is scattered to all processes. The Major cycle is done in parallel per partition.
+The CASA tclean program supports parallel execution using python to run copies on different nodes. This mode of parallel execution fits the CASA execution model. The visibility data are partitioned in time across the available processors. Gridding and transforms (i.e. Predict and MakeImage) are done separately and in parallel per partition. Then the Images (and weights) are gathered and then normalised. A serial minor cycle is run, blocking all other processing, and then the model image is scattered to all processes. The Major cycle is done in parallel per partition.
 
 Thus in summary, the Major Cycles are parallelised while the deconvolution runs serially.
 
 \subsection{Implementation in ASKAPsoft}
 
-The ASKAPsoft code is mirrored in the SDP Github repository. The ASKAPsoft cimager is an MPI-enabled program. Since it was written as parallel program from the beginning, the structure is easier to follow than the CASA version. Distribution over MPI is via frequency, rather than time as in CASA. Predict and MakeImage are distributed using MPI (via a thin bookkeeping layer). The MinorCycle is performed on the master, and thus blocks until the deconvolution steps have completed.
+The ASKAPsoft code is mirrored in the SDP Github repository. The ASKAPsoft cimager is MPI-enabled, written as parallel program from the beginning/ Distribution over MPI is via frequency, rather than time as in CASA. Predict and MakeImage are distributed using MPI (via a thin bookkeeping layer). The MinorCycle is performed on the master, and thus blocks until the deconvolution steps have completed.
 
 The minor cycle  algorithm is in C++ Template DeconvolverMultiTermBasisFunction.tcc. The basis function is abstracted and can be any class having the interface DeconvolverMultiTermBasisFunction. There are two forms present: one for point sources, and one for the same blobs used in CASA - a truncated upside down parabola. The basis functions may optionally be orthogonalised using the Gramm-Schmidt algorithm though there is little relevant experience.
 
@@ -961,7 +987,7 @@ The optimum blob location and scale is found by using one of two criteria:
 \item[MAXCHISQ] The peak of chisquared across scale after decoupling in term.
 \end{description}
 
-The second criterion is expensive to compute and usually MAXBASE0 is used. Thus for each scale and for each pixel the pixel value at the reference frequency has to be determined by pre-multipling by the inverse Hessian (in term-term space). This means that the cost of the search is:
+The second criterion is expensive to compute and usually MAXBASE0 is used. Thus for each scale and for each pixel the pixel value at the reference frequency has to be determined by pre-multiplying by the inverse Hessian (in term-term space). This means that the cost of the search is:
 
 \begin{equation}
 Rflop_{MSMFSminor} = N_{minor} N_{pix}^2 N_s N_T	
@@ -977,23 +1003,23 @@ To save on calculation, a number of cached images are used. For ASKAPsoft, these
 \hline
 Item & Axes & Size (words) & Needed? \\
 \hline
-Basis function FFT & scales & $N_{pix} N_S $ & During initialisation \\
-PSF FFT & 2 * Taylor terms & $2 N_{pix} N_T $ & During initialisation \\
-Spectral Dirty image & Taylor terms, scales & $N_{pix} N_T N_s$ & During iteration \\
-Spectral Dirty PSF & Taylor terms, scales & $N_{patch} N_T N_s$ & During iteration \\
-Spectral Model image & Taylor terms & $N_{pix} N_T $ & During iteration \\	
-Basis functions & scales & $N_{pix} N_s$ & During iteration \\
+Basis function FFT & scales & $N_{pix}^2 N_S $ & During initialisation \\
+PSF FFT & 2 * Taylor terms & $2 N_{pix}^2 N_T $ & During initialisation \\
+Spectral Dirty image & Taylor terms, scales & $N_{pix}^2 N_T N_s$ & During iteration \\
+Spectral Dirty PSF & Taylor terms, scales & $N_{patch}^2 N_T N_s$ & During iteration \\
+Spectral Model image & Taylor terms & $N_{pix}^2 N_T $ & During iteration \\	
+Basis functions & scales & $N_{pix}^2 N_s$ & During iteration \\
 Inverse of Hessian & Taylor terms, Taylor terms, scales & $N^2_T N_s$ & During Iteration \\
 \hline
 \end{tabular}	
 \end{table}
 
-where $N_{pix}$ is the number of pixels in an image, $N_{patch}$ is the number of pixels in the patch of the Dirty beam used, $N_T$ is the number of Taylor terms, and $N_S$ is the number of scales/basis functions.
+where $N_{pix}$ is the number of pixels on an axis of the image, $N_{patch}$ is the number of pixels in the patch of the Dirty beam used, $N_T$ is the number of Taylor terms, and $N_S$ is the number of scales/basis functions.
 
 Thus, keeping only the dominant terms, the total memory used during iteration is: 
 
 \begin{equation}
-M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix} 
+M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix}^2 
 \end{equation}
 
 Using L2 assumptions values of $N_t=5$ and $N_s=10$, we find that the memory use is about $65 N_{pix}$. For a 200,000 by 200,000 pixel image, this requires 10.4 TB total. Spread over O(100) Compute Islands (partitioning by facet and sub-band), this requires 104 GB per CI. The overhead for performing the MSMFS minor cycle is a factor of fifty, and for the major cycle a factor of 5 (if ASKAP) in gridding, and a factor of O(500) in FFT (if CASA).
@@ -1015,31 +1041,55 @@ Using L2 assumptions values of $N_t=5$ and $N_s=10$, we find that the memory use
 %
 
 \clearpage
+\section{Other considerations}
+\label{sec:other}
+
+Ignoring the behaviour of the MSMFS algorithm, there are other considerations arising from the use of any MFS technique (this discussion drawn from section 8.4 of [RD07]).
+
+\begin{description}
+\item[Calibration]	
+The use of MSMFS or any technique taking advantage of simple models of broadband behaviour requires that the calibration across the observing band be well understood. Otherwise errors in bandpass calibration will couple into derived spatial structure. Hence there is a derived system requirement on bandpass accuracy, even just for continuum imaging. This should be evaluated via simulations and analysis.
+\item[Anomalous spectral index objects] such as some pulsars, GHz-peaked sources, very extended radio galaxies, may limit dynamic range.
+\item[Primary beam model] If the true spectrum is to be recovered, the primary beam must be modelled accurately.
+\item[UV coverage effects] The fine structure is constrained by the high frequency measurements and the extended emission is constrained by the low frequency measurements. In principle, these biases can be avoided by limiting the range of uv coordinates to a common set at all frequencies, but this does somewhat defeat the purpose of MFS. It is not clear how serious this effect will be for SKA.
+\end{description}
+
+In addition, Bhatnagar et al. [RD18] have drawn attention to the difficulties of performing primary beam correction over a wide bandwidth. They note some difficulties with the straightforward application of what they call the Narrow Band MSMFS algorithm (which we call simply MSMFS) to large bandwidths. Specifically the apparent Noise to Signal Ratio becomes very large outside the primary beam. They argue that analysis of the images scientifically relies upon understanding the noise level outside the primary beam sampled area. This is undoubtedly correct, and MIRIAD and ASKAPsoft address this by designating a primary beam cutoff beyond which the noise alone is used without normalisation. In their approach, Bhatnagar et al. advocate correcting the primary beam to a desired effective primary beam. This is quite sensible. Some evaluation of this approach should be performed using simulations, and the scientific analysis implications should be considered.
+
+\clearpage
 \section{Recommendations}
 \label{sec:recommendations}
 
+Parallel versions of both variants of MSMFS exist. These work by distributing in time (CASA) and frequency (ASKAPsoft). Parallelisation of the Minor Cycle is not straightforward and consequently both CASA and ASKAPsoft currently use single-threaded inner loops. This is unlikely to be successful for SKA, and instead the Minor Cycle has to be parallelised inside one CI and perhaps additionally distributed over multiple CI's.
 
-
-Parallel versions of both variants exist. These work by distributing in time (CASA) and frequency (ASKAPsoft). Parallelisation of the Minor Cycle is not straightforward and consequently both CASA and ASKAPsoft use single-threaded inner loops. This is unlikely to be successful for SKA, and instead the Minor Cycle has to be parallelised inside one CI and perhaps additionally distributed over multiple CI's.
-
-In light of this memo, the following recommendations are made:
+In light of this memo, the following recommendations are made concerning the need for MFS:
 
 \begin{enumerate}
-\item Perform simulations to explore the need for MSMFS in SKA. Currently an L1 requirement directs SDP to implement MSMFS. However there is no justification given for this very computationally demanding processing. Indeed the promised excellent UV coverage of the SKA telescopes makes it at least questionable. Adding to the desire to see some more justification of the requirement, we note that the L1 requirements do not address the number of scales required, the number of Taylor terms, or the possibility of sub-banding (all of which appear in the SDP L2 requirements. We note three possible outcomes of the simulations: MFS can be ignored, MFS is required and MSMFS is sufficient, or MFS is needed and MFMFS is not sufficient. In the case of the latter outcome, investigation of other deconvolution techniques (e.g. [RD37]) would be required.
-\item Implement both Image (CASA) and Visibility based (ASKAPsoft) calculation of the Taylor term images in the Performance Model. The only reasons to choose one over the other are to do with the relative speed of gridding and FFTs. When it comes to implementation during construction, the costs of implementing both approaches should be minimal, and unimportant compared to the risk of implementing the wrong choice.
+\item Perform simulations to explore the need for MSMFS in SKA. Currently an L1 requirement directs SDP to implement MSMFS. However there is no justification given for this very computationally demanding processing. Indeed the promised excellent UV coverage of the SKA telescopes makes it at least questionable, although arguing from the work of Urvashi [RD??] does indicate that with MFS, the dynamic range would be limited to $10^4$ for wide frequency span. Either CASA or ASKAPsoft could be used for the reconstructions.
+\item Adding to the desire to see some more justification of the requirement, we note that the L1 requirements do not address the number of scales required, the number of Taylor terms, or the possibility of sub-banding (all of which appear in the SDP L2 requirements. We note three possible outcomes of the simulations: MFS can be ignored, MFS is required and MSMFS is sufficient, or MFS is needed and MFMFS is not sufficient. In the case of the latter outcome, investigation of other deconvolution techniques (e.g. [RD14]) would be required.
+\item Assess the importance of the considerations in Section \ref{sec:other}.
+\end{enumerate}
+
+The following recommendations address the resource usage:
+\begin{enumerate}[resume]
+\item Implement both Image (CASA) and Visibility based (ASKAPsoft) calculation of the Taylor term images in the SDP Performance Model. The main reasons to choose one over the other are to do with the relative speed of gridding and FFTs. When it comes to implementation during construction, the costs of implementing both approaches should be minimal, and unimportant compared to the risk of implementing the wrong choice.
 \item Update the SDP Performance Model to reflect the MSMFS memory usage:
 \begin{equation}
-M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix} 
+M_{MSMFS} = (N_T (N_s + 1) + N_s) N_{pix}^2 
 \end{equation}
 \item Update the SDP Performance Model to reflect the MSMFS Flops:
 \begin{equation}
 Rflop_{MSMFSminor} = N_{minor} N_{pix}^2 N_s N_T	
 \end{equation}
 \item Prototype a multi-threaded Minor Cycle on one Compute Island. GPUMultiscaleCLEAN might be a good starting point. Do MS and then MSMFS. This can be done without implementing a major cycle.
-\item Model and then, if promising, prototype a distributed Minor Cycle on multiple CI's where synchronisation occurs every iteration. Do MS and then MSMFS. This can be done without implementing a major cycle.
-\item The SKAO Science Team should be consulted about the possibility of seams in the images or spectral cubes. These may occur both spatially (if the facets are deconvolved separately, or in frequency, because of the disjoint use of MSMFS in the different sub-bands.
-\end{enumerate}
+\item Model and then, if promising, prototype a distributed Minor Cycle on multiple CI's where synchronisation occurs every iteration. Do MS and then MSMFS. This can be done without implementing a major cycle.\end{enumerate}
 
+The following recommendations address wider issues:
+\begin{enumerate}[resume]
+\item The SKAO Science Team should be consulted about the impact of seams in the images or spectral cubes. These may occur both spatially (if the facets are deconvolved separately, or in frequency, because of the disjoint use of MSMFS in the different sub-bands. It seems questionable that these can be tolerated.
+
+\item We should note that MSMFS was developed in a serial platform where computation was expensive and memory access cheap. In the SDP context, the processing is distributed and parallel, and computation is cheap and memory access expensive. Although SDP has no remit to develop new algorithms, it could encourage researchers to address this new context.
+\end{enumerate}
 
 
 % \label{section:main}
