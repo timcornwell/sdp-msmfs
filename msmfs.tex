@@ -50,7 +50,7 @@
 % Context
 \newcommand{\context}{(SDP.PIP)}
 % Revision
-\newcommand{\revision}{3\xspace}
+\newcommand{\revision}{1.0\xspace}
 % Author(s)
 \newcommand{\docauthor}{T.J.\ Cornwell\xspace}
 % Lead author (goes in the footer)
@@ -60,7 +60,7 @@
 % Document classification
 \newcommand{\classification}{Unrestricted}
 % Status of the document (draft/final/etc.)
-\newcommand{\docstatus}{Draft\xspace}
+\newcommand{\docstatus}{Released\xspace}
 
 % The definitions below are used for the signature tables in the preamble of
 % the document
@@ -79,6 +79,7 @@
     \bf{Version} & {\bf Date of issue} & {\bf Prepared by} & {\bf Comments}\\
     \hline
     0.3 & 27/04/2016 & T.J. Cornwell & Ready for review by Anna and Steve \\
+    1.0 & 12/05/2016 & T.J. Cornwell & To be signed \\
     \hline
   \end{tabularx}
 }
@@ -230,7 +231,7 @@ Parallel versions of both variants of MSMFS exist. These work by distributing in
 In light of this memo, the following recommendations are made concerning the need for MFS:
 
 \begin{enumerate}
-\item Perform simulations to explore the need for MSMFS in SKA. Currently an L1 requirement directs SDP to implement MSMFS. However there is no justification given for this very computationally demanding processing. Indeed the promised excellent UV coverage of the SKA telescopes makes it at least questionable, although arguing from the work of Urvashi [RD??] does indicate that with MFS, the dynamic range would be limited to $10^4$ for wide frequency span. Either CASA or ASKAPsoft could be used for the reconstructions.
+\item Perform simulations to explore the need for MSMFS in SKA. Currently an L1 requirement directs SDP to implement MSMFS. However there is no justification given for this very computationally demanding processing. Indeed the promised excellent UV coverage of the SKA telescopes makes it at least questionable, although arguing from the work of Urvashi [RD07] does indicate that with MFS, the dynamic range would be limited to $10^4$ for wide frequency span. Either CASA or ASKAPsoft could be used for the reconstructions.
 \item Adding to the desire to see some more justification of the requirement, we note that the L1 requirements do not address the number of scales required, the number of Taylor terms, or the possibility of sub-banding (all of which appear in the SDP L2 requirements. We note three possible outcomes of the simulations: MFS can be ignored, MFS is required and MSMFS is sufficient, or MFS is needed and MFMFS is not sufficient. In the case of the latter outcome, investigation of other deconvolution techniques (e.g. [RD14]) would be required.
 \item Assess the importance of the considerations in Section \ref{sec:other}.
 \end{enumerate}
@@ -411,7 +412,7 @@ Finally we could ask is there a superior algorithm already published? (see e.g. 
 
 Some caution is advised in advocating that any form of MFS is not needed. Clearly ALMA and JVLA, which also have relatively good uv coverage, have benefited from the use of MSMFS. Furthermore, although the uv-coverage of SKA1-LOW and SKA1-MID is excellent after a long observation, there will inevitably be pressure to observe with shorter observation times. We should remember than the VLA was supposed to take 8 hours to image every field. With the advent of CLEAN and self-calibration, it was known even in the early eighties that 400 sources could be imaged in a day.
 
-Urvashi has discussed the use of MSMFS for the JVLA (section 8.4.2.1 of [RD??]. With regard to just ignoring the effect of spectral index variations, she says:
+Urvashi has discussed the use of MSMFS for the JVLA (section 8.4.2.1 of [RD07]. With regard to just ignoring the effect of spectral index variations, she says:
 
 \begin{quotation}
 Dynamic-range limits when source spectra are ignored : If continuum imaging is done with only MFS gridding and source spectra are ignored, spectral structure will masquerade as spurious spatial structure. These errors will affect regions of the image both on-source and off-source and their magnitudes depend on the available uv-coverage, the frequency range being covered, the choice of reference frequency, and the intensity and spectral index of the source. A rough rule of thumb for an EVLA-type uv-coverages (see section 6.2.4.2) is that for a point source of with spectral index α = −1.0 measured between 1 and 2 GHz, the peak error obtained if the spectrum is ignored is at a dynamic range of $ < 10^3$. Note that when all sources in the observed region of the sky have similar spectral indices, these errors can be reduced by dividing out an average spectral index (one single number over the entire sky) from the visibilities before imaging the\end{quotation}
@@ -428,7 +429,7 @@ There is no mechanism to address these questions beyond simulations. Arguing fro
 
 \subsection{Mathematical description}
 
-In the Multi-Scale CLEAN [RD11], the sky is modelled as a set of blobs. Performing this decomposition using a gradient search algorithm is very demanding of resources. Instead, in MSCLEAN, a greedy algorithm obtained by generalising the CLEAN algorithm is used. The greedy algorithm locates the amplitude, scale and location of the blob by a straightforward search in the set of residual images, each smoothed with the appropriate blob. For each minor cycle this produces an amplitude, location, and scale. The smoothed residual images and model images are updated, and iteration proceeds.
+In the Multi-Scale CLEAN [RD11], the sky is modelled as a set of blobs. Performing this decomposition using a gradient search algorithm is very demanding of resources. Instead, in MSCLEAN, a greedy algorithm obtained by generalising the CLEAN algorithm is used. The greedy algorithm locates the amplitude, scale and location of the blob by a straightforward search in the set of residual images, each smoothed with the appropriate blob. For each minor cycle this produces an amplitude, location, and scale. The smoothed residual images and model images are updated, and iteration proceeds\footnote{To exclude any errors in transcription, the LaTeX code for the equations in this section is drawn directly from [RD16] via arxiv.org}.
 
 \begin{equation}
 \vec{I}^{model} = \sum_{s=0}^{N_s-1}  \vec{I}^{shp}_{s} \star \vec{I}^{sky,\delta}_s
@@ -620,9 +621,9 @@ does not exist\footnote
 }. An accurate reconstruction can be obtained only via successive approximation
 (iterative numerical optimization).
  
-However, the Hessian is still useful since some of the diagonal terms can used to decouple the pixels in Taylor term space as well as possible. In practice, the Hessian (for each scale) for the peak of the PSF in Taylor term space is of modest size and can be inverted and used. The greedy algorithm then locates the scale and location in the reference-frequency image (as convolved with the set of scales). For each minor cycle this produces a location, scale, and values for all Taylor terms. The residual images and model images are updated, and iteration proceeds. The actual algorithm is shown in Algorithm \ref{algo:CASA} (CASA form) and Algorithm \ref{algo:ASKAP} (ASKAP form).
+However, the Hessian is still useful since some of the terms can used to decouple the pixels in Taylor term space as well as possible. In practice, the Hessian (for each scale) for the peak of the PSF in Taylor term space is of modest size and can be inverted and used. The greedy algorithm then locates the scale and location in the reference-frequency image (as convolved with the set of scales). For each minor cycle this produces a location, scale, and values for all Taylor terms. The residual images and model images are updated, and iteration proceeds. The actual algorithm is shown in Algorithm \ref{algo:CASA} (CASA form) and Algorithm \ref{algo:ASKAP} (ASKAP form).
 
-In summary, MSMFS decouples Taylor terms using the Hessian in Taylor-space evaluated at the peak of the PSF, and uses a greedy CLEAN-like algorithm to decouple in scale and sky position. The scales can be decoupled by an orthogonalisation process prior to deconvolution but the resulting images tend to have non-physical regions of negative brightness.
+In summary, MSMFS decouples Taylor terms using the (non-diagonal) Hessian in Taylor-space evaluated at the peak of the PSF, and uses a greedy CLEAN-like algorithm to decouple in scale and sky position. The scales can be decoupled by an orthogonalisation process prior to deconvolution but the resulting images tend to have non-physical regions of negative brightness.
 
 
 
@@ -909,13 +910,13 @@ The SDP pipeline framework [RD04], allows partitioning across multiple axes. In 
 
 \begin{description}
 \item[Polarisation] Only Stokes I can be modelled using MSMFS. Modelling the Faraday Rotation is possible but there is no existing algorithm.
-\item[Frequency] O(500) coarse channels are required to avoid bandwidth smearing/ There is no advantage to finer channels (see e.g. section 8.4 in [RD??]).
+\item[Frequency] O(500) coarse channels are required to avoid bandwidth smearing/ There is no advantage to finer channels (see e.g. section 8.4 in [RD07]).
 \item[Sub-bands] O(1-3) partitions of the coarse channels are required to ensure that the power law approximation is adequate.
 \item[Time] O(43200) ~ O(1s) correlator samples are required to avoid smearing on the longest baselines
 \item[Facet] O(100) facets to limit the size of the AW projection kernel
 %\item[Snapshot time] O(100s) long gridding/degridding sequences are required to limit smearing due to w-plane rotation
-\item[Scales] O(5) scales are typically required to model extended structure (see section 8.4 in [RD??])
-\item[Taylor terms] O(5) terms are required to represent the spectral behaviour for moderately complex spectrum sources (see section 8.4 in [RD??])
+\item[Scales] O(5) scales are typically required to model extended structure (see section 8.4 in [RD07])
+\item[Taylor terms] O(5) terms are required to represent the spectral behaviour for moderately complex spectrum sources (see section 8.4 in [RD07])
 \end{description}
 
 According to the logic of the MSMFS algorithm, sub-bands can be defined as the limit of the power law approximation for brightness so consequently can always be used as the coarsest partition. For Predict and MakeImage the remaining choices are as shown in Figure \ref{tab:partitions} (most rapid first):
@@ -1065,7 +1066,7 @@ Parallel versions of both variants of MSMFS exist. These work by distributing in
 In light of this memo, the following recommendations are made concerning the need for MFS:
 
 \begin{enumerate}
-\item Perform simulations to explore the need for MSMFS in SKA. Currently an L1 requirement directs SDP to implement MSMFS. However there is no justification given for this very computationally demanding processing. Indeed the promised excellent UV coverage of the SKA telescopes makes it at least questionable, although arguing from the work of Urvashi [RD??] does indicate that with MFS, the dynamic range would be limited to $10^4$ for wide frequency span. Either CASA or ASKAPsoft could be used for the reconstructions.
+\item Perform simulations to explore the need for MSMFS in SKA. Currently an L1 requirement directs SDP to implement MSMFS. However there is no justification given for this very computationally demanding processing. Indeed the promised excellent UV coverage of the SKA telescopes makes it at least questionable, although arguing from the work of Urvashi [RD07] does indicate that with MFS, the dynamic range would be limited to $10^4$ for wide frequency span. Either CASA or ASKAPsoft could be used for the reconstructions.
 \item Adding to the desire to see some more justification of the requirement, we note that the L1 requirements do not address the number of scales required, the number of Taylor terms, or the possibility of sub-banding (all of which appear in the SDP L2 requirements. We note three possible outcomes of the simulations: MFS can be ignored, MFS is required and MSMFS is sufficient, or MFS is needed and MFMFS is not sufficient. In the case of the latter outcome, investigation of other deconvolution techniques (e.g. [RD14]) would be required.
 \item Assess the importance of the considerations in Section \ref{sec:other}.
 \end{enumerate}
