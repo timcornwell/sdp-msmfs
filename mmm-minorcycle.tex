@@ -64,17 +64,13 @@
 % Document classification
 \newcommand{\classification}{Unrestricted}
 % Status of the document (draft/final/etc.)
-\newcommand{\docstatus}{Draft for review\xspace}
+\newcommand{\docstatus}{For release\xspace}
 
 % The definitions below are used for the signature tables in the preamble of
 % the document
 \newcommand{\firstsigname}{T.J. Cornwell}
 \newcommand{\firstsigdesignation}{Author}
 \newcommand{\firstsigaffiliation}{TCC}
-
-\newcommand{\secondsigname}{T.J. Cornwell}
-\newcommand{\secondsigdesignation}{Lead Consultant}
-\newcommand{\secondsigaffiliation}{TCC}
 
 % Table with version numbers
 \newcommand{\versiontable}{
@@ -83,6 +79,8 @@
     \bf{Version} & {\bf Date of issue} & {\bf Prepared by} & {\bf Comments}\\
     \hline
     0.9 & 30/04/2018 & T.J. Cornwell & Initial version \\
+    \hline
+    1.0 & 18/06/2018 & T.J. Cornwell & Corrections from Mitch \\
     \hline
   \end{tabularx}
 }
@@ -486,7 +484,7 @@ A typical result is shown in figures \ref{fig:ASKAP_sim_restored} (restored imag
 
 The first possible stumbling block is that the cleaning requires a PSF that crosses facet boundaries. If this was actually correct then the sub-image \MAM\ would not be feasible.
 
-In the current single threaded \MAM\ the minor cycles, the processing consists of a search step, scaling as the number of pixels, and a subtraction step,  scaling as the product of the number of pixels in the image and the size of the PSF support. The value of the PSF support used thus directly affects the processing time. Furthermore, the processing via sub-image inevitably means that a limit PSF support will be used.
+In the current single threaded \MAM\ the minor cycles, the processing consists of a search step, scaling as the number of pixels, and a subtraction step,  scaling as the square of the size of the PSF support. The value of the PSF support used thus directly affects the processing time. Furthermore, the processing via sub-image inevitably means that a limit PSF support will be used.
 
 For the simulated case, the RMS side-lobes of the (uniform weighted) synthesized beam are about 0.3\% or less for pixels more than a few beams from the PSF peak. Hence we have reason to be optimistic that small values of PSF support will be acceptable given that we use a major/minor cycle. It is therefore important to determine the relationship is between final image quality and the PSF support. 
 
@@ -494,9 +492,9 @@ We investigated the impact of limit PSF support using the simulations described 
 
 The corresponding run times (wall clock) are shown in figure \ref{fig:time_vs_support}. The scaling is as expected: for small supports, the time is roughly independent of the PSF support, whereas for larger values, the scaling steepens as the component subtraction comes to dominated.
 
-Clearly, in the context of a major/minor cycle algorithm, small PSF support can be used: the speedup is significant and there is no significant increase in error compared to the cutoff for the transition from minor to major cycle. This is confirmed by evaluating the difference between images processed using \MAM\ and Sub-image \MAM\ after ten major cycles (see figure \ref{fig:error_vs_support_ci}.
+Clearly, in the context of a major/minor cycle algorithm, small PSF support can be used: the speedup is significant and there is no significant increase in error compared to the cutoff for the transition from minor to major cycle. This is confirmed by evaluating the difference between images processed using \MAM\ and Sub-image \MAM\ after ten major cycles (see figure \ref{fig:error_vs_support_ci}).
 
-We should emphasize that this result also holds for the current use of the single threaded \MAM\: the psf support can be set to a value much smaller than 512. One possible limit would be where the subtraction step becomes comparable to the search cost. This is obviously context dependent but we would expect values in the range 32 - 128. However, figure \ref{fig:time_vs_support} shows that the gains are relatively small.
+We should emphasize that this result also holds for the current use of the single threaded \MAM\ : the psf support can be set to a value much smaller than 512. One possible limit would be where the subtraction step becomes comparable to the search cost. This is obviously context dependent but we would expect values in the range 32 - 128. However, figure \ref{fig:time_vs_support} shows that the gains are relatively small.
 
 \begin{figure}[H]
   \centering
@@ -529,9 +527,9 @@ If the image is made with a guard band of one or two primary beams, the outermos
 
 We can improve on this rough argument by some straightforward modeling. To a reasonable approximation, the processing time for a given sub-image will be proportional to the fraction of a flux in that sub-image. For a given model of the sky, we can calculate the fraction of time taken for each sub-image. We illustrate that point in figures \ref{fig:fluxes_without_pb}, \ref{fig:fluxes_with_pb}, and \ref{fig:fractions_clipped_image}. The first plot is a realistic astronomical field constructed from the S3-SEX catalog, selected for all sources brighter than 10uJy/beam. The curve shows the fraction of flux per sub-image against rank of that flux. The slope comes from the logN/logS statistics of the S3-SEX catalog. The peak value shows roughly the processing for the worst sub-image. This provides an upper bound on the scaling possible. The mean number of processors is an estimate derived by dividing the total amount of processing by the peak value needed.
 
-The next plot (figure \ref{fig:fractions_with_pb}) shows the effect of the ASKAP (single) primary beam. Most sub-images do not require cleaning and all the processing goes to the brightest fields. As processing proceeds thorough a number of major cycles, the brightest sources are been removed and eventually there remains a sea of sources spread other the primary and into the primary beam side-lobes. For the final major cycles, we can model the flux as simply by clipping the image with the primary beam at some maximum brightness such as 1mJy. The resulting scaling shown in figure \ref{fig:fractions_clipped_image} is then better balanced.
+The next plot (figure \ref{fig:fluxes_with_pb}) shows the effect of the ASKAP (single) primary beam. Most sub-images do not require cleaning and all the processing goes to the brightest fields. As processing proceeds thorough a number of major cycles, the brightest sources are been removed and eventually there remains a sea of sources spread other the primary and into the primary beam side-lobes. For the final major cycles, we can model the flux as simply by clipping the image with the primary beam at some maximum brightness such as 1mJy. The resulting scaling shown in figure \ref{fig:fractions_clipped_image} is then better balanced.
 
-So, to summarise, we expect the scaling to be poor for the initial major cycles (typically $\sim 5$ for 16 facets per axis) where the brightest sources in the main lobes are removed, but it will improve (typically to $\sim 50$) as the cleaning goes deeper. Since the number of weak sources is much greater we can expect the scaling to be close to that on figure \ref{fig:fractions_clipped_image}
+So, to summarise, we expect the scaling to be poor for the initial major cycles (typically $\sim 5$ for 16 facets per axis) where the brightest sources in the main lobes are removed, but it will improve (typically to $\sim 50$) as the cleaning goes deeper. Since the number of weak sources is much greater we can expect the scaling to be close to that on figure \ref{fig:fractions_clipped_image}.
 
 \begin{figure}[H]
   \centering
@@ -628,13 +626,15 @@ For distributed processing, ASKAPsoft uses a master/worker pattern implemented u
 
 For the deconvolution step, it may be convenient to use a separate MPI work group. The ASKAPsoft master/worker framework nominally supports this.
 
-Since the scaling curves are relatively flat (see figures \ref{fig:aggregate_scaling} and \ref{fig:aggregate_scaling_6km}), most processors will be kept close to fully busy while the most demanding (rank 0) case will be processing. Load balancing would then only be needed for the high rank tail and should be performed automatically by the master/worker pattern.
+Since the scaling curves are relatively flat (see figures \ref{fig:aggregate_scaling_2km} and \ref{fig:aggregate_scaling_6km}), most processors will be kept close to fully busy while the most demanding (rank 0) case will be processing. Load balancing would then only be needed for the high rank tail and should be performed automatically by the master/worker pattern.
 
 The major python-based ARL capabilities that would need to be reproduced in ASKAPsoft are for scatter and gather of an image into sub-images, allowing overlap and tapering. 
 
 At the high numbers of processors, reduction in the scatter/gather steps may be needed. The total amount of network traffic is the full image size times the number of Taylor terms. Before beginning the sub-image cleans, the sub-images have to be scattered to the workers. 
 
-To facilitate development, the sub-image \MAM\ should first be implemented in cdeconvolver to resolve the issues around use of the master-worker scheme and then ported to cimager.
+The gather/scatter step could be implemented either centrally or via neighbourhoods of workers. The latter avoids the use of a large amount of memory on the master to store the entire image.
+
+To facilitate development, the sub-image \MAM\ should first be implemented in cdeconvolver to resolve the issues around use of the master-worker scheme and then ported to cimager. The implementation should accommodate both central and localised gather/scatter as described in the previous paragraph.
 	
 \pagebreak
 \section{Work plan}
