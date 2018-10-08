@@ -1,0 +1,257 @@
+%rubber: module pdflatex
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{sdp_doc} % SDP style file
+\usepackage[english]{babel}
+
+\usepackage[footnotes]{trackchanges}
+% Attributes for the trackchanges package:
+% finalold - ignore all edits; 
+% finalnew - accept all edits;
+% footnotes - added text shown inline,removed text and notes as footnotes (default);
+% margins - added text inline, rest in the margin;
+% inline - all changes and notes shown inline
+
+% Add the names of editors (people who are making changes to the document)
+\addeditor{PA} % Paul Alexander
+\addeditor{RB} % Rosie Bolton
+
+% Track changes package usage
+%\add[editor]{added text}
+%\remove[editor]{removed text}
+%\change[editor]{removed text}{added text}
+%\note[editor]{note text}
+%\annote[editor]{text to annotate}{note text}
+
+
+
+
+%%%%%%%%% START OF USER SETTINGS %%%%%%%%%%%%%%%%%%
+
+% Enter here some information needed to fill in the template Title to appear
+% on the front p2ages (will be filled in via the \sdpfrontpage command)
+\newcommand{\bigdoctitle}{Title\xspace}
+% Title to go in the "Document Status Sheet" Document number
+\newcommand{\docnr}{SKA-TEL-SDP-00000??\xspace}
+% Context
+\newcommand{\doctype}{Type code}
+% Revision
+\newcommand{\revision}{1B\xspace}
+% Author(s)
+\newcommand{\docauthor}{A.\ Bcdefg, H.\ Ijklm\xspace}
+% Lead author (goes in the footer)
+\newcommand{\footerauthor}{A.\ Bcdefg\xspace}
+% Release date (YYYY-MM-DD)
+\newcommand{\docudate}{2016-07-15\xspace}
+% Document classification
+\newcommand{\classification}{Unrestricted}
+% Status of the document (draft/final/etc.)
+\newcommand{\docstatus}{Draft\xspace}
+
+% The definitions below are used for the signature tables in the preamble of
+% the document 
+\newcommand{\leadauthorname}{Name of the lead author - to be filled in}
+\newcommand{\leadauthordesignation}{Designation - to be filled in}
+\newcommand{\leadauthoraffiliation}{Affiliation - to be filled in}
+
+\newcommand{\ownername}{Name of the owner - to be filled in}
+\newcommand{\ownerdesignation}{Designation - to be filled in}
+\newcommand{\owneraffiliation}{Affiliation - to be filled in}
+
+\newcommand{\approvername}{Name of the approver - to be filled in}
+\newcommand{\approverdesignation}{Designation - to be filled in}
+\newcommand{\approveraffiliation}{Affiliation - to be filled in}
+
+\newcommand{\releasername}{Paul Alexander}
+\newcommand{\releaserdesignation}{SDP Project Lead}
+\newcommand{\releaseraffiliation}{University of Cambridge}
+
+% Table with version numbers
+\newcommand{\versiontable}{
+  \begin{tabularx}{\textwidth}{|X|X|X|X|}
+    \hline
+    \bf{Revision} & {\bf Date of issue} & {\bf Prepared by} & {\bf Comments}\\
+    \hline
+    1B & & & \\
+    \hline
+  \end{tabularx}
+}
+
+%%%%%%%%%%%%% END OF USER SETTINGS %%%%%%%%%%%%%%%%%%%
+
+% Table with signatures
+\newcommand{\signaturetable}[4]{
+  \begin{tabularx}{\textwidth}{|X|X|X|}
+    \hline
+    {#1} & Designation & Affiliation\\
+    \hline
+    {#2} & {#3} & {#4}\\
+    \hline
+    Signature \& Date: & & \\
+    & & \\
+    & & \\
+    \hline
+  \end{tabularx}
+}
+
+
+% Table with the SDP details
+\clearpage
+\newcommand{\organisationtable}{
+  \begin{center}
+    \sffamily{\bf ORGANISATION DETAILS}\end{center}
+  \begin{table}[htbp]
+    \centering
+    \begin{tabular}[htbp]{|c|l|}
+      \hline
+      Name & Science Data Processor Consortium\\
+      \hline
+      Address & Astrophysics\\
+      & Cavendish Laboratory\\
+      & JJ Thomson Avenue\\
+      & Cambridge CB3 0HE\\
+      \hline
+      Website & http://ska-sdp.org\\
+      \hline
+      Email & ska-sdp-pa@mrao.cam.ac.uk\\
+      \hline
+    \end{tabular}
+  \end{table}
+}
+
+
+%%%%%%%%%%%%%%%%%%%% START YOUR DOCUMENT HERE %%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% load automatic pages
+\sdpfrontpage
+
+\sdptableofcontents
+
+\sdplistoffigures
+
+\sdplistoftables
+
+
+% Add here the abbreviations used in your document
+\sdplistofabbreviations
+\begin{basedescript}{\desclabelstyle{\pushlabel}\desclabelwidth{6em}}
+    \item[SOMETHING] Something \vspace{-0.2cm}
+    \item[OTHER] Other something \vspace{-0.2cm}
+    \item[OTHER] Other other something \vspace{-0.2cm}
+\end{basedescript} 
+
+% Add here the symbols used in your document
+\sdplistofsymbols
+\begin{basedescript}{\desclabelstyle{\pushlabel}\desclabelwidth{6em}}
+    \item[$N_\mathrm{something}$] Number of somethings \vspace{-0.2cm}
+    \item[OTHER] Other something \vspace{-0.2cm}
+    \item[OTHER] Other other something \vspace{-0.2cm}
+\end{basedescript} 
+
+
+
+% Add here the executive summary
+\sdpsummary
+
+\textcolor{red}{To be deleted:}\\
+Test lines to show how to use track changes. \add[PA]{I am adding a bit of text.}
+\remove[PA]{I am removing some text now.}
+\change[RB]{I am removing this part of the text}{and adding this bit to it} while keeping some unchanged.
+\note[RB]{OAR no. JK-1}
+\annote[RB]{This text is annotated.}{Some annotation in response to OAR no.\ JK-3}\\
+\textcolor{red}{End of ``To be deleted''}
+
+% Add to the table the list of applicable and reference documents
+\sdpreferencedocs
+
+\subsection*{Applicable Documents}
+
+The following documents are applicable to the extent stated herein. In the
+event of conflict between the contents of the applicable documents and this
+document, \emph{the applicable documents} shall take precedence.
+
+\begin{center}{
+\begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \bf{Reference} & \bf{Reference}\\
+    \bf{Number} & \\
+    \hline
+\end{tabularx}}
+\end{center}
+
+\subsection*{Reference Documents}
+
+The following documents are referenced in this document. In the event of
+conflict between the contents of the referenced documents and this document,
+\emph{this document} shall take precedence.
+
+\begin{center}{
+\begin{tabularx}{\textwidth}{|l|X|}
+    \hline
+    \bf{Reference} & \bf{Reference}\\
+    \bf{Number} & \\
+    \hline
+\end{tabularx}}
+\end{center}
+
+
+
+
+% The actual content goes here
+\newpage
+\section{Introduction}
+
+
+A little example sentence.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{what_if_airplanes.jpg}
+\caption{Airplane design -- what if you forget about the top-level view.}
+\label{fig:airplanes}
+\end{figure}
+
+\section{Main section}
+\label{section:main}
+
+Something here, too.
+
+\begin{enumerate}
+\item Test list, item 1, see figure~\ref{fig:airplanes}
+\item Test list, item 2
+\end{enumerate}
+
+
+
+
+
+\subsection{Some title}
+
+And some text.
+
+\subsubsection{A smaller title for a little subsubsection}
+
+And a bit of text.
+
+
+\section{Conclusions}
+\label{section:conclusions}
+
+And here also.
+
+
+%  Add the bibliography
+%\clearpage
+%\addcontentsline{toc}{section}{References}
+%\bibliography{your_bibfile}%
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
